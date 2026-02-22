@@ -1,0 +1,274 @@
+import os, io, gzip, time, math, json
+from datetime import datetime, date, timedelta, timezone
+
+import requests
+from google.cloud import bigquery
+
+
+# --- Cloud Run entrypoint (Gunicorn expects main:app) ---
+from flask import Flask, request
+import json as _json
+
+app = Flask(__name__)
+
+@app.get("/")
+def _root():
+    out = handler_v2(request)
+
+    # handler_v2 may return (dict, code) or (dict, code, headers)
+    if isinstance(out, tuple):
+        if len(out) == 2:
+            payload, status = out
+            headers = {"Content-Type": "application/json"}
+        else:
+            payload, status, headers = out
+    else:
+        payload, status, headers = out, 200, {"Content-Type": "application/json"}
+
+    if isinstance(payload, (dict, list)):
+        payload = _json.dumps(payload)
+
+    headers = dict(headers or {})
+    headers.setdefault("Content-Type", "application/json")
+    return (payload, status, headers)
+# --- end entrypoint ---
+
+
+# Prefer explicit PROJECT, fall back to Cloud Run's injected project id
+PROJECT = os.getenv("PROJECT") or os.getenv("GOOGLE_CLOUD_PROJECT") or ""
+BQ_DATASET = os.getenv("BQ_DATASET", "sentinel_raw")
+BQ_TABLE   = os.getenv("BQ_TABLE", "gcp_egg_raw")
+SRC_TAG    = os.getenv("SRC_TAG", "gcp-egg")
+
+SOURCE_BASE = os.getenv("SOURCE_BASE", "https://global-mind.org/data/eggsummary").rstrip("/")
+FIRST_DAY_S = os.getenv("FIRST_DAY", "")  # used only if no prior ok ingest exists
+MAX_DAYS_PER_RUN = int(os.getenv("MAX_DAYS_PER_RUN", "7"))
+SLEEP_BETWEEN_DAYS_SEC = float(os.getenv("SLEEP_BETWEEN_DAYS_SEC", "1"))
+
+def _utc_today() -> date:
+    return datetime.now(timezone.utc).date()
+
+def _table_fq(bq: bigquery.Client) -> str:
+    proj = getattr(bq, "project", None)
+    if not proj:
+        raise RuntimeError("BigQuery client has no project; ADC not configured")
+    return f"{proj}.{BQ_DATASET}.{BQ_TABLE}"
+
+def _get_last_ok_day(bq: bigquery.Client) -> date | None:
+    q = f"""
+    SELECT MAX(DATE(sent)) AS last_day
+    FROM `{_table_fq(bq)}`
+    WHERE status='ok' AND sent IS NOT NULL
+    """
+    rows = list(bq.query(q).result())
+    return rows[0].last_day if rows and rows[0].last_day else None
+
+def _fallback_first_day() -> date | None:
+    if not FIRST_DAY_S:
+        return None
+    return date.fromisoformat(FIRST_DAY_S)
+
+def _build_daily_url(d: date) -> str:
+    return f"{SOURCE_BASE}/{d.year}/basketdata-{d.isoformat()}.csv.gz"
+
+def _download_gz(url: str) -> bytes:
+    r = requests.get(url, timeout=60)
+    if r.status_code == 404:
+        return b""
+    r.raise_for_status()
+    return r.content
+
+def _parse_gcp_daily_to_aggregate(gz_bytes: bytes, d: date) -> dict:
+    def _extract_eggs_reporting(lines: list[str]) -> int | None:
+        # Line format: 11,1,9,"Eggs reporting"
+        for ln in lines:
+            if ln.startswith("11,1,"):
+                parts = ln.split(",")
+                if len(parts) >= 3:
+                    try:
+                        return int(parts[2])
+                    except Exception:
+                        return None
+        return None
+
+    """
+    GCP daily files are structured with metadata lines:
+      10,*,*,"..."
+      11,*,...,"..."
+      12,"gmtime","Date/Time",<egg ids...>
+    followed by data lines (typically starting with an integer code),
+    with numeric values per egg.
+
+    We create ONE aggregate row per day:
+      - eggs_reporting (count)
+      - network_mean (mean across all numeric cells)
+      - variance (variance across all numeric cells)
+      - zscore approx = mean / stddev  (if stddev>0)
+    """
+    text = gzip.decompress(gz_bytes).decode("utf-8", errors="replace").splitlines()
+
+    eggs = []
+    start_unix = None
+    end_unix = None
+
+    # Find the egg list line and any start/end metadata
+    for line in text[:200]:  # headers are near top
+        # Start/End time lines look like: 11,2,1766275200,"Start time",2025-12-21 00:00:00
+        if line.startswith("11,2,"):
+            parts = line.split(",")
+            if len(parts) >= 3:
+                try: start_unix = int(parts[2])
+                except: pass
+        if line.startswith("11,3,"):
+            parts = line.split(",")
+            if len(parts) >= 3:
+                try: end_unix = int(parts[2])
+                except: pass
+
+        # Egg list header looks like: 12,"gmtime","Date/Time",1,37,226,...
+        if line.startswith("12,"):
+            parts = line.split(",")
+            # egg ids start at index 3
+            for p in parts[3:]:
+                p = p.strip().strip('"')
+                if p.isdigit():
+                    eggs.append(p)
+            break
+
+    eggs_reporting = len(eggs)
+
+    # Collect numeric cells from data lines (skip 10/11/12 metadata)
+    vals = []
+    for line in text:
+        if not line or line.startswith(("10,", "11,", "12,")):
+            continue
+        parts = line.split(",")
+        if len(parts) < 4:
+            continue
+        # numeric values begin after the first 3 columns
+        for p in parts[3:]:
+            p = p.strip().strip('"')
+            if p == "" or p.lower() == "nan":
+                continue
+            try:
+                vals.append(float(p))
+            except:
+                continue
+
+    if not vals:
+        # Return an "ok" row but flagged no_data (keeps trail)
+        return {
+            "id": f"gcp_day_{d.isoformat()}",
+            "egg_id": None,
+            "zscore": None,
+            "deviation": None,
+            "network_mean": None,
+            "variance": None,
+            "status": "no_data",
+            "sent": datetime(d.year, d.month, d.day, tzinfo=timezone.utc).isoformat(),
+            "url": _build_daily_url(d),
+            "src": SRC_TAG,
+            "raw": f"no_numeric_vals eggs={eggs_reporting} start={start_unix} end={end_unix}",
+        }
+
+    n = len(vals)
+    mean = sum(vals) / n
+    var = sum((x - mean) ** 2 for x in vals) / n
+    std = math.sqrt(var) if var > 0 else 0.0
+    z = (mean / std) if std > 0 else None
+
+    return {
+        "id": f"gcp_day_{d.isoformat()}",
+        "egg_id": "NETWORK_DAILY",
+        "zscore": float(z) if z is not None else None,
+        "deviation": None,
+        "network_mean": float(mean),
+        "variance": float(var),
+        "status": "ok",
+        "sent": datetime(d.year, d.month, d.day, tzinfo=timezone.utc).isoformat(),
+        "url": _build_daily_url(d),
+        "src": SRC_TAG,
+        "raw": f"nvals={n} eggs={eggs_reporting} start={start_unix} end={end_unix}",
+    }
+
+def _insert_rows(bq: bigquery.Client, rows: list[dict]) -> int:
+    if not rows:
+        return 0
+    errors = bq.insert_rows_json(_table_fq(bq), rows)
+    if errors:
+        raise RuntimeError(f"BigQuery insert errors: {errors[:3]}{'...' if len(errors)>3 else ''}")
+    return len(rows)
+
+def handler_v2(request):
+    """
+    DEFAULT (no query params):
+      - start = last_ok_day + 1 (or FIRST_DAY if no ok rows exist)
+      - end   = (today - LAG_DAYS), capped at yesterday (UTC)
+      - max_days = MAX_DAYS_PER_RUN
+
+    Optional:
+      ?max_days=N
+      ?start=YYYY-MM-DD&end=YYYY-MM-DD  (manual override)
+    """
+    args = request.args or {}
+    max_days = int(args.get("max_days", MAX_DAYS_PER_RUN))
+
+    bq = bigquery.Client()
+
+    today_utc = _utc_today()
+    yesterday = today_utc - timedelta(days=1)
+    # Default end-day: yesterday (UTC). We stop early on first 404 (missing upstream file),
+    # so this remains safe even if upstream lags.
+    safe_end = yesterday
+
+    start_s = args.get("start")
+    end_s   = args.get("end")
+
+    if start_s:
+        start_day = date.fromisoformat(start_s)
+    else:
+        last_ok = _get_last_ok_day(bq)
+        if last_ok:
+            start_day = last_ok + timedelta(days=1)
+        else:
+            fb = _fallback_first_day()
+            start_day = fb if fb else yesterday
+
+    end_day = date.fromisoformat(end_s) if end_s else safe_end
+
+    if start_day > end_day:
+        return ({"ok": True, "inserted": 0, "days_processed": 0,
+                 "note": "Nothing to catch up",
+                 "start": start_day.isoformat(), "end": end_day.isoformat()}, 200)
+
+    inserted_total = 0
+    processed_days = 0
+    cur = start_day
+
+    while cur <= end_day and processed_days < max_days:
+        url = _build_daily_url(cur)
+        gz = _download_gz(url)
+
+        if not gz:
+            # upstream not posted (yet). stop the run.
+            break
+
+        agg = _parse_gcp_daily_to_aggregate(gz, cur)
+        _insert_rows(bq, [agg])
+
+        inserted_total += 1
+        processed_days += 1
+        # If the file exists but contains no usable numeric rows, DO NOT stop.
+        # We want to keep no_data rows for visibility without contaminating downstream math.
+        # Only stop the run when the upstream file is missing (gz == b""), which is handled above.
+
+        cur += timedelta(days=1)
+        if SLEEP_BETWEEN_DAYS_SEC > 0:
+            time.sleep(SLEEP_BETWEEN_DAYS_SEC)
+    return ({"ok": True,
+             "inserted": inserted_total,
+             "days_processed": processed_days,
+             "start": start_day.isoformat(),
+             "end": end_day.isoformat()}, 200)
+
+
