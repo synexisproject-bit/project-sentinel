@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ============================================================
 # Project Sentinel — Manual Orchestrator v3
-# All verified environmental feeds
+# 12 verified environmental feeds
 # ============================================================
 set -uo pipefail
 
@@ -25,10 +25,8 @@ call_post() {
   local url=$2
   echo "--> Calling: $name"
   RESPONSE=$(curl -s -o /tmp/sentinel_resp.txt -w "%{http_code}" \
-    -X POST \
-    -H "Authorization: Bearer $TOKEN" \
-    -H "Content-Type: application/json" \
-    -d '{}' \
+    -X POST -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" -d '{}' \
     "${url}" 2>/dev/null)
   BODY=$(cat /tmp/sentinel_resp.txt)
   if [ "$RESPONSE" == "200" ]; then
@@ -50,8 +48,7 @@ call_get() {
   local url=$2
   echo "--> Calling: $name"
   RESPONSE=$(curl -s -o /tmp/sentinel_resp.txt -w "%{http_code}" \
-    -X GET \
-    -H "Authorization: Bearer $TOKEN" \
+    -X GET -H "Authorization: Bearer $TOKEN" \
     "${url}" 2>/dev/null)
   BODY=$(cat /tmp/sentinel_resp.txt)
   if [ "$RESPONSE" == "200" ]; then
@@ -73,7 +70,7 @@ call_post "poll-usgs-eq-v1" "https://poll-usgs-eq-v1-qnnlb3nima-ue.a.run.app/run
 call_post "poll-usgs-volcano-cap-v2" "https://poll-usgs-volcano-cap-v2-88284566970.us-east1.run.app/run"
 call_post "poll-usgs-vhp-v1" "https://poll-usgs-vhp-v1-88284566970.us-east1.run.app/run"
 
-# ── Tsunami & Weather ────────────────────────────────────────
+# ── Tsunami & Hydrology ──────────────────────────────────────
 call_post "poll-noaa-tsunami-cap-v2" "https://poll-noaa-tsunami-cap-v2-qnnlb3nima-ue.a.run.app/run"
 call_post "poll-usgs-water-iv-v2" "https://poll-usgs-water-iv-v2-88284566970.us-east1.run.app/run"
 
@@ -83,6 +80,9 @@ call_get  "poll-geomag-kp-http-v1" "https://poll-geomag-kp-http-v1-qnnlb3nima-ue
 call_post "poll-swpc-alerts-v2" "https://poll-swpc-alerts-v2-88284566970.us-east1.run.app/run"
 call_post "poll-swpc-solar-v1" "$(gcloud run services describe poll-swpc-solar-v1 --region=us-east1 --format='value(status.url)')/run"
 call_post "poll-donki-v2" "https://poll-donki-v2-88284566970.us-east1.run.app/"
+
+# ── Ionospheric ──────────────────────────────────────────────
+call_post "poll-ionospheric-v1" "https://poll-ionospheric-v1-88284566970.us-east1.run.app/run"
 
 # ── RNG Proxy ────────────────────────────────────────────────
 call_get  "poll-gcp-egg-v1" "$(gcloud run services describe poll-gcp-egg-v1 --region=us-east1 --format='value(status.url)')/"
