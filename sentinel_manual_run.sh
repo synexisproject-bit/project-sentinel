@@ -70,6 +70,9 @@ call_post "poll-usgs-eq-v1" "https://poll-usgs-eq-v1-qnnlb3nima-ue.a.run.app/run
 call_post "poll-usgs-volcano-cap-v2" "https://poll-usgs-volcano-cap-v2-88284566970.us-east1.run.app/run"
 call_post "poll-usgs-vhp-v1" "https://poll-usgs-vhp-v1-88284566970.us-east1.run.app/run"
 
+# ── NWS CAP Alerts ────────────────────────────────────────
+call_post "poll-nws-cap-v3" "https://poll-nws-cap-v3-88284566970.us-east1.run.app/run"
+
 # ── Tsunami & Hydrology ──────────────────────────────────────
 call_post "poll-noaa-tsunami-cap-v2" "https://poll-noaa-tsunami-cap-v2-qnnlb3nima-ue.a.run.app/run"
 call_post "poll-usgs-water-iv-v2" "https://poll-usgs-water-iv-v2-88284566970.us-east1.run.app/run"
