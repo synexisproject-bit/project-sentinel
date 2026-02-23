@@ -87,6 +87,9 @@ call_post "poll-donki-v2" "https://poll-donki-v2-88284566970.us-east1.run.app/"
 # ── Ionospheric ──────────────────────────────────────────────
 call_post "poll-ionospheric-v1" "https://poll-ionospheric-v1-88284566970.us-east1.run.app/run"
 
+# ── Astro/Ephemeris ──────────────────────────────────────
+call_post "poll-astro-v2" "https://poll-astro-v2-88284566970.us-east1.run.app/run"
+
 # ── RNG Proxy ────────────────────────────────────────────────
 call_get  "poll-gcp-egg-v1" "$(gcloud run services describe poll-gcp-egg-v1 --region=us-east1 --format='value(status.url)')/"
 
