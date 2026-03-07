@@ -1,0 +1,38 @@
+[
+  {
+    "model": "Climatological",
+    "auroc": 0.7216,
+    "brier": 0.0392,
+    "brier_skill": 0.0256
+  },
+  {
+    "model": "Persistence 30d",
+    "auroc": 0.5624,
+    "brier": 0.0412,
+    "brier_skill": -0.0233
+  },
+  {
+    "model": "Global mean (floor)",
+    "auroc": 0.5,
+    "brier": 0.0403,
+    "brier_skill": 0.0
+  },
+  {
+    "model": "XGBoost Env only (calibrated)",
+    "auroc": 0.5112,
+    "brier": 0.0403,
+    "brier_skill": 0.0001
+  },
+  {
+    "model": "XGBoost Env+Seismic (calibrated)",
+    "auroc": 0.6045,
+    "brier": 0.0895,
+    "brier_skill": -1.2221
+  },
+  {
+    "model": "XGBoost Seismic only (calibrated)",
+    "auroc": 0.6025,
+    "brier": 0.0896,
+    "brier_skill": -1.2254
+  }
+]
