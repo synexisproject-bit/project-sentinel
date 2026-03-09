@@ -1,0 +1,60 @@
+{
+  "run_timestamp": "2026-03-09T05:30:09.559724+00:00",
+  "pre_registration_commit": "140f369",
+  "test_period": "2023-01-01 to 2026-12-31",
+  "test_rows": 27729,
+  "test_pos_rate": 0.0387,
+  "env_model_auroc": 0.4945,
+  "verdict": "NULL RESULT \u2014 H0 confirmed on held-out test set",
+  "results": [
+    {
+      "model": "Climatological baseline",
+      "split": "test",
+      "auroc": 0.6904,
+      "brier": 0.0368,
+      "brier_skill": 0.0128
+    },
+    {
+      "model": "Global mean (floor)",
+      "split": "test",
+      "auroc": 0.5,
+      "brier": 0.0373,
+      "brier_skill": 0.0
+    },
+    {
+      "model": "XGBoost Env only (pre-registered)",
+      "split": "test",
+      "auroc": 0.4945,
+      "brier": 0.0373,
+      "brier_skill": 0.0002
+    },
+    {
+      "model": "XGBoost TEC only (exploratory)",
+      "split": "test",
+      "auroc": 0.5054,
+      "brier": 0.0373,
+      "brier_skill": -0.0
+    },
+    {
+      "model": "XGBoost Env + TEC (exploratory)",
+      "split": "test",
+      "auroc": 0.505,
+      "brier": 0.0373,
+      "brier_skill": 0.0002
+    },
+    {
+      "model": "XGBoost Seismic only",
+      "split": "test",
+      "auroc": 0.5913,
+      "brier": 0.0857,
+      "brier_skill": -1.2994
+    },
+    {
+      "model": "XGBoost Env + TEC + Seismic",
+      "split": "test",
+      "auroc": 0.582,
+      "brier": 0.0856,
+      "brier_skill": -1.2964
+    }
+  ]
+}
