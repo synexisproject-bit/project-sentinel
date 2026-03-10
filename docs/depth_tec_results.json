@@ -1,0 +1,56 @@
+{
+  "event_distribution": [
+    {
+      "depth_band": "very_shallow (0-20km)",
+      "n_events": 1247.0,
+      "avg_depth_km": 11.4
+    },
+    {
+      "depth_band": "shallow (20-70km)",
+      "n_events": 973.0,
+      "avg_depth_km": 33.4
+    },
+    {
+      "depth_band": "intermediate_upper (70-150km)",
+      "n_events": 210.0,
+      "avg_depth_km": 109.9
+    },
+    {
+      "depth_band": "intermediate_lower (150-300km)",
+      "n_events": 134.0,
+      "avg_depth_km": 202.7
+    },
+    {
+      "depth_band": "deep (300km+)",
+      "n_events": 206.0,
+      "avg_depth_km": 527.5
+    }
+  ],
+  "fine_depth_corr": {
+    "r_vshallow": -0.002330075362052326,
+    "r_shallow": 0.004665505478330696,
+    "r_inter_upper": 0.004369794031519004,
+    "r_inter_lower": 0.004527385958435574,
+    "r_deep": 0.0087114683367017,
+    "kp_vshallow": 0.0022981567768224926,
+    "kp_shallow": 0.0033867134791802666,
+    "kp_inter_upper": -0.0013539487433989106,
+    "kp_inter_lower": -0.0038038716890864657,
+    "kp_deep": -0.0007589049325794596,
+    "rate_vshallow": 0.02225200686007477,
+    "rate_shallow": 0.021985386311556755,
+    "rate_inter_upper": 0.005346822891896127,
+    "rate_inter_lower": 0.0035957744246040016,
+    "rate_deep": 0.005375646734979274,
+    "n": 138774.0
+  },
+  "magnitude_thresholds": {
+    "r_m60_shallow": 0.0010836284256193548,
+    "r_m65_shallow": 0.007222397352949046,
+    "r_m70_shallow": 0.0047406994184396,
+    "rate_m60": 0.04194589764653325,
+    "rate_m65": 0.013684119503653483,
+    "rate_m70": 0.004568579128655218,
+    "n": 138774.0
+  }
+}
