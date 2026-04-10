@@ -217,19 +217,22 @@ def load_fault_data_simple(client, config, fault_id):
 
     feat_select = ", ".join(f"f.{feat}" for feat in features_to_use)
 
+    # h3_features_daily uses 'day' column, h1_features_daily uses 'date_val'
+    date_col = "day" if config["feature_table"].endswith("h3_features_daily") else "date_val"
+
     query = f"""
     SELECT
-        f.date_val,
+        f.{date_col} AS date_val,
         f.fault_id,
         {feat_select},
         l.{label_col} AS label,
         l.max_upcoming_magnitude
     FROM `{PROJECT}.{config["feature_table"]}` f
     JOIN `{PROJECT}.{config["label_table"]}` l
-        ON f.date_val = l.date_val AND f.fault_id = l.fault_id
+        ON f.{date_col} = l.date_val AND f.fault_id = l.fault_id
     WHERE f.fault_id = '{fault_id}'
-      AND f.date_val >= '2001-01-01'
-    ORDER BY f.date_val
+      AND f.{date_col} >= '2001-01-01'
+    ORDER BY f.{date_col}
     """
 
     df = client.query(query).to_dataframe()
