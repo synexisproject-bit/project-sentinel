@@ -123,6 +123,25 @@ HYPOTHESIS_CONFIG = {
         "label_table":   "sentinel_features.h1_labels",
         "result_table":  "sentinel_eval.h4_wf_results",
     },
+    "h2": {
+        "name": "H2",
+        "description": "GPS deformation features (fault-perpendicular stack)",
+        "auroc_threshold": 0.58,
+        "min_faults": 2,
+        "features": [
+            "z_fp", "z_east", "z_north", "z_up", "z_fp_std",
+            "z_fp_3d_mean", "z_fp_7d_mean", "z_fp_14d_mean", "z_fp_30d_mean",
+            "z_fp_7d_std", "z_fp_14d_std", "z_fp_30d_std",
+            "z_fp_7d_max_abs", "z_fp_14d_max_abs", "z_fp_30d_max_abs",
+            "z_fp_delta_3d", "z_fp_delta_7d", "z_fp_delta_14d",
+            "z_up_7d_mean", "z_up_14d_mean", "z_up_30d_mean",
+            "z_fp_std_7d_mean", "z_fp_std_14d_mean",
+            "n_stations_7d_mean", "n_stations_30d_mean",
+        ],
+        "feature_table": "sentinel_features.h2_features_final",
+        "label_table":   "sentinel_features.h1_labels",
+        "result_table":  "sentinel_eval.h2_wf_results",
+    },
 }
 
 # ── XGBoost base params ───────────────────────────────────────────────────────
@@ -532,7 +551,7 @@ def save_results(client, all_fault_results, hypothesis):
 
 def main():
     parser = argparse.ArgumentParser(description="Project Sentinel Walk-Forward Engine")
-    parser.add_argument("--hypothesis", choices=["h1", "h3", "h4"], default="h1",
+    parser.add_argument("--hypothesis", choices=["h1", "h2", "h3", "h4"], default="h1",
                         help="Which hypothesis to evaluate (default: h1)")
     parser.add_argument("--fault", default=None,
                         help="Run single fault system only (optional)")
