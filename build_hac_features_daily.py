@@ -125,6 +125,7 @@ def build_hac_features_daily():
       WHERE n.is_geophysical = TRUE
         AND n.experience_date IS NOT NULL
         AND n.normalized_status IN ('enriched', 'fusion_ready', 'date_reliable', 'date_extracted')
+      AND (n.is_duplicate IS NULL OR n.is_duplicate = FALSE)
     ),
 
     -- ── Assign records to fault zones ────────────────────────────────────────
