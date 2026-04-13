@@ -1,0 +1,316 @@
+nohup: ignoring input
+[2026-04-13T04:46:46.981395+00:00] === HAC Superposed Epoch Analysis ===
+[2026-04-13T04:46:46.981478+00:00] Magnitude threshold : M6.0+
+[2026-04-13T04:46:46.981495+00:00] Fault filter        : all
+[2026-04-13T04:46:46.981507+00:00] Permutation iters   : 2000
+[2026-04-13T04:46:46.981518+00:00] Metric              : all
+[2026-04-13T04:46:46.981531+00:00] Dry run             : False
+[2026-04-13T04:46:48.077806+00:00] Loading M6.0+ events...
+[2026-04-13T04:46:49.726476+00:00]   Loaded 2307 total M6.0+ events
+[2026-04-13T04:46:49.733769+00:00]   cascadia: 4 events
+[2026-04-13T04:46:49.733842+00:00]   central_chile: 84 events
+[2026-04-13T04:46:49.733854+00:00]   global: 2307 events
+[2026-04-13T04:46:49.733862+00:00]   japan_trench: 134 events
+[2026-04-13T04:46:49.733870+00:00]   north_anatolian: 10 events
+[2026-04-13T04:46:49.733877+00:00]   sumatra_andaman: 33 events
+[2026-04-13T04:46:49.734618+00:00] 
+--- Fault: cascadia (4 events) ---
+[2026-04-13T04:46:51.975917+00:00]   Signal loaded: 6209 days
+[2026-04-13T04:46:51.976009+00:00]   Running zscore...
+[2026-04-13T04:46:52.250415+00:00]   rel_day profile (zscore):
+[2026-04-13T04:46:52.250488+00:00] 
+  Window summaries (zscore):
+[2026-04-13T04:46:52.250612+00:00]   Running high_urgency...
+[2026-04-13T04:46:52.871433+00:00]   rel_day profile (high_urgency):
+[2026-04-13T04:46:52.871506+00:00] 
+  Window summaries (high_urgency):
+[2026-04-13T04:46:52.871573+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:52.871621+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:52.871665+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:52.871705+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:52.871743+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:52.871831+00:00]   Running water...
+[2026-04-13T04:46:53.489814+00:00]   rel_day profile (water):
+[2026-04-13T04:46:53.489925+00:00] 
+  Window summaries (water):
+[2026-04-13T04:46:53.490031+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:53.490078+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:53.490137+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:53.490179+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:53.490219+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:53.490309+00:00]   Running high_emotion...
+[2026-04-13T04:46:54.111422+00:00]   rel_day profile (high_emotion):
+[2026-04-13T04:46:54.111504+00:00] 
+  Window summaries (high_emotion):
+[2026-04-13T04:46:54.111563+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:54.111607+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:54.111648+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:54.111686+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:54.111723+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:46:54.111811+00:00] 
+--- Fault: central_chile (84 events) ---
+[2026-04-13T04:46:55.612084+00:00]   Signal loaded: 6209 days
+[2026-04-13T04:46:55.612187+00:00]   Running zscore...
+[2026-04-13T04:47:01.106637+00:00]   rel_day profile (zscore):
+[2026-04-13T04:47:01.106782+00:00] 
+  Window summaries (zscore):
+[2026-04-13T04:47:01.108757+00:00]   Running high_urgency...
+[2026-04-13T04:47:07.526870+00:00]   rel_day profile (high_urgency):
+[2026-04-13T04:47:07.526989+00:00] 
+  Window summaries (high_urgency):
+[2026-04-13T04:47:07.527060+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:07.527122+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:07.527167+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:07.527206+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:07.527244+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:07.527363+00:00]   Running water...
+[2026-04-13T04:47:14.356915+00:00]   rel_day profile (water):
+[2026-04-13T04:47:14.357018+00:00] 
+  Window summaries (water):
+[2026-04-13T04:47:14.357085+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:14.357148+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:14.357191+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:14.357231+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:14.357269+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:14.357349+00:00]   Running high_emotion...
+[2026-04-13T04:47:20.999060+00:00]   rel_day profile (high_emotion):
+[2026-04-13T04:47:20.999172+00:00] 
+  Window summaries (high_emotion):
+[2026-04-13T04:47:20.999246+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:20.999290+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:20.999331+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:20.999369+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:20.999407+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:20.999495+00:00] 
+--- Fault: north_anatolian (10 events) ---
+[2026-04-13T04:47:22.297741+00:00]   Signal loaded: 6209 days
+[2026-04-13T04:47:22.297823+00:00]   Running zscore...
+[2026-04-13T04:47:22.934820+00:00]   rel_day profile (zscore):
+[2026-04-13T04:47:22.934908+00:00] 
+  Window summaries (zscore):
+[2026-04-13T04:47:22.934999+00:00]   Running high_urgency...
+[2026-04-13T04:47:24.000734+00:00]   rel_day profile (high_urgency):
+[2026-04-13T04:47:24.000818+00:00] 
+  Window summaries (high_urgency):
+[2026-04-13T04:47:24.000881+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:24.000955+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:24.001364+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:24.001461+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:24.001503+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:24.001581+00:00]   Running water...
+[2026-04-13T04:47:25.079777+00:00]   rel_day profile (water):
+[2026-04-13T04:47:25.079850+00:00] 
+  Window summaries (water):
+[2026-04-13T04:47:25.079932+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:25.079979+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:25.080020+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:25.080055+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:25.080089+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:25.080229+00:00]   Running high_emotion...
+[2026-04-13T04:47:26.183882+00:00]   rel_day profile (high_emotion):
+[2026-04-13T04:47:26.183995+00:00] 
+  Window summaries (high_emotion):
+[2026-04-13T04:47:26.184063+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:26.185886+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:26.185981+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:26.186023+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:26.186062+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:26.186165+00:00] 
+--- Fault: sumatra_andaman (33 events) ---
+[2026-04-13T04:47:27.779012+00:00]   Signal loaded: 6209 days
+[2026-04-13T04:47:27.779091+00:00]   Running zscore...
+[2026-04-13T04:47:30.061195+00:00]   rel_day profile (zscore):
+[2026-04-13T04:47:30.061279+00:00] 
+  Window summaries (zscore):
+[2026-04-13T04:47:30.061373+00:00]   Running high_urgency...
+[2026-04-13T04:47:32.882336+00:00]   rel_day profile (high_urgency):
+[2026-04-13T04:47:32.882439+00:00] 
+  Window summaries (high_urgency):
+[2026-04-13T04:47:32.882504+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:32.882544+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:32.882584+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:32.882622+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:32.882658+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:32.882745+00:00]   Running water...
+[2026-04-13T04:47:35.697299+00:00]   rel_day profile (water):
+[2026-04-13T04:47:35.697376+00:00] 
+  Window summaries (water):
+[2026-04-13T04:47:35.697437+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:35.697477+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:35.697515+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:35.697552+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:35.697588+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:35.697668+00:00]   Running high_emotion...
+[2026-04-13T04:47:38.460527+00:00]   rel_day profile (high_emotion):
+[2026-04-13T04:47:38.460623+00:00] 
+  Window summaries (high_emotion):
+[2026-04-13T04:47:38.460686+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:38.460729+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:38.460772+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:38.460812+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:38.460849+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:38.460941+00:00] 
+--- Fault: japan_trench (134 events) ---
+[2026-04-13T04:47:40.463729+00:00]   Signal loaded: 6209 days
+[2026-04-13T04:47:40.463873+00:00]   Running zscore...
+[2026-04-13T04:47:49.064716+00:00]   rel_day profile (zscore):
+[2026-04-13T04:47:49.064815+00:00] 
+  Window summaries (zscore):
+[2026-04-13T04:47:49.064905+00:00]   Running high_urgency...
+[2026-04-13T04:47:59.498263+00:00]   rel_day profile (high_urgency):
+[2026-04-13T04:47:59.498365+00:00] 
+  Window summaries (high_urgency):
+[2026-04-13T04:47:59.498440+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:59.498481+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:59.498520+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:59.498555+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:59.498589+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:47:59.498665+00:00]   Running water...
+[2026-04-13T04:48:10.029777+00:00]   rel_day profile (water):
+[2026-04-13T04:48:10.029872+00:00] 
+  Window summaries (water):
+[2026-04-13T04:48:10.029952+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:10.030003+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:10.030046+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:10.030087+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:10.030145+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:10.030236+00:00]   Running high_emotion...
+[2026-04-13T04:48:20.301457+00:00]   rel_day profile (high_emotion):
+[2026-04-13T04:48:20.301551+00:00] 
+  Window summaries (high_emotion):
+[2026-04-13T04:48:20.301614+00:00]     PRIMARY   -3d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:20.301657+00:00]     PRIMARY   -5d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:20.301699+00:00]     PRIMARY   -7d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:20.301739+00:00]     SECONDARY -14d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:20.301785+00:00]     SECONDARY -30d window: mean_obs=0.000 mean_perm=0.000
+[2026-04-13T04:48:20.301891+00:00] 
+--- Fault: global (2307 events) ---
+[2026-04-13T04:48:23.271809+00:00]   Signal loaded: 6209 days
+[2026-04-13T04:48:23.271892+00:00]   Running zscore...
+[2026-04-13T04:51:00.895999+00:00]   rel_day profile (zscore):
+[2026-04-13T04:51:00.896236+00:00]     day  -7: obs= 0.018 perm_mean= 0.034 z=-0.695 p=0.746
+[2026-04-13T04:51:00.896265+00:00]     day  -6: obs= 0.056 perm_mean= 0.034 z= 0.955 p=0.168
+[2026-04-13T04:51:00.896284+00:00]     day  -5: obs= 0.174 perm_mean= 0.032 z= 6.044 p=0.000 ***
+[2026-04-13T04:51:00.896299+00:00]     day  -4: obs= 0.001 perm_mean= 0.031 z=-1.350 p=0.917
+[2026-04-13T04:51:00.896314+00:00]     day  -3: obs= 0.028 perm_mean= 0.030 z=-0.114 p=0.540
+[2026-04-13T04:51:00.896327+00:00]     day  -2: obs= 0.001 perm_mean= 0.028 z=-1.194 p=0.885
+[2026-04-13T04:51:00.896339+00:00]     day  -1: obs= 0.043 perm_mean= 0.029 z= 0.614 p=0.272
+[2026-04-13T04:51:00.896352+00:00]     day  +0: obs= 0.073 perm_mean= 0.027 z= 2.032 p=0.023 ***
+[2026-04-13T04:51:00.896367+00:00]     day  +1: obs= 0.077 perm_mean= 0.027 z= 2.244 p=0.015 ***
+[2026-04-13T04:51:00.896379+00:00]     day  +2: obs= 0.067 perm_mean= 0.026 z= 1.793 p=0.040 ***
+[2026-04-13T04:51:00.896392+00:00]     day  +3: obs= 0.102 perm_mean= 0.028 z= 3.306 p=0.001 ***
+[2026-04-13T04:51:00.896404+00:00]     day  +4: obs= 0.106 perm_mean= 0.027 z= 3.493 p=0.001 ***
+[2026-04-13T04:51:00.896416+00:00]     day  +5: obs= 0.232 perm_mean= 0.028 z= 9.018 p=0.000 ***
+[2026-04-13T04:51:00.896428+00:00]     day  +6: obs= 0.065 perm_mean= 0.029 z= 1.523 p=0.072
+[2026-04-13T04:51:00.896450+00:00]     day  +7: obs= 0.098 perm_mean= 0.030 z= 2.998 p=0.003 ***
+[2026-04-13T04:51:00.896459+00:00] 
+  Window summaries (zscore):
+[2026-04-13T04:51:00.896528+00:00]     PRIMARY   -3d window: mean_obs=0.024 mean_perm=0.029
+[2026-04-13T04:51:00.896567+00:00]     PRIMARY   -5d window: mean_obs=0.049 mean_perm=0.030
+[2026-04-13T04:51:00.896605+00:00]     PRIMARY   -7d window: mean_obs=0.046 mean_perm=0.031
+[2026-04-13T04:51:00.896640+00:00]     SECONDARY -14d window: mean_obs=0.046 mean_perm=0.031
+[2026-04-13T04:51:00.896673+00:00]     SECONDARY -30d window: mean_obs=0.046 mean_perm=0.031
+[2026-04-13T04:51:00.896763+00:00]   Running high_urgency...
+[2026-04-13T04:53:42.155038+00:00]   rel_day profile (high_urgency):
+[2026-04-13T04:53:42.155200+00:00]     day  -7: obs= 1.681 perm_mean= 1.581 z= 1.480 p=0.070
+[2026-04-13T04:53:42.155221+00:00]     day  -6: obs= 1.711 perm_mean= 1.579 z= 1.989 p=0.025 ***
+[2026-04-13T04:53:42.155236+00:00]     day  -5: obs= 1.890 perm_mean= 1.574 z= 4.639 p=0.000 ***
+[2026-04-13T04:53:42.155249+00:00]     day  -4: obs= 1.556 perm_mean= 1.571 z=-0.217 p=0.569
+[2026-04-13T04:53:42.155263+00:00]     day  -3: obs= 1.704 perm_mean= 1.569 z= 2.057 p=0.021 ***
+[2026-04-13T04:53:42.155275+00:00]     day  -2: obs= 1.622 perm_mean= 1.562 z= 0.893 p=0.176
+[2026-04-13T04:53:42.155290+00:00]     day  -1: obs= 1.798 perm_mean= 1.561 z= 3.526 p=0.001 ***
+[2026-04-13T04:53:42.155303+00:00]     day  +0: obs= 1.800 perm_mean= 1.557 z= 3.723 p=0.000 ***
+[2026-04-13T04:53:42.155315+00:00]     day  +1: obs= 1.729 perm_mean= 1.560 z= 2.583 p=0.009 ***
+[2026-04-13T04:53:42.155329+00:00]     day  +2: obs= 1.694 perm_mean= 1.563 z= 2.008 p=0.022 ***
+[2026-04-13T04:53:42.155394+00:00]     day  +3: obs= 1.855 perm_mean= 1.565 z= 4.461 p=0.000 ***
+[2026-04-13T04:53:42.155416+00:00]     day  +4: obs= 1.949 perm_mean= 1.562 z= 5.876 p=0.000 ***
+[2026-04-13T04:53:42.155440+00:00]     day  +5: obs= 1.925 perm_mean= 1.565 z= 5.426 p=0.000 ***
+[2026-04-13T04:53:42.155464+00:00]     day  +6: obs= 1.866 perm_mean= 1.569 z= 4.412 p=0.000 ***
+[2026-04-13T04:53:42.155476+00:00]     day  +7: obs= 1.848 perm_mean= 1.568 z= 4.267 p=0.000 ***
+[2026-04-13T04:53:42.155495+00:00] 
+  Window summaries (high_urgency):
+[2026-04-13T04:53:42.155576+00:00]     PRIMARY   -3d window: mean_obs=1.708 mean_perm=1.564
+[2026-04-13T04:53:42.155615+00:00]     PRIMARY   -5d window: mean_obs=1.714 mean_perm=1.567
+[2026-04-13T04:53:42.155653+00:00]     PRIMARY   -7d window: mean_obs=1.709 mean_perm=1.571
+[2026-04-13T04:53:42.155709+00:00]     SECONDARY -14d window: mean_obs=1.709 mean_perm=1.571
+[2026-04-13T04:53:42.155742+00:00]     SECONDARY -30d window: mean_obs=1.709 mean_perm=1.571
+[2026-04-13T04:53:42.155821+00:00]   Running water...
+[2026-04-13T04:56:21.619304+00:00]   rel_day profile (water):
+[2026-04-13T04:56:21.619424+00:00]     day  -7: obs= 1.266 perm_mean= 1.202 z= 1.151 p=0.128
+[2026-04-13T04:56:21.619445+00:00]     day  -6: obs= 1.266 perm_mean= 1.203 z= 1.168 p=0.130
+[2026-04-13T04:56:21.619460+00:00]     day  -5: obs= 1.385 perm_mean= 1.199 z= 3.303 p=0.001 ***
+[2026-04-13T04:56:21.619474+00:00]     day  -4: obs= 1.204 perm_mean= 1.196 z= 0.157 p=0.433
+[2026-04-13T04:56:21.619486+00:00]     day  -3: obs= 1.301 perm_mean= 1.195 z= 1.943 p=0.029 ***
+[2026-04-13T04:56:21.619499+00:00]     day  -2: obs= 1.235 perm_mean= 1.189 z= 0.840 p=0.202
+[2026-04-13T04:56:21.619512+00:00]     day  -1: obs= 1.347 perm_mean= 1.190 z= 2.857 p=0.003 ***
+[2026-04-13T04:56:21.619525+00:00]     day  +0: obs= 1.275 perm_mean= 1.186 z= 1.660 p=0.051
+[2026-04-13T04:56:21.619538+00:00]     day  +1: obs= 1.302 perm_mean= 1.185 z= 2.141 p=0.018 ***
+[2026-04-13T04:56:21.619550+00:00]     day  +2: obs= 1.316 perm_mean= 1.186 z= 2.448 p=0.007 ***
+[2026-04-13T04:56:21.619562+00:00]     day  +3: obs= 1.318 perm_mean= 1.190 z= 2.360 p=0.009 ***
+[2026-04-13T04:56:21.619584+00:00]     day  +4: obs= 1.448 perm_mean= 1.186 z= 4.865 p=0.000 ***
+[2026-04-13T04:56:21.619596+00:00]     day  +5: obs= 1.349 perm_mean= 1.189 z= 2.966 p=0.001 ***
+[2026-04-13T04:56:21.619608+00:00]     day  +6: obs= 1.328 perm_mean= 1.192 z= 2.512 p=0.006 ***
+[2026-04-13T04:56:21.619621+00:00]     day  +7: obs= 1.350 perm_mean= 1.190 z= 2.972 p=0.001 ***
+[2026-04-13T04:56:21.619631+00:00] 
+  Window summaries (water):
+[2026-04-13T04:56:21.619701+00:00]     PRIMARY   -3d window: mean_obs=1.294 mean_perm=1.192
+[2026-04-13T04:56:21.619751+00:00]     PRIMARY   -5d window: mean_obs=1.295 mean_perm=1.194
+[2026-04-13T04:56:21.619793+00:00]     PRIMARY   -7d window: mean_obs=1.286 mean_perm=1.197
+[2026-04-13T04:56:21.619835+00:00]     SECONDARY -14d window: mean_obs=1.286 mean_perm=1.197
+[2026-04-13T04:56:21.619874+00:00]     SECONDARY -30d window: mean_obs=1.286 mean_perm=1.197
+[2026-04-13T04:56:21.620133+00:00]   Running high_emotion...
+[2026-04-13T04:59:03.009647+00:00]   rel_day profile (high_emotion):
+[2026-04-13T04:59:03.009781+00:00]     day  -7: obs= 0.408 perm_mean= 0.382 z= 0.917 p=0.186
+[2026-04-13T04:59:03.009802+00:00]     day  -6: obs= 0.466 perm_mean= 0.381 z= 2.997 p=0.004 ***
+[2026-04-13T04:59:03.009816+00:00]     day  -5: obs= 0.479 perm_mean= 0.380 z= 3.455 p=0.000 ***
+[2026-04-13T04:59:03.009829+00:00]     day  -4: obs= 0.374 perm_mean= 0.378 z=-0.132 p=0.542
+[2026-04-13T04:59:03.009841+00:00]     day  -3: obs= 0.378 perm_mean= 0.379 z=-0.039 p=0.526
+[2026-04-13T04:59:03.009854+00:00]     day  -2: obs= 0.404 perm_mean= 0.377 z= 0.933 p=0.178
+[2026-04-13T04:59:03.009866+00:00]     day  -1: obs= 0.482 perm_mean= 0.378 z= 3.581 p=0.000 ***
+[2026-04-13T04:59:03.009878+00:00]     day  +0: obs= 0.444 perm_mean= 0.377 z= 2.382 p=0.009 ***
+[2026-04-13T04:59:03.009890+00:00]     day  +1: obs= 0.447 perm_mean= 0.376 z= 2.505 p=0.005 ***
+[2026-04-13T04:59:03.009901+00:00]     day  +2: obs= 0.448 perm_mean= 0.376 z= 2.524 p=0.010 ***
+[2026-04-13T04:59:03.009913+00:00]     day  +3: obs= 0.453 perm_mean= 0.378 z= 2.632 p=0.007 ***
+[2026-04-13T04:59:03.009924+00:00]     day  +4: obs= 0.479 perm_mean= 0.377 z= 3.529 p=0.000 ***
+[2026-04-13T04:59:03.009935+00:00]     day  +5: obs= 0.511 perm_mean= 0.377 z= 4.613 p=0.000 ***
+[2026-04-13T04:59:03.009956+00:00]     day  +6: obs= 0.487 perm_mean= 0.379 z= 3.767 p=0.000 ***
+[2026-04-13T04:59:03.009969+00:00]     day  +7: obs= 0.448 perm_mean= 0.379 z= 2.462 p=0.009 ***
+[2026-04-13T04:59:03.009978+00:00] 
+  Window summaries (high_emotion):
+[2026-04-13T04:59:03.010046+00:00]     PRIMARY   -3d window: mean_obs=0.421 mean_perm=0.378
+[2026-04-13T04:59:03.010089+00:00]     PRIMARY   -5d window: mean_obs=0.423 mean_perm=0.378
+[2026-04-13T04:59:03.010179+00:00]     PRIMARY   -7d window: mean_obs=0.427 mean_perm=0.379
+[2026-04-13T04:59:03.010262+00:00]     SECONDARY -14d window: mean_obs=0.427 mean_perm=0.379
+[2026-04-13T04:59:03.010299+00:00]     SECONDARY -30d window: mean_obs=0.427 mean_perm=0.379
+[2026-04-13T04:59:03.010377+00:00] 
+=== FINAL SUMMARY ===
+[2026-04-13T04:59:03.010391+00:00] fault_id             metric          window     obs_mean  p_value
+[2026-04-13T04:59:03.010399+00:00] -----------------------------------------------------------------
+[2026-04-13T04:59:03.010414+00:00]   cascadia             zscore             day-1      0.000    1.000
+[2026-04-13T04:59:03.010430+00:00]   cascadia             high_urgency       day-1      0.000    1.000
+[2026-04-13T04:59:03.010443+00:00]   cascadia             water              day-1      0.000    1.000
+[2026-04-13T04:59:03.010456+00:00]   cascadia             high_emotion       day-1      0.000    1.000
+[2026-04-13T04:59:03.010469+00:00]   central_chile        zscore             day-1      0.000    1.000
+[2026-04-13T04:59:03.010483+00:00]   central_chile        high_urgency       day-1      0.000    1.000
+[2026-04-13T04:59:03.010495+00:00]   central_chile        water              day-1      0.000    1.000
+[2026-04-13T04:59:03.010507+00:00]   central_chile        high_emotion       day-1      0.000    1.000
+[2026-04-13T04:59:03.010522+00:00]   north_anatolian      zscore             day-1      0.000    1.000
+[2026-04-13T04:59:03.010534+00:00]   north_anatolian      high_urgency       day-1      0.000    1.000
+[2026-04-13T04:59:03.010545+00:00]   north_anatolian      water              day-1      0.000    1.000
+[2026-04-13T04:59:03.010557+00:00]   north_anatolian      high_emotion       day-1      0.000    1.000
+[2026-04-13T04:59:03.010569+00:00]   sumatra_andaman      zscore             day-1      0.000    1.000
+[2026-04-13T04:59:03.010581+00:00]   sumatra_andaman      high_urgency       day-1      0.000    1.000
+[2026-04-13T04:59:03.010592+00:00]   sumatra_andaman      water              day-1      0.000    1.000
+[2026-04-13T04:59:03.010603+00:00]   sumatra_andaman      high_emotion       day-1      0.000    1.000
+[2026-04-13T04:59:03.010615+00:00]   japan_trench         zscore             day-1      0.000    1.000
+[2026-04-13T04:59:03.010626+00:00]   japan_trench         high_urgency       day-1      0.000    1.000
+[2026-04-13T04:59:03.010638+00:00]   japan_trench         water              day-1      0.000    1.000
+[2026-04-13T04:59:03.010649+00:00]   japan_trench         high_emotion       day-1      0.000    1.000
+[2026-04-13T04:59:03.010662+00:00]   global               zscore             day-1      0.043    0.272
+[2026-04-13T04:59:03.010676+00:00]   global               high_urgency       day-1      1.798    0.001
+[2026-04-13T04:59:03.010687+00:00]   global               water              day-1      1.347    0.003
+[2026-04-13T04:59:03.010697+00:00]   global               high_emotion       day-1      0.482    1.000
+[2026-04-13T04:59:03.010709+00:00] 
+Writing 360 rows to synexis-project-sentinel.sentinel_analysis.hac_epoch_zscores...
+[2026-04-13T04:59:04.010770+00:00]   Written successfully to synexis-project-sentinel.sentinel_analysis.hac_epoch_zscores
+[2026-04-13T04:59:04.010828+00:00] === Analysis complete ===
