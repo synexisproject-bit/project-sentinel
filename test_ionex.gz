@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="box-sizing:content-box;!important;">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WNP7MLF');</script>
+<!-- End Google Tag Manager -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="The Crustal Dynamics Data Information System (CDDIS) continues to support the space geodesy and geodynamics community through NASA's Space Geodesy Project as well as NASA's Earth Science Enterprise. Today, the CDDIS archives and distributes mainly Global Navigation Satellite Systems (GNSS, currently Global Positioning System GPS and GLObal NAvigation Satellite System GLONASS), laser ranging (both to artificial satellites, SLR, and lunar, LLR), Very Long Baseline Interferometry (VLBI), and Doppler Orbitography and Radio-positioning Integrated by Satellite (DORIS) data for an ever increasing user community of geophysicists."/>
+<meta name="keywords" content="geodesy, GNSS data, DORIS data, SLR data, VLBI data, data archive, lw20, lw19, lw18, laser ranging">
+<link rel="icon" href="/css/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/css/images/favicon.ico" type="image/x-icon"> 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://openlayers.org/en/v3.12.1/css/ol.css">
+<link rel="stylesheet" href="/css/cddis.css">
+<script src="/js/jquery-3.2.1.js"></script>
+<script src="/js/jquery-migrate-3.0.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://status.earthdata.nasa.gov/assets/banner_widget.js"></script>
+<script src="/js/jquery.validate.js"></script>
+<script src="/js/additional-methods.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+		<!--  Stylesheet Includes -->
+		<link rel="stylesheet" href="/css/cddis.css" />
+		<script src="/js/activePage.js"></script>
+ 		<script src="/js/setPageTitle.js"></script>
+      <script src="/js/jquery.floatThead.js"></script>
+	<script language="JavaScript">
+			<!--
+			   	setPageTitle();
+			-->
+		</script>
+<script>
+$(function() {
+$( "#startDate" ).datepicker({
+changeMonth: true,
+changeYear: true
+});
+});
+</script>
+<script>
+$(function() {
+$( "#endDate" ).datepicker({
+changeMonth: true,
+changeYear: true
+});
+});
+</script>
+
+<!-- add code for Google's Universal Analytics -->
+
+<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&subagency=GSFC&dclink=true"></script>
+
+<!-- add feedback form code -->
+
+<script src="https://fbm.earthdata.nasa.gov/for/CDDIS/feedback.js" type="text/javascript"></script>
+    <!-- Add Tophat -->
+<script src="https://cdn.earthdata.nasa.gov/tophat2/tophat2.js" id="earthdata-tophat-script" data-current-daac="CDDIS" data-show-fbm="true" type="text/javascript"></script>
+
+<!--<noscript>
+<div style="background: white; color: black; padding: 3px; text-align: center;">Javascript is not enabled to display NASA's Earthdata Network navigation bar. You may alternatively view this <a href="http://earthdata.nasa.gov/tophat-links.html">here</a></div>
+</noscript>-->
+
+		<script type="text/javascript">
+			function writeMainDiv() {
+  				scheckURL = new String;
+				mainDiv = new String;
+				scheckURL  = document.location.href;
+  				if (scheckURL  == "http:\/\/cddiis.gsfc.nasa.gov\/index.html")
+  					{mainDiv = "<div class=\"content home\">";}
+				else
+					{mainDiv = "<div class=\"content\">"; }
+ 				document.write(mainDiv);
+  				return;
+			}
+        </script>
+	</head>
+	<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNP7MLF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+	<a name="top"></a>
+	<script language="JavaScript">
+			<!--
+			   	writeMainDiv();
+			-->
+		</script>
+        			
+			<div>
+					
+			<div class="logo"></div>
+<!-- Add the Status banner -->
+<div id="earthdata-notification-banner" style="padding-top:40px;"></div>
+<!-- End Status banner --><div class="siteheader" style="margin-top:62px;"><a href="/index.html"><img src="/css/images/header.png" border="0" alt="CDDIS: NASA's Archive of Space Geodesy Data" vspace="0" hspace="0" width="487" height="42"></a></div>
+			<div class="nav">
+				<ul>
+					<li><a href="/index.html" id="home">Home</a></li>
+					<li><a href="/About/Background.html" id="about">About CDDIS</a>
+						<ul>
+							<li class="topnav"><a href="/About/Background.html">About CDDIS</a></li>
+							<li><a href="/About/Background.html">Background</a></li>
+							<li><a href="/About/Data_citation_and_acknowledgment.html">Citing Our Data</a></li>
+                            <li><a href="/About/Meetings.html">Meetings</a></li>
+							
+							<li><a href="/About/Links.html">Links</a></li>
+							<li><a href="/About/FAQ.html">FAQ</a></li>
+                          	<li><a href="/About/Acronyms.html">Acronyms</a></li>
+							<li><a href="/About/Staff.html">Staff</a></li>
+                            <li><a href="/About/ContactUs.html">Contact Us</a></li>
+						</ul>
+					</li>
+					<li><a href="/Data_and_Derived_Products/index.html" id="dataSets">Data and Products</a>
+                    	<ul>
+                        	<li class="topnav"><a href="/Data_and_Derived_Products/index.html">Data and Products</a></li>
+                        	<li><a href="/Data_and_Derived_Products/GNSS/GNSS_data_and_product_archive.html">GNSS</a></li>
+							<li><a href="/Data_and_Derived_Products/SLR/SLR_data_and_product_archive.html">SLR</a></li>
+							<li><a href="/Data_and_Derived_Products/VLBI/VLBI_data_and_product_archive.html">VLBI</a></li>
+							<li><a href="/Data_and_Derived_Products/DORIS/DORIS_data_and_product_archive.html">DORIS</a></li>
+                            <li><a href="/Data_and_Derived_Products/CDDIS_Earthdata_Search.html">Archive search information</a></li>
+                            <li><a href="/Data_and_Derived_Products/CDDIS_Archive_Access.html">Archive access information</a></li>
+                            <li><a href="/Data_and_Derived_Products/Reports.html">Reports</a></li>
+						</ul>
+                    </li>
+					<li><a href="/Techniques/index.html" id="techniques">Techniques</a>
+                    	<ul>
+                        	<li class="topnav"><a href="/Techniques/index.html">Techniques</a></li>
+                        	<li><a href="/Techniques/GNSS/GNSS_Overview.html">GNSS</a></li>
+							<li><a href="/Techniques/SLR/SLR_Overview.html">SLR</a></li>
+							<li><a href="/Techniques/VLBI/VLBI_Overview.html">VLBI</a></li>
+							<li><a href="/Techniques/DORIS/DORIS_Overview.html">DORIS</a></li>
+						</ul>
+                    </li>
+					<li><a href="/Programs/Current_Programs.html" id="programs">Programs</a>
+                    	<ul>
+                        	<li class="topnav"><a href="/Programs/Current_Programs.html">Programs</a></li>
+                        	<li><a href="/Programs/Current_Programs.html">Current</a></li>
+                        	<li><a href="/Programs/Historical_Programs.html">Historical</a></li>
+						</ul>
+						</li>
+					<li><a href="/Publications/Presentations.html" id="pubs">Publications</a>
+                    	<ul>
+                        	<li class="topnav"><a href="/Publications/Presentations.html">Publications</a></li>
+                        	<li><a href="/Publications/Presentations.html">Presentations</a></li>
+                        	<li><a href="/Publications/Papers.html">Papers</a></li>
+						</ul>
+                    </li>
+					<li><a href="/About/Data_citation_and_acknowledgment.html" id="cite">Citing our Data</a></li>
+					<li class="search">
+                    <form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get"><div style="margin:0;padding:0;display:inline;width:130px;">
+					  <input name="utf8" type="hidden" value="&#x2713;" />
+					</div>
+
+    <input id="affiliate" name="affiliate" type="hidden" value="cddis" />
+ <!--   <label for="query"><span style="color:#FFF;">Enter Search Term(s):</span></label>-->
+    <input style="vertical-align:middle; width:130px;" autocomplete="off" class="usagov-search-autocomplete" id="query" name="query" type="text" onfocus="clearText();" value="CDDIS Text Search" />
+        <input name="commit" type="hidden" value="Search" />
+
+  </form>
+
+                    
+                    
+                   <!-- <input type="text" id="searchText" onfocus="clearText();" value="CDDIS Text Search"> --></li>
+				</ul>
+<script language="JavaScript">
+	<!--
+	setActiveLI();
+	-->
+</script>
+
+ 				</div>
+<script type="text/javascript">
+feedback.init({showIcon: false}) ;
+</script>
+
+			<div class="main_content" id="l2">
+				<div class="left_nav">
+					
+	<script type="text/javascript">
+function toggleSubmenu(selMenu) {
+  // Get the DOM reference
+  var menuId = selMenu;
+  var imgId = selMenu + "Arrow";
+  // Toggle
+  
+  if (document.getElementById(menuId).style.display == "none") {
+	  document.getElementById(menuId).style.display = "block";
+	document.getElementById(imgId).src ="/images/downArrow.png"; }
+  else {
+	document.getElementById(menuId).style.display = "none"; 
+	document.getElementById(imgId).src = "/images/rightArrow.png"; }
+}
+
+function setActiveLI() {
+  sURL3 = new String;
+  activeAbout = new String;
+  sURL3 = location.href;
+  if (sURL3.indexOf("/About\/Background.html") != -1) {
+		document.getElementById("backgrnd").setAttribute("class","active"); 
+	  }
+  if (sURL3.indexOf("/About\/Data_citation_and_acknowledgment.html") != -1) {
+		  document.getElementById("citingData").setAttribute("class","active");
+	  }
+  if (sURL3.indexOf("/About\/Meetings.html") != -1) {
+		  document.getElementById("meetings").setAttribute("class","active");
+	  }
+  if (sURL3.indexOf("/About\/Links.html") != -1){
+		  document.getElementById("links").setAttribute("class","active"); 
+	  }
+  if ((sURL3.indexOf("/About\/FAQ.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Upload_FAQ.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Upload_Parameters.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Upload_Documentation.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Download_Documentation.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Download_FAQ.html") != -1)) {  
+	  document.getElementById("faq").setAttribute("class","active"); 
+	  document.getElementById("allFAQ").style.display = "block";
+	  document.getElementById("allFAQArrow").src ="/images/downArrow.png"; 
+  	  if (sURL3.indexOf("/About\/FAQ.html") != -1) {
+		  document.getElementById("cddisFAQ").setAttribute("class","selected"); 
+	  }
+  	  if ((sURL3.indexOf("/About\/CDDIS_File_Upload_FAQ.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Upload_Parameters.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Upload_Documentation.html") != -1)) {
+		  document.getElementById("uploadFAQ").setAttribute("class","selected"); 
+	  }
+  	  if ((sURL3.indexOf("/About\/CDDIS_File_Download_FAQ.html") != -1) || (sURL3.indexOf("/About\/CDDIS_File_Download_Documentation.html") != -1)) {
+		  document.getElementById("downloadFAQ").setAttribute("class","selected"); 
+	  }
+  	  if (sURL3.indexOf("/Data_and_Derived_Products/CDDIS_Archive_Access.html") != -1) {
+		  document.getElementById("downloadExs").setAttribute("class","selected"); 
+	  }
+    }
+  if (sURL3.indexOf("/About\/Acronyms.html") != -1){
+		  document.getElementById("acro").setAttribute("class","active"); 
+	  }
+  if (sURL3.indexOf("/About\/Staff.html") != -1){
+		  document.getElementById("staff").setAttribute("class","active"); }
+  if (sURL3.indexOf("/About\/ContactUs.html") != -1){
+		  document.getElementById("contact").setAttribute("class","active"); }
+}
+
+</script>
+<ul>
+						<li id="backgrnd"><a href="/About/Background.html">Background</a></li>
+						<li id="citingData"><a href="/About/Data_citation_and_acknowledgment.html">Citing our data</a></li>
+                         <li id="meetings"><a href="/About/Meetings.html">Meetings</a></li>
+                         <li id="links"><a href="/About/Links.html">Links</a></li>
+                       <li id="faq"><a href="/About/FAQ.html">FAQ</a><img src="/css/images/transSpacer.png" width="20" height="4" /><img onclick="toggleSubmenu('allFAQ');" id="allFAQArrow" src="/images/rightArrow.png" style="width:auto; height:auto;" /></li>
+                        <div id="allFAQ" style="display:none;">
+                        	<li class="expanded">
+							
+                            	<ul>
+								<li><a href="/About/FAQ.html" id="cddisFAQ">CDDIS FAQ</a></li>
+								<li><a href="/About/CDDIS_File_Upload_FAQ.html" id="uploadFAQ">File Upload FAQ</a></li>
+								<li><a href="/About/CDDIS_File_Download_FAQ.html" id="downloadFAQ">File Download FAQ</a></li>
+								<li><a href="/Data_and_Derived_Products/CDDIS_Archive_Access.html" id="downloadExs">File Download Examples</a></li>
+                                </ul>
+                            </li>
+                          </div>
+                        <li id="acro"><a href="/About/Acronyms.html">Acronyms</a></li>
+						<li id="staff"><a href="/About/Staff.html">Staff</a></li>
+                        <li id="contact"><a href="/About/ContactUs.html">Contact Us</a></li>
+					</ul>
+<script language="JavaScript">
+	<!--
+	setActiveLI();
+	-->
+</script>
+
+
+
+
+ 
+				</div>
+				
+				<div class="page_content">
+                <div class="page_subtitle">404 Error Message:<br />
+Page Not Found on cddis.nasa.gov</h2> </div>
+<p>Unfortunately, the page you were trying to retrieve does not exist on the CDDIS web site (cddis.gsfc.nasa.gov). If you reached this page from another part of cddis.nasa.gov, please let us know so we can fix the problem.</p>
+<h3>Common Mistakes</h3>
+
+<p>The most common mistakes in accessing cddis.nasa.gov are:</p>
+
+<ul class="about">
+<li>Making the URL end in .htm -- all HTML pages on the CDDIS site end in .html</li>
+</ul>
+<br />
+
+<h3>Try the Home Page</h3>
+
+<p>You can start at the CDDIS Home Page, <a href="http://cddis.gsfc.nasa.gov">https://cddis.nasa.gov</a>.</p>
+<br />
+
+<h3>Contact the CDDIS Web Staff</h3>
+
+<p>You can send an email to the <a onclick="feedback.showForm();">CDDIS Web Staff</a>.</p>
+<br />
+
+<h3>Try a Search</h3>
+
+<p>You can try to find the information you are looking for by using the search box at the top, right corner of this page.</p>
+       			<!-- end container div -->       
+          <br clear="all" />
+			</div><!-- end div page_content-->	
+			<!--- don't remove this br --->
+			<br clear="all">
+          </div>				
+		</div>
+		
+		<div id="footer">
+			<div class="column">
+				<a href="/index.html"><img src="/css/images/spacer.gif" border="0" alt="CDDIS: NASA's Archive of Space Geodesy Data" vspace="0" hspace="0" width="125" height="64"></a><a href="http://icsu-wds.org" target="_blank"><img src="/css/images/WDS_logo100x59.jpg" style="height:59px; width:100px; padding-left:15px;" alt="World Data System logo" /></a>
+  </div>
+			<div class="column middle">
+				NASA Official: <a href="mailto:Patrick.Michael@nasa.gov">Patrick Michael</a><br />
+                Web Curator: <a href="mailto:support-cddis@nasa.gov">CDDIS Operations</a><br />
+				<a href="/About/FAQ.html">FAQ</a><br>
+			  <a href="https://forum.earthdata.nasa.gov/" target="_blank">Earthdata Forum</a><br><a href="/About/ContactUs.html">Contact Us</a><br>
+              
+				Last updated: Nov 23, 2020<br>
+				
+			</div>					
+			<div class="column right">
+				<a href="http://www.nasa.gov/about/highlights/HP_Privacy.html" target="_blank">Web Privacy Policy</a><br>
+				<a href="https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy" target="_blank">Data and Information Policy</a><br />
+				<a href="https://www.nasa.gov/general/nasa-policy-on-the-release-of-information-to-news-and-information-media/" target="_blank">Communications Policy</a><br />
+				<a href="https://www.nasa.gov/foia/" target="_blank">FOIA</a><br />
+				<a href="https://www.nasa.gov/general/accessibility/)" target="_blank">Accessibility</a><br />
+				<a href="http://www.usa.gov" target="_blank">USA.gov</a><br>
+		      
+				
+			</div>	
+		</div>
+        <img src="/css/images/spacer.gif" alt=" " width="1" height="5">
+        </body>
+	
+
