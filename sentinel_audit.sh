@@ -43,3 +43,14 @@ echo "==============================="
 echo " Audit complete. Review above"
 echo " for any unexpected resources."
 echo "==============================="
+
+# Check critical intermediate tables
+echo "--- Critical BQ Tables ---"
+for tbl in "sentinel_analysis.hac_features_daily" "sentinel_analysis.epoch_results_pathB" "sentinel_analysis.precog_match_candidates"; do
+  result=$(bq show --quiet synexis-project-sentinel:${tbl} 2>&1)
+  if echo "$result" | grep -q "Not found"; then
+    echo "MISSING: ${tbl}"
+  else
+    echo "OK: ${tbl}"
+  fi
+done
