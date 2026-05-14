@@ -9,3 +9,6 @@ venv/
 *.xlsx
 *.csv
 *.parquet
+h4_02_wf.py
+h4_02_wf.txt
+docs/node_modules/
