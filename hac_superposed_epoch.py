@@ -43,7 +43,7 @@ HAC_TABLE    = f"{PROJECT}.sentinel_features.hac_features_daily"
 FAULT_TABLE  = f"{PROJECT}.sentinel_features.fault_systems"
 OUTPUT_TABLE = f"{PROJECT}.sentinel_analysis.hac_epoch_zscores"
 
-WINDOW       = 7     # ±7 days
+WINDOW       = 20     # ±20 days — extended for H5-Cascade-3
 PRIMARY_WINDOWS = [3, 5, 7]
 SECONDARY_WINDOWS = [14, 30]
 
