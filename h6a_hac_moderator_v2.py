@@ -31,10 +31,10 @@ from scipy import stats
 from google.cloud import bigquery
 
 PROJECT      = "synexis-project-sentinel"
-RESULT_TABLE = "sentinel_eval.h6a_hac_moderator_results"
+RESULT_TABLE = "sentinel_eval.h6a_hac_moderator_results_declustered_deduped"
 
 SIGNAL_TABLE = "sentinel_features.hac_features_daily"
-EQ_TABLE     = "sentinel_features.fault_events"
+EQ_TABLE     = "sentinel_groundtruth.master_earthquakes_declustered"
 EPH_TABLE    = "sentinel_features.h6_ephemeris_daily"
 
 WINDOW          = 7    # days each side
@@ -90,7 +90,7 @@ def load_earthquakes(client) -> pd.DataFrame:
     """Load M6+ earthquakes with lunar phase, 2010-2025."""
     query = f"""
     SELECT
-      DATE(e.event_date) as event_date,
+      DATE(e.time) as event_date,
       e.magnitude,
       h.lunar_phase_bin,
       h.lunar_phase_name,
@@ -98,13 +98,21 @@ def load_earthquakes(client) -> pd.DataFrame:
       h.venus_elongation_deg,
       h.mars_elongation_deg,
       h.jupiter_dist_au
-    FROM `{PROJECT}.{EQ_TABLE}` e
+    FROM (
+      SELECT DISTINCT e.id, e.time, e.latitude, e.longitude, e.magnitude
+      FROM `{PROJECT}.{EQ_TABLE}` e
+      INNER JOIN `{PROJECT}.sentinel_features.fault_events` f
+        ON DATE(e.time) = DATE(f.time)
+        AND ABS(e.latitude - f.latitude) < 0.1
+        AND ABS(e.longitude - f.longitude) < 0.1
+      WHERE e.magnitude >= 6.0
+        AND e.is_mainshock = TRUE
+        AND DATE(e.time) BETWEEN '2010-01-01' AND '2025-12-31'
+    ) e
     LEFT JOIN `{PROJECT}.{EPH_TABLE}` h
-      ON DATE(e.event_date) = h.date_val
-    WHERE e.magnitude >= 6.0
-      AND DATE(e.event_date) BETWEEN '2010-01-01' AND '2025-12-31'
-      AND h.lunar_phase_bin IS NOT NULL
-    ORDER BY e.event_date
+      ON DATE(e.time) = h.date_val
+    WHERE h.lunar_phase_bin IS NOT NULL
+    ORDER BY e.time
     """
     df = client.query(query).to_dataframe()
     print(f"  Loaded {len(df):,} M6+ earthquakes (2010-2025 with ephemeris)")
