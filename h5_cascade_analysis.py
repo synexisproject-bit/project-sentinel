@@ -34,8 +34,8 @@ from datetime import datetime, timezone
 from google.cloud import bigquery
 
 PROJECT      = "synexis-project-sentinel"
-SOURCE_TABLE = "sentinel_analysis.hac_epoch_zscores"
-RESULT_TABLE = "sentinel_eval.h5_cascade_results"
+SOURCE_TABLE = "sentinel_analysis.hac_epoch_zscores_declustered"
+RESULT_TABLE = "sentinel_eval.h5_cascade_results_declustered"
 
 # LAIC window definitions (pre-registered)
 LAIC_WINDOWS = {
@@ -281,7 +281,7 @@ def save_results(client, cascade1_results, cascade1_confirmed,
             "cascade2_confirmed":      1 if c2.get("confirmed") else 0,
             "cascade3_status":         "DEFERRED_WINDOW_EXTENSION_REQUIRED",
             "run_timestamp":           datetime.now(timezone.utc).isoformat(),
-            "data_source":             "hac_epoch_zscores Round3 (run_at_utc>=2026-04-13)",
+            "data_source":             "hac_epoch_zscores_declustered GK-declustered Amendment-10c",
             "amendment_commit":        "c8cbf9c",
             "permutation_iters":       N_PERMUTATIONS,
             "cascade1_primary_verdict":"CONFIRMED" if cascade1_confirmed else "NULL",

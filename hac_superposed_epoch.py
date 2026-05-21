@@ -38,10 +38,10 @@ import numpy as np
 from google.cloud import bigquery
 
 PROJECT      = "synexis-project-sentinel"
-EQ_TABLE     = f"{PROJECT}.sentinel_groundtruth.master_earthquakes"
+EQ_TABLE     = f"{PROJECT}.sentinel_groundtruth.master_earthquakes_declustered"
 HAC_TABLE    = f"{PROJECT}.sentinel_features.hac_features_daily"
 FAULT_TABLE  = f"{PROJECT}.sentinel_features.fault_systems"
-OUTPUT_TABLE = f"{PROJECT}.sentinel_analysis.hac_epoch_zscores"
+OUTPUT_TABLE = f"{PROJECT}.sentinel_analysis.hac_epoch_zscores_declustered"
 
 WINDOW       = 20     # ±20 days — extended for H5-Cascade-3
 PRIMARY_WINDOWS = [3, 5, 7]
@@ -71,9 +71,10 @@ def load_events(mag_threshold, fault_zones, fault_filter=None):
     """
     log(f"Loading M{mag_threshold}+ events...")
     query = f"""
-    SELECT event_id, DATE(time) AS event_date, latitude, longitude, magnitude, tsunami
+    SELECT id as event_id, DATE(time) AS event_date, latitude, longitude, magnitude, NULL as tsunami
     FROM `{EQ_TABLE}`
     WHERE magnitude >= @mag
+      AND is_mainshock = TRUE
       AND DATE(time) BETWEEN '2010-01-01' AND '2026-12-31'
     ORDER BY time
     """
