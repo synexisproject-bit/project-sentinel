@@ -23,7 +23,7 @@ from google.cloud import bigquery
 import pandas as pd
 
 PROJECT      = "synexis-project-sentinel"
-RESULT_TABLE = "sentinel_eval.h6b_seismic_lunar_results"
+RESULT_TABLE = "sentinel_eval.h6b_seismic_lunar_results_declustered"
 
 PREREGISTERED_FAULTS = [
     "japan_trench", "cascadia", "central_chile",
@@ -63,13 +63,16 @@ def load_earthquake_ephemeris(client) -> pd.DataFrame:
       h.mars_elongation_deg,
       h.jupiter_dist_au
     FROM `synexis-project-sentinel.sentinel_features.fault_events` e
+    INNER JOIN `synexis-project-sentinel.sentinel_groundtruth.master_earthquakes_declustered` d
+      ON DATE(e.time) = DATE(d.time)
+      AND ABS(e.latitude - d.latitude) < 0.1
+      AND ABS(e.longitude - d.longitude) < 0.1
     LEFT JOIN `synexis-project-sentinel.sentinel_features.h6_ephemeris_daily` h
       ON DATE(e.event_date) = h.date_val
     WHERE e.magnitude >= 6.5
+      AND d.is_mainshock = TRUE
       AND DATE(e.event_date) BETWEEN '2001-01-01' AND '2025-12-31'
       AND h.lunar_phase_deg IS NOT NULL
-      AND NOT (e.fault_id = 'japan_trench'
-        AND EXTRACT(YEAR FROM e.event_date) = 2011)
     ORDER BY e.fault_id, e.event_date
     """
     df = client.query(query).to_dataframe()
