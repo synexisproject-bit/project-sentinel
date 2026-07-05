@@ -19,14 +19,20 @@ import tempfile
 from datetime import date, timedelta
 
 import requests
-from google.cloud import bigquery
+from google.cloud import bigquery, secretmanager
 
 PROJECT       = "synexis-project-sentinel"
 DATASET       = "sentinel_features"
 TABLE         = "env_daily"
 CDDIS_BASE    = "https://cddis.nasa.gov/archive/gnss/products/ionex"
 USERNAME      = "synexisproject"
-PASSWORD      = "REDACTED"
+def _get_secret(project_id, secret_name):
+    client = secretmanager.SecretManagerServiceClient()
+    name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
+    response = client.access_secret_version(request={"name": name})
+    return response.payload.data.decode("UTF-8")
+
+PASSWORD      = _get_secret(PROJECT, "cddis-password")
 CACHE_FILE    = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tec_cache.csv")
 ROLLING_WINDOW = 27
 MIN_WINDOW     = 14

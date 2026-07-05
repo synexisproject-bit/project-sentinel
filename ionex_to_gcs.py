@@ -19,13 +19,19 @@ import tempfile
 from datetime import date, timedelta
 
 import requests
-from google.cloud import storage
+from google.cloud import storage, secretmanager
 
 PROJECT    = "synexis-project-sentinel"
 BUCKET     = "sentinel-ionex-cache"
 CDDIS_BASE = "https://cddis.nasa.gov/archive/gnss/products/ionex"
 USERNAME   = "synexisproject"
-PASSWORD   = "REDACTED"
+def _get_secret(project_id, secret_name):
+    client = secretmanager.SecretManagerServiceClient()
+    name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
+    response = client.access_secret_version(request={"name": name})
+    return response.payload.data.decode("UTF-8")
+
+PASSWORD   = _get_secret(PROJECT, "cddis-password")
 
 logging.basicConfig(
     level=logging.INFO,

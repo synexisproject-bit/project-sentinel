@@ -35,7 +35,7 @@ import tempfile
 from datetime import date, timedelta, timezone, datetime
 
 import requests
-from google.cloud import bigquery
+from google.cloud import bigquery, secretmanager
 
 # ── Config ────────────────────────────────────────────────────────────────────
 PROJECT    = "synexis-project-sentinel"
@@ -44,7 +44,13 @@ TABLE_RAW  = "h3_tec_raw"
 CDDIS_BASE = "https://cddis.nasa.gov/archive/gnss/products/ionex"
 BKG_BASE   = "https://igs.bkg.bund.de/root_ftp/IGS/products/ionex"
 USERNAME   = "synexisproject"
-PASSWORD   = "REDACTED"
+def _get_secret(project_id, secret_name):
+    client = secretmanager.SecretManagerServiceClient()
+    name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
+    response = client.access_secret_version(request={"name": name})
+    return response.payload.data.decode("UTF-8")
+
+PASSWORD   = _get_secret(PROJECT, "cddis-password")
 CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "h3_tec_cache.csv")
 
 # ── IONEX grid spec (from header: LAT1/LAT2/DLAT, LON1/LON2/DLON) ────────────
