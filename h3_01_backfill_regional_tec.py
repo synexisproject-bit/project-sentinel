@@ -50,6 +50,8 @@ def _get_secret(project_id, secret_name):
     response = client.access_secret_version(request={"name": name})
     return response.payload.data.decode("UTF-8")
 
+# NOTE: if cddis-password is rotated in Secret Manager, also manually update ~/.netrc
+# (CDDIS 302-redirects to urs.earthdata.nasa.gov, which requests reads via .netrc, bypassing session.auth)
 PASSWORD   = _get_secret(PROJECT, "cddis-password")
 CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "h3_tec_cache.csv")
 
