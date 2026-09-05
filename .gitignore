@@ -12,3 +12,6 @@ venv/
 h4_02_wf.py
 h4_02_wf.txt
 docs/node_modules/
+
+# Milestone audit artifacts are tracked
+!audits/*.log
