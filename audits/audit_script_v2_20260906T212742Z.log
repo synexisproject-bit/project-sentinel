@@ -1,0 +1,517 @@
+===============================================
+ SENTINEL INFRASTRUCTURE AUDIT
+ 2026-09-06T21:27:42Z
+ Projects: synexis-project-sentinel synexis-sfo
+ Expected location: us-central1
+===============================================
+
+===============================================
+ PROJECT: synexis-project-sentinel
+===============================================
+
+--- Compute VMs (idle cost risk) ---
+
+--- Persistent disks (orphan risk) ---
+
+--- Cloud SQL instances ---
+
+--- Cloud Run services (all regions) ---
+✔
+SERVICE: build-hypotheses-runner
+REGION: us-east1
+URL: https://build-hypotheses-runner-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-23T03:59:56.245946Z
+
+✔
+SERVICE: dream-intake
+REGION: us-east4
+URL: https://dream-intake-88284566970.us-east4.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-10-03T04:56:26.090146Z
+
+✔
+SERVICE: dream-subscriber-v3
+REGION: us-east4
+URL: https://dream-subscriber-v3-88284566970.us-east4.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-10-03T07:10:46.066205Z
+
+✔
+SERVICE: fusion-bq-sink
+REGION: us-east1
+URL: https://fusion-bq-sink-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T08:46:33.386657Z
+
+✔
+SERVICE: fusion-orchestrator
+REGION: us-east1
+URL: https://fusion-orchestrator-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T08:46:42.229569Z
+
+✔
+SERVICE: fusion-publisher-aoi-v1
+REGION: us-east1
+URL: https://fusion-publisher-aoi-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T08:46:26.585177Z
+
+✔
+SERVICE: geomag-agent
+REGION: us-east1
+URL: https://geomag-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-18T04:10:28.365005Z
+
+✔
+SERVICE: hac-enrich
+REGION: us-central1
+URL: https://hac-enrich-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-06-04T05:30:39.998939Z
+
+✔
+SERVICE: hac-ingest
+REGION: us-central1
+URL: https://hac-ingest-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-03-31T00:39:37.487784Z
+
+✔
+SERVICE: hac-normalize
+REGION: us-central1
+URL: https://hac-normalize-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-04-05T20:11:04.396010Z
+
+✔
+SERVICE: hac-webform
+REGION: us-central1
+URL: https://hac-webform-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-03-31T03:04:31.907146Z
+
+✔
+SERVICE: noetic-nlp-agent
+REGION: us-east1
+URL: https://noetic-nlp-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-18T06:20:38.872500Z
+
+✔
+SERVICE: poll-astro-v2
+REGION: us-east1
+URL: https://poll-astro-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T06:24:09.858244Z
+
+✔
+SERVICE: poll-donki-v2
+REGION: us-east1
+URL: https://poll-donki-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T04:43:43.028331Z
+
+✔
+SERVICE: poll-gcp-egg-v1
+REGION: us-east1
+URL: https://poll-gcp-egg-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-01-04T05:10:54.043577Z
+
+✔
+SERVICE: poll-geomag-kp-http-v1
+REGION: us-east1
+URL: https://poll-geomag-kp-http-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-21T06:26:13.632414Z
+
+✔
+SERVICE: poll-ionospheric-v1
+REGION: us-east1
+URL: https://poll-ionospheric-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T04:58:43.368988Z
+
+✔
+SERVICE: poll-noaa-flood-trigger-v1
+REGION: us-east1
+URL: https://poll-noaa-flood-trigger-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-24T18:13:51.832419Z
+
+✔
+SERVICE: poll-noaa-tsunami-cap-v2
+REGION: us-east1
+URL: https://poll-noaa-tsunami-cap-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-20T07:03:55.883721Z
+
+✔
+SERVICE: poll-nws-cap-v3
+REGION: us-east1
+URL: https://poll-nws-cap-v3-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T06:02:50.645183Z
+
+✔
+SERVICE: poll-solarwind-v2
+REGION: us-east1
+URL: https://poll-solarwind-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T07:42:37.264195Z
+
+✔
+SERVICE: poll-swpc-alerts-v2
+REGION: us-east1
+URL: https://poll-swpc-alerts-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T23:16:53.923084Z
+
+✔
+SERVICE: poll-swpc-solar-v1
+REGION: us-east1
+URL: https://poll-swpc-solar-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-22T04:56:17.333475Z
+
+✔
+SERVICE: poll-usgs-eq-v1
+REGION: us-east1
+URL: https://poll-usgs-eq-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-22T02:21:20.199252Z
+
+✔
+SERVICE: poll-usgs-quakes-v3
+REGION: us-east1
+URL: https://poll-usgs-quakes-v3-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T13:46:27.231888Z
+
+✔
+SERVICE: poll-usgs-vhp-v1
+REGION: us-east1
+URL: https://poll-usgs-vhp-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T04:41:31.521894Z
+
+✔
+SERVICE: poll-usgs-volcano-cap-v2
+REGION: us-east1
+URL: https://poll-usgs-volcano-cap-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T23:19:51.083487Z
+
+✔
+SERVICE: poll-usgs-water-iv-v2
+REGION: us-east1
+URL: https://poll-usgs-water-iv-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T23:37:55.820830Z
+
+✔
+SERVICE: seismic-agent
+REGION: us-east1
+URL: https://seismic-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-26T04:20:36.208981Z
+
+✔
+SERVICE: sentinel-api
+REGION: us-east1
+URL: https://sentinel-api-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-14T23:01:54.949472Z
+
+✔
+SERVICE: solar-agent
+REGION: us-east1
+URL: https://solar-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-18T05:24:17.997098Z
+
+--- Cloud Run jobs (all regions) ---
+✔
+JOB: h3-tec-backfill
+REGION: us-central1
+LAST RUN AT: 2026-03-29 04:40:07 UTC
+CREATED: 2026-03-29 04:40:03 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: hac-archive-importer
+REGION: us-central1
+LAST RUN AT: 2026-09-06 20:00:07 UTC
+CREATED: 2026-04-04 06:09:24 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: hac-cluster
+REGION: us-central1
+LAST RUN AT: 2026-09-06 03:00:23 UTC
+CREATED: 2026-03-31 02:23:56 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: hac-enrich
+REGION: us-central1
+LAST RUN AT: 2026-04-12 06:05:16 UTC
+CREATED: 2026-04-05 20:14:13 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: hac-hazard-classify
+REGION: us-central1
+LAST RUN AT: 2026-04-19 01:31:55 UTC
+CREATED: 2026-04-19 01:30:48 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: hac-stratified-analysis
+REGION: us-central1
+LAST RUN AT: 2026-04-28 04:09:09 UTC
+CREATED: 2026-04-19 23:56:29 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: job-noaa-flood-v1
+REGION: us-east1
+LAST RUN AT: 2026-02-24 18:34:32 UTC
+CREATED: 2026-02-24 18:09:27 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: sentinel-geocoding-job
+REGION: us-central1
+LAST RUN AT: 2026-04-22 05:18:39 UTC
+CREATED: 2026-04-21 05:56:14 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: sentinel-spatial-job
+REGION: us-central1
+LAST RUN AT: 2026-04-22 15:24:34 UTC
+CREATED: 2026-04-22 15:24:30 UTC
+CREATED BY: synexisproject@gmail.com
+
+--- Cloud Run job execution health ---
+  h3-tec-backfill (us-central1): latest execution h3-tec-backfill-qvnkf has 0 successful tasks — FAILED
+  hac-archive-importer (us-central1): latest execution hac-archive-importer-kjcsv has 0 successful tasks — FAILED
+  hac-cluster (us-central1): latest execution hac-cluster-6zk5p has 0 successful tasks — FAILED
+  hac-enrich (us-central1): last successful run 147d ago — STALE
+  hac-hazard-classify (us-central1): last successful run 140d ago — STALE
+  hac-stratified-analysis (us-central1): latest execution hac-stratified-analysis-tffbl has 0 successful tasks — FAILED
+  job-noaa-flood-v1 (us-east1): last successful run 194d ago — STALE
+  sentinel-geocoding-job (us-central1): last successful run 137d ago — STALE
+  sentinel-spatial-job (us-central1): last successful run 137d ago — STALE
+
+--- Cloud Scheduler jobs (scanning us-central1 us-east1 us-east4) ---
+  [us-central1]
+    hac-import-schedule	PAUSED	0 */2 * * *
+    hac-cluster-nightly	PAUSED	0 3 * * *
+  [us-east1]
+    poll_gcp_egg_v1-5min	PAUSED	*/5 * * * *
+    poll_nws_cap_v1-5min	PAUSED	*/5 * * * *
+    poll_noaa_tsunami_cap_v1-5min	PAUSED	*/5 * * * *
+    build_hypotheses_runner-5min	PAUSED	*/5 * * * *
+    poll-solarwind-v1	PAUSED	*/5 * * * *
+    poll_usgs_water_iv_v1-5min	PAUSED	*/5 * * * *
+    poll_geomag_indices_v1-5min	PAUSED	*/5 * * * *
+    poll_swpc_alerts_v1-5min	PAUSED	*/5 * * * *
+    poll-geomag-kp-v1	PAUSED	*/5 * * * *
+    fusion-publisher-aoi-v1	PAUSED	*/5 * * * *
+    poll_usgs_volcano_cap_v1-5min	PAUSED	*/5 * * * *
+    poll-usgs-quakes-v3-minutely	PAUSED	* * * * *
+    poll-nws-cap-v1-minutely	PAUSED	*/5 * * * *
+    poll_noaa_tsunami_cap_v2-5min	PAUSED	*/5 * * * *
+    poll_usgs_vhp_v1-5min	PAUSED	*/5 * * * *
+    poll_swpc_solar_v1-5min	PAUSED	*/5 * * * *
+    poll-usgs-quakes-v3	PAUSED	*/5 * * * *
+    poll_usgs_volcano_cap_v1-6h	PAUSED	0 */6 * * *
+    poll-astro-daily-v1-daily	PAUSED	5 0 * * *
+    poll-donki-v1	PAUSED	*/5 * * * *
+
+--- GCS buckets and locations ---
+  gcf-v2-sources-88284566970-us-east1  [US-EAST1]  <-- OFF-REGION
+  gcf-v2-uploads-88284566970.us-east1.cloudfunctions.appspot.com  [US-EAST1]  <-- OFF-REGION
+  run-sources-synexis-project-sentinel-us-central1  [US-CENTRAL1]
+  synexis-project-sentinel-exports-central1  [US-CENTRAL1]
+  synexis-project-sentinel-hac-embeddings-central1  [US-CENTRAL1]
+  synexis-project-sentinel-hac-imports-central1  [US-CENTRAL1]
+  synexis-project-sentinel-logs-central1  [US-CENTRAL1]
+  synexis-project-sentinel-raw-central1  [US-CENTRAL1]
+  synexis-project-sentinel-staging-central1  [US-CENTRAL1]
+  synexis-project-sentinel_cloudbuild  [US]  <-- OFF-REGION
+
+--- BigQuery datasets and locations ---
+  hac_intake_central1  [us-central1]
+  sentinel_analysis_central1  [us-central1]
+  sentinel_cur_central1  [us-central1]
+  sentinel_derived_central1  [us-central1]
+  sentinel_eval_central1  [us-central1]
+  sentinel_features_central1  [us-central1]
+  sentinel_geocoding_central1  [us-central1]
+  sentinel_groundtruth_central1  [us-central1]
+  sentinel_mart_central1  [us-central1]
+  sentinel_raw_central1  [us-central1]
+  sentinel_staging_central1  [us-central1]
+  synexis_dreams_central1  [us-central1]
+
+--- Artifact Registry ---
+  gcr.io                             DOCKER          ? MB  [gcr.io]  <-- OFF-REGION
+  cloud-run-source-deploy            DOCKER          ? MB  [cloud-run-source-deploy]  <-- OFF-REGION
+  hac-stratified-analysis            DOCKER          0 MB  [hac-stratified-analysis]  <-- OFF-REGION
+  agent-astro                        DOCKER          0 MB  [agent-astro]  <-- OFF-REGION
+  agent-climate                      DOCKER          0 MB  [agent-climate]  <-- OFF-REGION
+  agent-dreams                       DOCKER          0 MB  [agent-dreams]  <-- OFF-REGION
+  agent-rv                           DOCKER          0 MB  [agent-rv]  <-- OFF-REGION
+  agent-seismic                      DOCKER          0 MB  [agent-seismic]  <-- OFF-REGION
+  agent-space                        DOCKER          0 MB  [agent-space]  <-- OFF-REGION
+  cloud-run-source-deploy            DOCKER          ? MB  [cloud-run-source-deploy]  <-- OFF-REGION
+  gcf-artifacts                      DOCKER          ? MB  [gcf-artifacts]  <-- OFF-REGION
+  sentinel-core                      DOCKER          ? MB  [sentinel-core]  <-- OFF-REGION
+  tools                              DOCKER          0 MB  [tools]  <-- OFF-REGION
+  ui                                 DOCKER          0 MB  [ui]  <-- OFF-REGION
+  cloud-run-source-deploy            DOCKER          ? MB  [cloud-run-source-deploy]  <-- OFF-REGION
+
+--- Critical BigQuery tables ---
+  OK:      sentinel_analysis_central1.hac_features_daily
+  OK:      sentinel_analysis_central1.epoch_results_pathB
+  OK:      sentinel_analysis_central1.precog_match_candidates
+
+===============================================
+ PROJECT: synexis-sfo
+===============================================
+
+--- Compute VMs (idle cost risk) ---
+
+--- Persistent disks (orphan risk) ---
+
+--- Cloud SQL instances ---
+
+--- Cloud Run services (all regions) ---
+✔
+SERVICE: sfo-dashboard
+REGION: us-central1
+URL: https://sfo-dashboard-894782312417.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-08-28T21:12:51.400369Z
+
+--- Cloud Run jobs (all regions) ---
+✔
+JOB: sfo-ingest-atmospheric-electrical
+REGION: us-central1
+LAST RUN AT: 2026-08-27 03:35:23 UTC
+CREATED: 2026-08-27 03:34:07 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: sfo-ingest-earth-field
+REGION: us-central1
+LAST RUN AT: 2026-09-06 21:15:03 UTC
+CREATED: 2026-07-13 04:33:17 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: sfo-ingest-event-markers
+REGION: us-central1
+LAST RUN AT: 2026-09-06 21:30:17 UTC
+CREATED: 2026-07-14 03:52:57 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: sfo-ingest-lightning-activity
+REGION: us-central1
+LAST RUN AT: 2026-09-06 20:45:01 UTC
+CREATED: 2026-08-27 04:37:36 UTC
+CREATED BY: synexisproject@gmail.com
+
+✔
+JOB: sfo-ingest-solar-geo
+REGION: us-central1
+LAST RUN AT: 2026-09-06 21:00:13 UTC
+CREATED: 2026-07-04 05:23:42 UTC
+CREATED BY: synexisproject@gmail.com
+
+--- Cloud Run job execution health ---
+  sfo-ingest-atmospheric-electrical (us-central1): latest execution sfo-ingest-atmospheric-electrical-z9s6n has 0 successful tasks — FAILED
+  sfo-ingest-earth-field (us-central1): OK, last run 0d ago
+  sfo-ingest-event-markers (us-central1): OK, last run 0d ago
+  sfo-ingest-lightning-activity (us-central1): OK, last run 0d ago
+  sfo-ingest-solar-geo (us-central1): OK, last run 0d ago
+
+--- Cloud Scheduler jobs (scanning us-central1 us-east1 us-east4) ---
+  [us-central1]
+    sfo-earth-field-hourly	ENABLED	15 * * * *
+    sfo-solar-geo-hourly	ENABLED	0 * * * *
+    sfo-lightning-activity-hourly	ENABLED	45 * * * *
+    sfo-event-markers-hourly	ENABLED	30 * * * *
+
+--- GCS buckets and locations ---
+  run-sources-synexis-sfo-us-central1  [US-CENTRAL1]
+  synexis-sfo-dashboard-data  [US-CENTRAL1]
+  synexis-sfo_cloudbuild  [US]  <-- OFF-REGION
+
+--- BigQuery datasets and locations ---
+  sfo_eval  [us-central1]
+  sfo_features  [us-central1]
+  sfo_intake  [us-central1]
+  sfo_ops  [us-central1]
+
+--- Artifact Registry ---
+  cloud-run-source-deploy            DOCKER          ? MB  [cloud-run-source-deploy]  <-- OFF-REGION
+
+--- Critical BigQuery tables ---
+  (none registered for this project)
+
+===============================================
+ MONTH-TO-DATE COST
+===============================================
+  BILLING_EXPORT_TABLE not set.
+  Read MTD cost from the console: Billing > Reports,
+  Group by = Project, Time range = Current month.
+  To automate, enable Billing > Billing export > BigQuery export,
+  then export BILLING_EXPORT_TABLE=project.dataset.table
+
+===============================================
+ FINDINGS SUMMARY
+===============================================
+  32 finding(s):
+
+  - synexis-project-sentinel: 27 Cloud Run service(s) outside us-central1
+  - synexis-project-sentinel: job h3-tec-backfill latest execution failed (0 succeeded)
+  - synexis-project-sentinel: job hac-archive-importer latest execution failed (0 succeeded)
+  - synexis-project-sentinel: job hac-cluster latest execution failed (0 succeeded)
+  - synexis-project-sentinel: job hac-enrich last ran 147 days ago (threshold 7d)
+  - synexis-project-sentinel: job hac-hazard-classify last ran 140 days ago (threshold 7d)
+  - synexis-project-sentinel: job hac-stratified-analysis latest execution failed (0 succeeded)
+  - synexis-project-sentinel: job job-noaa-flood-v1 last ran 194 days ago (threshold 7d)
+  - synexis-project-sentinel: job sentinel-geocoding-job last ran 137 days ago (threshold 7d)
+  - synexis-project-sentinel: job sentinel-spatial-job last ran 137 days ago (threshold 7d)
+  - synexis-project-sentinel: bucket gcf-v2-sources-88284566970-us-east1 is in US-EAST1, expected us-central1
+  - synexis-project-sentinel: bucket gcf-v2-uploads-88284566970.us-east1.cloudfunctions.appspot.com is in US-EAST1, expected us-central1
+  - synexis-project-sentinel: bucket synexis-project-sentinel_cloudbuild is in US, expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo gcr.io is in gcr.io (? MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo cloud-run-source-deploy is in cloud-run-source-deploy (? MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo hac-stratified-analysis is in hac-stratified-analysis (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo agent-astro is in agent-astro (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo agent-climate is in agent-climate (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo agent-dreams is in agent-dreams (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo agent-rv is in agent-rv (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo agent-seismic is in agent-seismic (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo agent-space is in agent-space (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo cloud-run-source-deploy is in cloud-run-source-deploy (? MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo gcf-artifacts is in gcf-artifacts (? MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo sentinel-core is in sentinel-core (? MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo tools is in tools (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo ui is in ui (0 MB), expected us-central1
+  - synexis-project-sentinel: Artifact Registry repo cloud-run-source-deploy is in cloud-run-source-deploy (? MB), expected us-central1
+  - synexis-sfo: job sfo-ingest-atmospheric-electrical latest execution failed (0 succeeded)
+  - synexis-sfo: 4 ENABLED scheduler(s) in us-central1 — confirm their target jobs are succeeding
+  - synexis-sfo: bucket synexis-sfo_cloudbuild is in US, expected us-central1
+  - synexis-sfo: Artifact Registry repo cloud-run-source-deploy is in cloud-run-source-deploy (? MB), expected us-central1
+
+=== END AUDIT 2026-09-06T21:41:00Z ===

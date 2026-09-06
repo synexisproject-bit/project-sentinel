@@ -1,0 +1,547 @@
+===============================
+ SENTINEL GCP RESOURCE AUDIT
+ Sun Sep  6 08:38:14 PM UTC 2026
+===============================
+
+=== COMPUTE VMs ===
+Listed 0 items.
+
+=== PERSISTENT DISKS ===
+Listed 0 items.
+
+=== CLOUD SQL INSTANCES ===
+Listed 0 items.
+
+=== CLOUD RUN SERVICES ===
+✔
+SERVICE: build-hypotheses-runner
+REGION: us-east1
+URL: https://build-hypotheses-runner-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-23T03:59:56.245946Z
+
+✔
+SERVICE: dream-intake
+REGION: us-east4
+URL: https://dream-intake-88284566970.us-east4.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-10-03T04:56:26.090146Z
+
+✔
+SERVICE: dream-subscriber-v3
+REGION: us-east4
+URL: https://dream-subscriber-v3-88284566970.us-east4.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-10-03T07:10:46.066205Z
+
+✔
+SERVICE: fusion-bq-sink
+REGION: us-east1
+URL: https://fusion-bq-sink-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T08:46:33.386657Z
+
+✔
+SERVICE: fusion-orchestrator
+REGION: us-east1
+URL: https://fusion-orchestrator-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T08:46:42.229569Z
+
+✔
+SERVICE: fusion-publisher-aoi-v1
+REGION: us-east1
+URL: https://fusion-publisher-aoi-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T08:46:26.585177Z
+
+✔
+SERVICE: geomag-agent
+REGION: us-east1
+URL: https://geomag-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-18T04:10:28.365005Z
+
+✔
+SERVICE: hac-enrich
+REGION: us-central1
+URL: https://hac-enrich-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-06-04T05:30:39.998939Z
+
+✔
+SERVICE: hac-ingest
+REGION: us-central1
+URL: https://hac-ingest-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-03-31T00:39:37.487784Z
+
+✔
+SERVICE: hac-normalize
+REGION: us-central1
+URL: https://hac-normalize-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-04-05T20:11:04.396010Z
+
+✔
+SERVICE: hac-webform
+REGION: us-central1
+URL: https://hac-webform-88284566970.us-central1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-03-31T03:04:31.907146Z
+
+✔
+SERVICE: noetic-nlp-agent
+REGION: us-east1
+URL: https://noetic-nlp-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-18T06:20:38.872500Z
+
+✔
+SERVICE: poll-astro-v2
+REGION: us-east1
+URL: https://poll-astro-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T06:24:09.858244Z
+
+✔
+SERVICE: poll-donki-v2
+REGION: us-east1
+URL: https://poll-donki-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T04:43:43.028331Z
+
+✔
+SERVICE: poll-gcp-egg-v1
+REGION: us-east1
+URL: https://poll-gcp-egg-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-01-04T05:10:54.043577Z
+
+✔
+SERVICE: poll-geomag-kp-http-v1
+REGION: us-east1
+URL: https://poll-geomag-kp-http-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-21T06:26:13.632414Z
+
+✔
+SERVICE: poll-ionospheric-v1
+REGION: us-east1
+URL: https://poll-ionospheric-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T04:58:43.368988Z
+
+✔
+SERVICE: poll-noaa-flood-trigger-v1
+REGION: us-east1
+URL: https://poll-noaa-flood-trigger-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-24T18:13:51.832419Z
+
+✔
+SERVICE: poll-noaa-tsunami-cap-v2
+REGION: us-east1
+URL: https://poll-noaa-tsunami-cap-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-20T07:03:55.883721Z
+
+✔
+SERVICE: poll-nws-cap-v3
+REGION: us-east1
+URL: https://poll-nws-cap-v3-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T06:02:50.645183Z
+
+✔
+SERVICE: poll-solarwind-v2
+REGION: us-east1
+URL: https://poll-solarwind-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T07:42:37.264195Z
+
+✔
+SERVICE: poll-swpc-alerts-v2
+REGION: us-east1
+URL: https://poll-swpc-alerts-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T23:16:53.923084Z
+
+✔
+SERVICE: poll-swpc-solar-v1
+REGION: us-east1
+URL: https://poll-swpc-solar-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-22T04:56:17.333475Z
+
+✔
+SERVICE: poll-usgs-eq-v1
+REGION: us-east1
+URL: https://poll-usgs-eq-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: service-88284566970@gcf-admin-robot.iam.gserviceaccount.com
+LAST DEPLOYED AT: 2025-10-22T02:21:20.199252Z
+
+✔
+SERVICE: poll-usgs-quakes-v3
+REGION: us-east1
+URL: https://poll-usgs-quakes-v3-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-12-29T13:46:27.231888Z
+
+✔
+SERVICE: poll-usgs-vhp-v1
+REGION: us-east1
+URL: https://poll-usgs-vhp-v1-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-23T04:41:31.521894Z
+
+✔
+SERVICE: poll-usgs-volcano-cap-v2
+REGION: us-east1
+URL: https://poll-usgs-volcano-cap-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T23:19:51.083487Z
+
+✔
+SERVICE: poll-usgs-water-iv-v2
+REGION: us-east1
+URL: https://poll-usgs-water-iv-v2-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2026-02-22T23:37:55.820830Z
+
+✔
+SERVICE: seismic-agent
+REGION: us-east1
+URL: https://seismic-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-26T04:20:36.208981Z
+
+✔
+SERVICE: sentinel-api
+REGION: us-east1
+URL: https://sentinel-api-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-14T23:01:54.949472Z
+
+✔
+SERVICE: solar-agent
+REGION: us-east1
+URL: https://solar-agent-88284566970.us-east1.run.app
+LAST DEPLOYED BY: synexisproject@gmail.com
+LAST DEPLOYED AT: 2025-09-18T05:24:17.997098Z
+
+=== CLOUD SCHEDULER JOBS ===
+ID: poll_gcp_egg_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_nws_cap_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_noaa_tsunami_cap_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: build_hypotheses_runner-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll-solarwind-v1
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_usgs_water_iv_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_geomag_indices_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_swpc_alerts_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll-geomag-kp-v1
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: fusion-publisher-aoi-v1
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_usgs_volcano_cap_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll-usgs-quakes-v3-minutely
+LOCATION: us-east1
+SCHEDULE (TZ): * * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll-nws-cap-v1-minutely
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_noaa_tsunami_cap_v2-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_usgs_vhp_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_swpc_solar_v1-5min
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll-usgs-quakes-v3
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll_usgs_volcano_cap_v1-6h
+LOCATION: us-east1
+SCHEDULE (TZ): 0 */6 * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll-astro-daily-v1-daily
+LOCATION: us-east1
+SCHEDULE (TZ): 5 0 * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+ID: poll-donki-v1
+LOCATION: us-east1
+SCHEDULE (TZ): */5 * * * * (Etc/UTC)
+TARGET_TYPE: HTTP
+STATE: PAUSED
+
+=== ARTIFACT REGISTRY ===
+Listing items under project synexis-project-sentinel, across all locations.
+
+ARTIFACT_REGISTRY
+
+REPOSITORY: gcr.io
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: 
+LOCATION: us
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2026-03-29T04:39:46
+UPDATE_TIME: 2026-06-04T05:21:44
+SIZE (MB): 488.071
+
+REPOSITORY: cloud-run-source-deploy
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Cloud Run Source Deployments
+LOCATION: us-central1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2026-03-31T00:38:47
+UPDATE_TIME: 2026-04-22T15:24:24
+SIZE (MB): 1002.353
+
+REPOSITORY: hac-stratified-analysis
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: 
+LOCATION: us-central1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2026-04-23T20:10:28
+UPDATE_TIME: 2026-04-23T20:10:28
+SIZE (MB): 0
+
+REPOSITORY: agent-astro
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Astrology Agent
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:31
+UPDATE_TIME: 2025-09-14T05:13:31
+SIZE (MB): 0
+
+REPOSITORY: agent-climate
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Climate/Ocean Agent
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:40
+UPDATE_TIME: 2025-09-14T05:13:40
+SIZE (MB): 0
+
+REPOSITORY: agent-dreams
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Dream Interpreter Agent
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:10
+UPDATE_TIME: 2025-09-14T05:13:10
+SIZE (MB): 0
+
+REPOSITORY: agent-rv
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Remote Viewing Agent
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:44
+UPDATE_TIME: 2025-09-14T05:13:44
+SIZE (MB): 0
+
+REPOSITORY: agent-seismic
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Seismic Agent
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:24
+UPDATE_TIME: 2025-09-14T05:13:24
+SIZE (MB): 0
+
+REPOSITORY: agent-space
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Space Weather Agent
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:36
+UPDATE_TIME: 2025-09-14T05:13:36
+SIZE (MB): 0
+
+REPOSITORY: cloud-run-source-deploy
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Cloud Run Source Deployments
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-10-31T02:48:20
+UPDATE_TIME: 2026-02-24T18:13:28
+SIZE (MB): 5167.519
+
+REPOSITORY: gcf-artifacts
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: This repository is created and used by Cloud Functions for storing function docker images.
+LOCATION: us-east1
+LABELS: goog-managed-by=cloudfunctions
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-10-15T05:11:38
+UPDATE_TIME: 2026-01-06T07:58:29
+SIZE (MB): 3321.831
+
+REPOSITORY: sentinel-core
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Fusion Core API
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:03
+UPDATE_TIME: 2025-09-27T23:20:45
+SIZE (MB): 857.156
+
+REPOSITORY: tools
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Utility Jobs
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:53
+UPDATE_TIME: 2025-09-14T05:13:53
+SIZE (MB): 0
+
+REPOSITORY: ui
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Analyst UI
+LOCATION: us-east1
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-14T05:13:49
+UPDATE_TIME: 2025-09-14T05:13:49
+SIZE (MB): 0
+
+REPOSITORY: cloud-run-source-deploy
+FORMAT: DOCKER
+MODE: STANDARD_REPOSITORY
+DESCRIPTION: Cloud Run Source Deployments
+LOCATION: us-east4
+LABELS: 
+ENCRYPTION: Google-managed key
+CREATE_TIME: 2025-09-30T05:50:44
+UPDATE_TIME: 2025-10-03T07:10:28
+SIZE (MB): 748.665
+
+=== BIGQUERY DATASETS ===
+            datasetId            
+ ------------------------------- 
+  hac_intake_central1            
+  sentinel_analysis_central1     
+  sentinel_cur_central1          
+  sentinel_derived_central1      
+  sentinel_eval_central1         
+  sentinel_features_central1     
+  sentinel_geocoding_central1    
+  sentinel_groundtruth_central1  
+  sentinel_mart_central1         
+  sentinel_raw_central1          
+  sentinel_staging_central1      
+  synexis_dreams_central1        
+
+===============================
+ Audit complete. Review above
+ for any unexpected resources.
+===============================
+--- Critical BQ Tables ---
+MISSING: sentinel_analysis.hac_features_daily
+MISSING: sentinel_analysis.epoch_results_pathB
+MISSING: sentinel_analysis.precog_match_candidates
