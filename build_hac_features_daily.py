@@ -28,9 +28,9 @@ from google.cloud import bigquery
 PROJECT_ID   = "synexis-project-sentinel"
 NORMALIZED   = f"{PROJECT_ID}.hac_intake.hac_normalized"
 ENRICHMENT   = f"{PROJECT_ID}.hac_intake.hac_enrichment"
-FAULT_SYSTEMS = f"{PROJECT_ID}.sentinel_features.fault_systems"
-H1_LABELS    = f"{PROJECT_ID}.sentinel_features.h1_labels"
-OUTPUT_TABLE = f"{PROJECT_ID}.sentinel_features.hac_features_daily"
+FAULT_SYSTEMS = f"{PROJECT_ID}.sentinel_features_central1.fault_systems"
+H1_LABELS    = f"{PROJECT_ID}.sentinel_features_central1.h1_labels"
+OUTPUT_TABLE = f"{PROJECT_ID}.sentinel_features_central1.hac_features_daily"
 
 REBUILD = "--rebuild" in sys.argv
 

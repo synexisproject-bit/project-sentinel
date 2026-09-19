@@ -11,7 +11,7 @@ GitHub: github.com/synexisproject-bit/project-sentinel
 
 Analysis design:
   - Anchors on M6+ events in sentinel_groundtruth.master_earthquakes
-  - Signal: hac_count_zscore from sentinel_features.hac_features_daily
+  - Signal: hac_count_zscore from sentinel_features_central1.hac_features_daily
   - Fault zones: cascadia, central_chile, japan_trench,
                  north_anatolian, sumatra_andaman + global
   - Primary windows: 3d, 5d, 7d pre-event
@@ -38,12 +38,12 @@ import numpy as np
 from google.cloud import bigquery
 
 PROJECT      = "synexis-project-sentinel"
-EQ_TABLE     = f"{PROJECT}.sentinel_groundtruth.master_earthquakes_declustered"
-HAC_TABLE    = f"{PROJECT}.sentinel_features.hac_features_daily"
-FAULT_TABLE  = f"{PROJECT}.sentinel_features.fault_systems"
-OUTPUT_TABLE = f"{PROJECT}.sentinel_analysis.hac_epoch_zscores_declustered"
+EQ_TABLE     = f"{PROJECT}.sentinel_groundtruth_central1.master_earthquakes"
+HAC_TABLE    = f"{PROJECT}.sentinel_features_central1.hac_features_daily"
+FAULT_TABLE  = f"{PROJECT}.sentinel_features_central1.fault_systems"
+OUTPUT_TABLE = f"{PROJECT}.sentinel_analysis_central1.hac_epoch_zscores"
 
-WINDOW       = 20     # ±20 days — extended for H5-Cascade-3
+WINDOW       = 7     # ±7 days
 PRIMARY_WINDOWS = [3, 5, 7]
 SECONDARY_WINDOWS = [14, 30]
 
@@ -71,10 +71,9 @@ def load_events(mag_threshold, fault_zones, fault_filter=None):
     """
     log(f"Loading M{mag_threshold}+ events...")
     query = f"""
-    SELECT id as event_id, DATE(time) AS event_date, latitude, longitude, magnitude, NULL as tsunami
+    SELECT event_id, DATE(time) AS event_date, latitude, longitude, magnitude, tsunami
     FROM `{EQ_TABLE}`
     WHERE magnitude >= @mag
-      AND is_mainshock = TRUE
       AND DATE(time) BETWEEN '2010-01-01' AND '2026-12-31'
     ORDER BY time
     """
