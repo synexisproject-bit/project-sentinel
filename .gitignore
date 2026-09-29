@@ -15,3 +15,6 @@ docs/node_modules/
 
 # Milestone audit artifacts are tracked
 !audits/*.log
+
+# Station roster is a research artifact, tracked
+!data/*.csv
