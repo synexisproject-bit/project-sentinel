@@ -279,7 +279,8 @@ def main():
     groups = [
         ("Sakishima / Yaeyama", 122.0, 126.0, 23.0, 26.0),
         ("Okinawa / Amami", 126.0, 130.0, 25.5, 29.0),
-        ("Daito Islands", 130.0, 132.5, 24.5, 27.5),
+        ("Amami / Tokara", 129.9, 130.6, 26.8, 27.6),
+        ("Daito Islands", 130.8, 131.6, 25.4, 26.3),
         ("Izu-Ogasawara / Bonin", 139.0, 143.5, 23.0, 29.0),
         ("Minamitorishima", 152.0, 156.0, 23.0, 26.0),
         ("Okinotorishima", 135.0, 137.5, 19.5, 21.5),
