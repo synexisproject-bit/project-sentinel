@@ -1,0 +1,60 @@
+{
+  "region": "CSEP-Japan testing region",
+  "region_variant_pending_confirmation": "Filename is japan.forecast.nodes. Bounds include offshore cells and the full Ryukyu arc, and cell size is 0.1 deg, which is consistent with the All Japan testing region rather than Mainland or Kanto. Confirmation requested from Dr. Tsuruoka 2026-10-15.",
+  "provenance": {
+    "source": "Dr. Hiroshi Tsuruoka, Earthquake Research Institute, University of Tokyo",
+    "source_email": "tsuru@eri.u-tokyo.ac.jp",
+    "received": "2026-10-14",
+    "received_via": "email attachment, in response to a direct request",
+    "filename_as_received": "japan.forecast.nodes",
+    "authoritative": true,
+    "reconstruction_superseded": "build_japan_region.py",
+    "midpoint_convention_basis": "pyCSEP 0.8.0 csep/core/regions.py treats the equivalent Italy and New Zealand node files as midpoints by default (use_midpoint=True, origins = points - dh/2). The Japan file shares their format and their .X5 fractional offset."
+  },
+  "file": "japan.forecast.nodes",
+  "sha256": "94f94b19a0b1eaf1db125b0570005c4724b526b0aaf38e91d7482704fe50dcf2",
+  "sha256_matches_as_received": true,
+  "n_cells": 20062,
+  "n_unique_cells": 20062,
+  "dh_deg": 0.1,
+  "coordinate_convention": "cell midpoints; origins = midpoint - dh/2",
+  "bounds_midpoints": {
+    "lon_min": 122.45,
+    "lon_max": 147.55,
+    "lat_min": 23.05,
+    "lat_max": 46.55
+  },
+  "n_distinct_lon_columns": 252,
+  "n_distinct_lat_rows": 236,
+  "n_connected_components_4": 1,
+  "component_sizes": [
+    20062
+  ],
+  "checks": [
+    {
+      "check": "SHA-256 matches the file as received",
+      "pass": true
+    },
+    {
+      "check": "No duplicate cells",
+      "pass": true
+    },
+    {
+      "check": "Longitude spacing is a uniform 0.1 deg",
+      "pass": true
+    },
+    {
+      "check": "Latitude spacing is a uniform 0.1 deg",
+      "pass": true
+    },
+    {
+      "check": "All values carry the .X5 midpoint offset",
+      "pass": true
+    },
+    {
+      "check": "Region is a single 4-connected component",
+      "pass": true
+    }
+  ],
+  "verified_utc": "2026-10-16T04:03:45.125968+00:00"
+}
