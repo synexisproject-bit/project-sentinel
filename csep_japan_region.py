@@ -30,8 +30,9 @@ which is the signature of midpoints on a 0.1 degree lattice whose cell edges
 fall on integer multiples of 0.1.
 
 The midpoint-versus-origin reading shifts every cell assignment by half a cell
-in both axes. It is confirmed by format precedent above and has additionally
-been queried with Dr. Tsuruoka directly.
+in both axes. Confirmed directly by Dr. Tsuruoka, email 2026-10-16: the
+coordinates are cell centres and origins are the values minus 0.05 degrees.
+The pyCSEP precedent above is retained as independent corroboration.
 
 USAGE
 -----
@@ -71,6 +72,14 @@ PROVENANCE = {
     "received_via": "email attachment, in response to a direct request",
     "filename_as_received": "japan.forecast.nodes",
     "authoritative": True,
+    "region_variant": "All Japan testing region",
+    "region_variant_confirmed": (
+        "Dr. Hiroshi Tsuruoka, email 2026-10-16, in reply to a direct question"
+    ),
+    "midpoint_convention_confirmed": (
+        "Dr. Hiroshi Tsuruoka, email 2026-10-16: coordinates are cell centres, "
+        "origins are the values minus 0.05 degrees"
+    ),
     "reconstruction_superseded": "build_japan_region.py",
     "midpoint_convention_basis": (
         "pyCSEP 0.8.0 csep/core/regions.py treats the equivalent Italy and New "
@@ -329,11 +338,18 @@ def main():
         os.makedirs("data", exist_ok=True)
         manifest = {
             "region": "CSEP-Japan testing region",
-            "region_variant_pending_confirmation": (
-                "Filename is japan.forecast.nodes. Bounds include offshore cells "
-                "and the full Ryukyu arc, and cell size is 0.1 deg, which is "
-                "consistent with the All Japan testing region rather than Mainland "
-                "or Kanto. Confirmation requested from Dr. Tsuruoka 2026-10-15."
+            "region_variant": "All Japan testing region",
+            "region_variant_basis": (
+                "Confirmed by Dr. Hiroshi Tsuruoka (Earthquake Research Institute, "
+                "University of Tokyo) by email 2026-10-16, in reply to a direct "
+                "question. Independently consistent with the file itself: 0.1 deg "
+                "cells, offshore coverage and the full Ryukyu arc together "
+                "distinguish All Japan from the Mainland and Kanto regions."
+            ),
+            "coordinate_convention_basis": (
+                "Confirmed by Dr. Tsuruoka, email 2026-10-16. Corroborated by "
+                "pyCSEP 0.8.0, which applies the same midpoint convention to the "
+                "equivalent Italy and New Zealand node files."
             ),
             "provenance": PROVENANCE,
             "file": os.path.basename(args.nodes),

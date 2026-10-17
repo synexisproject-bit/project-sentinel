@@ -1,6 +1,8 @@
 {
   "region": "CSEP-Japan testing region",
-  "region_variant_pending_confirmation": "Filename is japan.forecast.nodes. Bounds include offshore cells and the full Ryukyu arc, and cell size is 0.1 deg, which is consistent with the All Japan testing region rather than Mainland or Kanto. Confirmation requested from Dr. Tsuruoka 2026-10-15.",
+  "region_variant": "All Japan testing region",
+  "region_variant_basis": "Confirmed by Dr. Hiroshi Tsuruoka (Earthquake Research Institute, University of Tokyo) by email 2026-10-16, in reply to a direct question. Independently consistent with the file itself: 0.1 deg cells, offshore coverage and the full Ryukyu arc together distinguish All Japan from the Mainland and Kanto regions.",
+  "coordinate_convention_basis": "Confirmed by Dr. Tsuruoka, email 2026-10-16. Corroborated by pyCSEP 0.8.0, which applies the same midpoint convention to the equivalent Italy and New Zealand node files.",
   "provenance": {
     "source": "Dr. Hiroshi Tsuruoka, Earthquake Research Institute, University of Tokyo",
     "source_email": "tsuru@eri.u-tokyo.ac.jp",
@@ -8,6 +10,9 @@
     "received_via": "email attachment, in response to a direct request",
     "filename_as_received": "japan.forecast.nodes",
     "authoritative": true,
+    "region_variant": "All Japan testing region",
+    "region_variant_confirmed": "Dr. Hiroshi Tsuruoka, email 2026-10-16, in reply to a direct question",
+    "midpoint_convention_confirmed": "Dr. Hiroshi Tsuruoka, email 2026-10-16: coordinates are cell centres, origins are the values minus 0.05 degrees",
     "reconstruction_superseded": "build_japan_region.py",
     "midpoint_convention_basis": "pyCSEP 0.8.0 csep/core/regions.py treats the equivalent Italy and New Zealand node files as midpoints by default (use_midpoint=True, origins = points - dh/2). The Japan file shares their format and their .X5 fractional offset."
   },
@@ -56,5 +61,5 @@
       "pass": true
     }
   ],
-  "verified_utc": "2026-10-16T04:07:49.162713+00:00"
+  "verified_utc": "2026-10-17T04:42:38.710168+00:00"
 }
