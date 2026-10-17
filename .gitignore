@@ -18,3 +18,4 @@ docs/node_modules/
 
 # Station roster is a research artifact, tracked
 !data/*.csv
+ne_10m/
