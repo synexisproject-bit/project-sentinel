@@ -31,6 +31,13 @@
 #               schedule firing into a failing job is the failure mode
 #               that went unseen for two months.
 
+#   2026-10-17  Cost section rewritten. Reports gross, credits and net
+#               separately, since the status document records net and
+#               the previous query reported gross. Added a top-SKU
+#               breakdown so GEONET archive storage is visible as its
+#               own line. Billing export table compiled in as a default.
+#               Stopped discarding stderr on query failure.
+
 set -uo pipefail
 
 EXPECTED_LOCATION="us-central1"
@@ -43,7 +50,13 @@ if [ ${#PROJECTS[@]} -eq 0 ]; then
 fi
 
 declare -A CRITICAL_TABLES
-CRITICAL_TABLES[synexis-project-sentinel]="sentinel_analysis_central1.hac_features_daily sentinel_analysis_central1.epoch_results_pathB sentinel_analysis_central1.precog_match_candidates"
+# Three tables share the name hac_features_daily across three datasets.
+# The canonical H5 table is in sentinel_features_central1: one row per
+# fault zone per day, ~37k rows, built by build_hac_features_daily.py.
+# This audit previously registered the sentinel_analysis_central1 table,
+# which is per-submission wide format and is NOT what H5 depends on, so
+# it reported OK against a table the analysis does not use.
+CRITICAL_TABLES[synexis-project-sentinel]="sentinel_features_central1.hac_features_daily sentinel_analysis_central1.epoch_results_pathB sentinel_analysis_central1.precog_match_candidates"
 CRITICAL_TABLES[synexis-sfo]=""
 
 FINDINGS=()
@@ -275,23 +288,77 @@ except Exception:
 
 done
 
-# -----------------------------------------------------------------
 head1 "MONTH-TO-DATE COST"
-if [ -n "${BILLING_EXPORT_TABLE:-}" ]; then
-  bq query --nouse_legacy_sql --format=pretty "
-    SELECT project.id AS project,
-           ROUND(SUM(cost), 2) AS usage_cost_usd
+
+# Detailed resource-level billing export. Override by exporting
+# BILLING_EXPORT_TABLE before running.
+BILLING_EXPORT_TABLE="${BILLING_EXPORT_TABLE:-synexis-project-sentinel.billing_export.gcp_billing_export_resource_v1_0162C4_FBB0D6_60AA7B}"
+
+if [ -n "$BILLING_EXPORT_TABLE" ]; then
+  echo "  Source: $BILLING_EXPORT_TABLE"
+  echo ""
+
+  # Credits are stored as negative amounts, so net = gross + credits.
+  # Every figure in INFRASTRUCTURE_STATUS is net. Both are shown so the
+  # number can be reconciled against the console either way.
+  COST_SQL="
+    SELECT
+      project.id AS project,
+      ROUND(SUM(cost), 2) AS gross_usd,
+      ROUND(SUM(IFNULL((SELECT SUM(c.amount) FROM UNNEST(credits) c), 0)), 2)
+        AS credits_usd,
+      ROUND(SUM(cost)
+            + SUM(IFNULL((SELECT SUM(c.amount) FROM UNNEST(credits) c), 0)), 2)
+        AS net_usd
     FROM \`${BILLING_EXPORT_TABLE}\`
     WHERE DATE(usage_start_time) >= DATE_TRUNC(CURRENT_DATE(), MONTH)
     GROUP BY project
-    ORDER BY usage_cost_usd DESC
-  " 2>/dev/null || echo "  Query failed. Verify BILLING_EXPORT_TABLE."
+    ORDER BY net_usd DESC
+  "
+
+  if ! COST_OUT=$(bq query --nouse_legacy_sql --format=pretty "$COST_SQL" 2>&1); then
+    echo "  Cost query failed:"
+    echo "$COST_OUT" | sed 's/^/    /'
+    note "billing export query failed; cost not verified this run"
+  else
+    echo "$COST_OUT" | sed 's/^/  /'
+  fi
+
+  echo ""
+  head2 "Top SKUs month to date (net)"
+
+  # Detailed export was chosen so GEONET archive storage is visible as its
+  # own SKU rather than folded into a Cloud Storage total. This reads it.
+  SKU_SQL="
+    SELECT
+      project.id AS project,
+      service.description AS service,
+      sku.description AS sku,
+      ROUND(SUM(cost)
+            + SUM(IFNULL((SELECT SUM(c.amount) FROM UNNEST(credits) c), 0)), 2)
+        AS net_usd
+    FROM \`${BILLING_EXPORT_TABLE}\`
+    WHERE DATE(usage_start_time) >= DATE_TRUNC(CURRENT_DATE(), MONTH)
+    GROUP BY project, service, sku
+    HAVING net_usd > 0
+    ORDER BY net_usd DESC
+    LIMIT 10
+  "
+
+  if ! SKU_OUT=$(bq query --nouse_legacy_sql --format=pretty "$SKU_SQL" 2>&1); then
+    echo "  SKU query failed:"
+    echo "$SKU_OUT" | sed 's/^/    /'
+  else
+    echo "$SKU_OUT" | sed 's/^/  /'
+  fi
+
+  echo ""
+  echo "  Note: the export captures forward only from 2026-09-25 and does"
+  echo "  not backfill. Months before that are incomplete by construction."
 else
-  echo "  BILLING_EXPORT_TABLE not set."
+  echo "  BILLING_EXPORT_TABLE not set and no default compiled in."
   echo "  Read MTD cost from the console: Billing > Reports,"
   echo "  Group by = Project, Time range = Current month."
-  echo "  To automate, enable Billing > Billing export > BigQuery export,"
-  echo "  then export BILLING_EXPORT_TABLE=project.dataset.table"
 fi
 
 # -----------------------------------------------------------------
