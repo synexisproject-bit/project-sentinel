@@ -19,3 +19,5 @@ docs/node_modules/
 # Station roster is a research artifact, tracked
 !data/*.csv
 ne_10m/
+data/jma_catalog/*.zip
+data/jma_catalog/h[0-9][0-9][0-9][0-9]
