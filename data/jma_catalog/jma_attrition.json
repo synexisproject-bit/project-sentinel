@@ -1,0 +1,130 @@
+{
+  "script": "build_jma_catalog.py",
+  "script_version": "1.0.0",
+  "generated_utc": "2026-11-13T22:44:50.499891+00:00",
+  "preregistration": {
+    "addendum_commit": "3b4f784",
+    "addendum_sha256": "5251152d5d4cec398e7e6113c9e6ec06c87fedf7ed20fe5e10780c83e0f46d12",
+    "registration_doi": "10.17605/OSF.IO/H5MD2"
+  },
+  "raw_records": 2161892,
+  "parse_failures": 0,
+  "parse_failure_reasons": {},
+  "rules": [
+    {
+      "rule": 1,
+      "name": "Time zone",
+      "text": "JMA hypocenter times are Japan Standard Time, UTC+9. All origin times converted to UTC before any other step.",
+      "removed": 0,
+      "surviving_after": 2161892
+    },
+    {
+      "rule": 2,
+      "name": "Coordinates",
+      "text": "Latitude and longitude are recorded as integer degrees plus decimal minutes, not decimal degrees. Converted before any spatial test.",
+      "removed": 0,
+      "surviving_after": 2161892
+    },
+    {
+      "rule": 3,
+      "name": "Window",
+      "text": "Origin time within 2016-01-01T00:00:00Z to 2023-12-31T23:59:59Z.",
+      "removed": 153,
+      "surviving_after": 2161739
+    },
+    {
+      "rule": 4,
+      "name": "Region",
+      "text": "Epicentre falls inside a cell of the adopted CSEP-Japan All Japan region, 20,062 cells at 0.1 degree, using cell origins obtained as midpoint minus 0.05 degrees.",
+      "removed": 32481,
+      "surviving_after": 2129258
+    },
+    {
+      "rule": 5,
+      "name": "Depth",
+      "text": "Depth less than or equal to 100 km, per the published All Japan region definition.",
+      "removed": 49241,
+      "surviving_after": 2080017
+    },
+    {
+      "rule": 6,
+      "name": "Event type",
+      "text": "Subsidiary information code (column 61) equal to 1, natural earthquake. Excludes artificial events (3), eruption earthquakes and others (4), and low-frequency earthquakes (5).",
+      "removed": 119247,
+      "surviving_after": 1960770
+    },
+    {
+      "rule": 7,
+      "name": "Solution quality",
+      "text": "Hypocenter determination flag (column 96) not N and not F. Location precision (column 60) not 8.",
+      "removed": 0,
+      "surviving_after": 1960770
+    },
+    {
+      "rule": 8,
+      "name": "Magnitude scale",
+      "text": "JMA magnitude per section 3. First magnitude if its type is V, v, D or d; otherwise the second if its type is one of those four; otherwise exclude.",
+      "removed": 47709,
+      "surviving_after": 1913061
+    },
+    {
+      "rule": 9,
+      "name": "Threshold",
+      "text": "M >= 4.0, with the 0.1 bin convention of section 3 (the M = 4.0 bin covers 3.95 <= M < 4.05).",
+      "removed": 1908619,
+      "surviving_after": 4442
+    }
+  ],
+  "target_events": 4442,
+  "registered_rule_watch": {
+    "W1_excluded_with_J_magnitude_only": 0,
+    "W1_examples": [],
+    "W2_non_J_record_types_surviving": {},
+    "W3_depth_missing": 0
+  },
+  "diagnostics": {
+    "rule5_depth_exceeded": 49241,
+    "rule6_subsidiary_code_counts": {
+      "5": 119213,
+      "1": 1960770,
+      "4": 34
+    },
+    "rule7_determination_flag_counts": {
+      "K": 254382,
+      "S": 1429,
+      "A": 1203989,
+      "s": 39868,
+      "k": 358640,
+      "a": 102462
+    },
+    "rule7_location_precision_counts": {
+      "2": 138164,
+      "1": 1822467,
+      "7": 127,
+      "3": 12
+    },
+    "rule8_mag_type_pairs_excluded": {
+      "_/_": 47709
+    },
+    "selected_mag_type_counts": {
+      "V": 878,
+      "D": 3557,
+      "v": 7
+    },
+    "depth_method_counts": {
+      "free": 1983940,
+      "slice": 177952
+    },
+    "target_location_precision": {
+      "1": 3759,
+      "2": 683
+    },
+    "target_determination_flag": {
+      "K": 4438,
+      "S": 4
+    },
+    "target_record_type": {
+      "J": 4442
+    }
+  }
+}
