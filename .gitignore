@@ -21,3 +21,6 @@ docs/node_modules/
 ne_10m/
 data/jma_catalog/*.zip
 data/jma_catalog/h[0-9][0-9][0-9][0-9]
+
+# D8 target catalog and its attrition record are research artifacts, tracked
+!data/jma_catalog/*.csv
