@@ -44,9 +44,13 @@ EXPECTED_LOCATION="us-central1"
 SCHEDULER_REGIONS=(us-central1 us-east1 us-east4)
 STALE_DAYS=7
 
+# AUDIT_PATCH_FOUR_DEFECTS
+# synexis-foremark was absent from this list while appearing in the cost
+# section, which queries the billing export across all projects. Its
+# spend was visible and its infrastructure was never checked.
 PROJECTS=("$@")
 if [ ${#PROJECTS[@]} -eq 0 ]; then
-  PROJECTS=(synexis-project-sentinel synexis-sfo)
+  PROJECTS=(synexis-project-sentinel synexis-sfo synexis-foremark)
 fi
 
 declare -A CRITICAL_TABLES
@@ -58,6 +62,7 @@ declare -A CRITICAL_TABLES
 # it reported OK against a table the analysis does not use.
 CRITICAL_TABLES[synexis-project-sentinel]="sentinel_features_central1.hac_features_daily sentinel_analysis_central1.epoch_results_pathB sentinel_analysis_central1.precog_match_candidates"
 CRITICAL_TABLES[synexis-sfo]=""
+CRITICAL_TABLES[synexis-foremark]=""
 
 FINDINGS=()
 
@@ -88,9 +93,19 @@ for P in "${PROJECTS[@]}"; do
     --format="table(name,zone,machineType.basename(),status)" 2>/dev/null \
     || echo "  (unable to list)"
 
-  VM_COUNT=$(gcloud compute instances list --project="$P" \
+  # A TERMINATED instance is not an idle cost risk, and reporting it as
+  # one trains the reader to ignore the finding. Running and stopped are
+  # counted separately. Stopped instances still hold their disks, which
+  # do cost, so they get their own quieter finding.
+  VM_RUNNING=$(gcloud compute instances list --project="$P" \
+    --filter="status=RUNNING" --format="value(name)" 2>/dev/null | wc -l)
+  VM_TOTAL=$(gcloud compute instances list --project="$P" \
     --format="value(name)" 2>/dev/null | wc -l)
-  [ "$VM_COUNT" -gt 0 ] && note "$P: $VM_COUNT compute VM(s) present — confirm each is needed"
+  VM_STOPPED=$(( VM_TOTAL - VM_RUNNING ))
+  [ "$VM_RUNNING" -gt 0 ] && \
+    note "$P: $VM_RUNNING compute VM(s) RUNNING, confirm each is needed"
+  [ "$VM_STOPPED" -gt 0 ] && \
+    note "$P: $VM_STOPPED compute VM(s) stopped, not an idle cost risk; their persistent disks are retained and still billed"
 
   # ---------------------------------------------------------------
   head2 "Persistent disks (orphan risk)"
@@ -251,23 +266,55 @@ except Exception:
   # location is parsed from path segment 4.
   head2 "Artifact Registry"
   AR_FOUND=0
-  while IFS=$'\t' read -r ARNAME ARFMT ARSIZE; do
+  # The previous version took the location from path segment 4 of the
+  # resource name. This gcloud version returns the bare repository id in
+  # `name`, and `cut -d/ -f4` on a string with no slash returns the whole
+  # string, so the location became the repository name, nothing ever
+  # equalled us-central1, and 15 of 32 findings per run were false.
+  #
+  # The location is now requested explicitly. If gcloud does not supply
+  # it and the name carries no path, the location is reported as
+  # undetermined rather than guessed. An audit that cannot tell must say
+  # so, not assert.
+  #
+  # An explicit non-whitespace separator is required. Tab is IFS
+  # whitespace, so bash collapses a run of tabs and an empty field
+  # disappears, shifting every later field left. sizeBytes is empty for
+  # several repositories here, which would silently move the location
+  # into the size column and lose it.
+  AR_RAW=$(gcloud artifacts repositories list --project="$P" \
+      --format="value[separator='|'](name,format,sizeBytes,location)" \
+      2>/dev/null)
+  if [ -z "$AR_RAW" ]; then
+    AR_RAW=$(gcloud artifacts repositories list --project="$P" \
+        --format="value[separator='|'](name,format,sizeBytes)" 2>/dev/null)
+  fi
+  while IFS='|' read -r ARNAME ARFMT ARSIZE ARLOCRAW; do
     [ -z "${ARNAME:-}" ] && continue
     AR_FOUND=1
-    ARLOC=$(echo "$ARNAME" | cut -d/ -f4 | lower)
     ARREPO=$(echo "$ARNAME" | awk -F/ '{print $NF}')
+    if [ -n "${ARLOCRAW:-}" ]; then
+      ARLOC=$(printf '%s' "$ARLOCRAW" | lower)
+    elif printf '%s' "$ARNAME" | grep -q '/locations/'; then
+      ARLOC=$(printf '%s' "$ARNAME" \
+        | sed -n 's#.*/locations/\([^/]*\)/.*#\1#p' | lower)
+    else
+      ARLOC=""
+    fi
     case "${ARSIZE:-}" in
       ''|*[!0-9]*) ARMB="?" ;;
       *)           ARMB=$(( ARSIZE / 1048576 )) ;;
     esac
-    if [ "$ARLOC" != "$EXPECTED_LOCATION" ]; then
+    if [ -z "$ARLOC" ]; then
+      printf '  %-34s %-8s %8s MB  [location undetermined]\n' "$ARREPO" "$ARFMT" "$ARMB"
+      note "$P: Artifact Registry repo $ARREPO location could not be read from this gcloud version; NOT treated as off-region"
+    elif [ "$ARLOC" != "$EXPECTED_LOCATION" ]; then
       printf '  %-34s %-8s %8s MB  [%s]  <-- OFF-REGION\n' "$ARREPO" "$ARFMT" "$ARMB" "$ARLOC"
       note "$P: Artifact Registry repo $ARREPO is in $ARLOC (${ARMB} MB), expected $EXPECTED_LOCATION"
     else
       printf '  %-34s %-8s %8s MB  [%s]\n' "$ARREPO" "$ARFMT" "$ARMB" "$ARLOC"
     fi
-  done < <(gcloud artifacts repositories list --project="$P" \
-      --format="value(name,format,sizeBytes)" 2>/dev/null)
+  done <<< "$AR_RAW"
   [ "$AR_FOUND" -eq 0 ] && echo "  (none)"
 
   # ---------------------------------------------------------------
@@ -329,20 +376,27 @@ if [ -n "$BILLING_EXPORT_TABLE" ]; then
 
   # Detailed export was chosen so GEONET archive storage is visible as its
   # own SKU rather than folded into a Cloud Storage total. This reads it.
+  # HAVING net_usd > 0 was dropping every credited SKU, because free-tier
+  # credits land as negative net. The listed SKUs summed to $12.16 against
+  # a project net of $3.90 and could not be reconciled. Gross, credits and
+  # net are now all reported, ordered by absolute net so credited rows are
+  # visible, with no HAVING filter.
   SKU_SQL="
     SELECT
       project.id AS project,
       service.description AS service,
       sku.description AS sku,
+      ROUND(SUM(cost), 2) AS gross_usd,
+      ROUND(SUM(IFNULL((SELECT SUM(c.amount) FROM UNNEST(credits) c), 0)), 2)
+        AS credits_usd,
       ROUND(SUM(cost)
             + SUM(IFNULL((SELECT SUM(c.amount) FROM UNNEST(credits) c), 0)), 2)
         AS net_usd
     FROM \`${BILLING_EXPORT_TABLE}\`
     WHERE DATE(usage_start_time) >= DATE_TRUNC(CURRENT_DATE(), MONTH)
     GROUP BY project, service, sku
-    HAVING net_usd > 0
-    ORDER BY net_usd DESC
-    LIMIT 10
+    ORDER BY ABS(net_usd) DESC
+    LIMIT 15
   "
 
   if ! SKU_OUT=$(bq query --nouse_legacy_sql --format=pretty "$SKU_SQL" 2>&1); then
@@ -350,6 +404,31 @@ if [ -n "$BILLING_EXPORT_TABLE" ]; then
     echo "$SKU_OUT" | sed 's/^/    /'
   else
     echo "$SKU_OUT" | sed 's/^/  /'
+  fi
+
+  # The table above is a top-N subset and will not sum to the project
+  # totals. This prints the all-SKU figures so the subset can be checked
+  # against them instead of being mistaken for the whole.
+  RECON_SQL="
+    SELECT
+      COUNT(*) AS sku_rows,
+      ROUND(SUM(gross), 2) AS all_sku_gross_usd,
+      ROUND(SUM(cred), 2)  AS all_sku_credits_usd,
+      ROUND(SUM(gross) + SUM(cred), 2) AS all_sku_net_usd
+    FROM (
+      SELECT
+        SUM(cost) AS gross,
+        SUM(IFNULL((SELECT SUM(c.amount) FROM UNNEST(credits) c), 0)) AS cred
+      FROM \`${BILLING_EXPORT_TABLE}\`
+      WHERE DATE(usage_start_time) >= DATE_TRUNC(CURRENT_DATE(), MONTH)
+      GROUP BY project.id, service.description, sku.description
+    )
+  "
+  if RECON_OUT=$(bq query --nouse_legacy_sql --format=pretty "$RECON_SQL" 2>&1); then
+    echo ""
+    echo "  All SKUs, month to date, for reconciliation against the "\
+         "project table above:"
+    echo "$RECON_OUT" | sed 's/^/  /'
   fi
 
   echo ""
