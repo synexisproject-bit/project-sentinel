@@ -1,0 +1,78 @@
+{
+  "artifact": "D9 sub-threshold WORKING catalog, NOT the registered target catalog",
+  "gate_item": "D9 input",
+  "is_registered_target_catalog": false,
+  "script": "build_jma_catalog.py",
+  "script_version": "1.1.0",
+  "script_sha256": "bcf3b46fe61fa42b54cc5542ec88ee715fcb62ed20f6887e375ac3b2aa954b69",
+  "generated_utc": "2026-11-14T06:59:41.476062+00:00",
+  "python": "3.12.3",
+  "preregistration": {
+    "addendum": "docs/BLOCK1_ADDENDUM_testing_class_and_threshold_2026-10-19.docx",
+    "addendum_commit": "3b4f784",
+    "addendum_sha256": "5251152d5d4cec398e7e6113c9e6ec06c87fedf7ed20fe5e10780c83e0f46d12",
+    "registration_doi": "10.17605/OSF.IO/H5MD2",
+    "registration_date": "2026-11-09",
+    "rules_applied_in_registered_order": true,
+    "declustering": "none, per the addendum, following CSEP-Japan practice"
+  },
+  "window_utc": {
+    "start": "2016-01-01T00:00:00+00:00",
+    "end": "2023-12-31T23:59:59+00:00"
+  },
+  "magnitude": {
+    "registered_threshold_nominal": 4.0,
+    "registered_inclusion_floor": 3.95,
+    "bin_width": 0.1,
+    "applied_threshold_nominal": 1.0,
+    "applied_inclusion_floor": 0.95,
+    "rule9_relaxed": true,
+    "rule9_relaxation_reason": "Magnitude of completeness cannot be estimated from a catalog truncated at the completeness threshold; the estimate requires the roll-off below it. Rules 1 through 8 are applied exactly as registered. This product is a D9 input only and is never evaluated.",
+    "accepted_type_codes": [
+      "V",
+      "v",
+      "D",
+      "d"
+    ]
+  },
+  "depth_max_km": 100.0,
+  "region": {
+    "path": "data/csep_japan/japan.forecast.nodes",
+    "sha256": "94f94b19a0b1eaf1db125b0570005c4724b526b0aaf38e91d7482704fe50dcf2",
+    "n_cells": 20062,
+    "midpoint_bounds": {
+      "lon_min": 122.45,
+      "lon_max": 147.55,
+      "lat_min": 23.05,
+      "lat_max": 46.55
+    }
+  },
+  "inputs": {
+    "h2016.zip": "2c438d8189fd9e76ac0b05c0587c7a8ee2611e6ecbf21d5a5bca7887dab360da",
+    "h2017.zip": "c7d8d83824125d593f88afe149e88dadd9964b9b0ccc7d87bde43a52025173ed",
+    "h2018.zip": "ea8eb186db3f2ede1b5013d2002fddd703e9e01e721189f94380bb0ab56794ec",
+    "h2019.zip": "24b9f28101139d9d1dbcadd4d81ce6102f6aab2260f1c2b1eff96acd2ecd5753",
+    "h2020.zip": "1579e5320be0dcb3ce505438c1fb892bfd5d9251a0cb19c105c8d5e1f8196e52",
+    "h2021.zip": "0f86c0e8cfd90997801d92949f36ce3bf9676cf7fc7cd05d41003ec00d680198",
+    "h2022.zip": "6365ef5d8454b316737287ae750188221d97dbefc849c7b1d6bca6e2dca3053b",
+    "h2023.zip": "e5ced2bf7275825ba75405b071bb54e9d4c2a5eb55aa6bc9b8d670de1f58b98f"
+  },
+  "inputs_skipped": [
+    {
+      "path": "data/jma_catalog/h2023",
+      "reason": "another source for h2023 was already selected; the archive is authoritative because the acquisition record hashes the archive"
+    }
+  ],
+  "outputs": {
+    "jma_mc_working_catalog.csv": "f48dbc7f83af685f392b45830c419982c14189f67947e7114eb95543ac05a9cd",
+    "jma_mc_working_attrition.json": "0be7e3705cc6985a1cdcd40ce834fa4e69034a474dd5ff5b05540075679766e7",
+    "jma_mc_working_attrition.md": "24eac4bd124a5d9a911ed2487b3228d074f20b487205cf5b92be4b6ae04ae9f2",
+    "jma_mc_working_excluded_sample.csv": "5135c5788faa7aab33f6c25737c524bbba14556c3d04db44aba25bb9568b55e8"
+  },
+  "counts": {
+    "raw_records": 2161892,
+    "parse_failures": 0,
+    "target_events": 798205,
+    "event_id_collisions_disambiguated": 0
+  }
+}

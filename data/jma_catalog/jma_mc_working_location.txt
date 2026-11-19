@@ -1,0 +1,47 @@
+D9 sub-threshold working catalog: storage location
+===================================================
+
+This file is NOT committed to git:
+
+    data/jma_catalog/jma_mc_working_catalog.csv
+
+It is 114,732,381 bytes, over GitHub's 100 MB per-file limit. Git LFS was
+not used, because GitHub's free LFS quota is 1 GB and LFS objects are not
+served over the anonymous clone path, which would break independent
+verification of this repository's registration ledger.
+
+Stored at:
+    gs://synexis-project-sentinel-exports-central1/d9/jma_mc_working_catalog.csv
+    uploaded   2026-11-19T03:16:43Z
+    generation 1795058203453781
+    bytes      114732381
+    sha256     f48dbc7f83af685f392b45830c419982c14189f67947e7114eb95543ac05a9cd
+    md5        e044d547b1e02e4abc550d24f29fe95c
+
+Upload integrity was verified by comparing the local md5 against the md5
+reported by Google Cloud Storage for the stored object. They match.
+
+Reproducing it without that copy
+--------------------------------
+The catalog is fully reproducible from material in this repository plus
+the raw JMA archives:
+
+    python3 build_jma_catalog.py \
+        --zips data/jma_catalog \
+        --region data/csep_japan/japan.forecast.nodes \
+        --out data/jma_catalog \
+        --working-catalog --min-magnitude 1.0
+
+  - builder:  build_jma_catalog.py v1.1.0, committed
+  - region:   data/csep_japan/japan.forecast.nodes, committed, sha256
+              94f94b19a0b1eaf1db125b0570005c4724b526b0aaf38e91d7482704fe50dcf2
+  - raw data: the eight JMA Seismological Bulletin hypocenter archives,
+              sha256 recorded at commit 0d5a9ea in sha256_raw.txt, freely
+              downloadable from JMA
+
+The regenerated file must hash to the sha256 above. The committed
+manifest, attrition report and attrition JSON record the full result and
+are sufficient to audit the filtering without the catalog itself.
+
+This follows the pattern already used for the raw JMA archives, which are
+gitignored with their hashes committed in sha256_raw.txt.

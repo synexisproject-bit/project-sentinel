@@ -24,3 +24,10 @@ data/jma_catalog/h[0-9][0-9][0-9][0-9]
 
 # D8 target catalog and its attrition record are research artifacts, tracked
 !data/jma_catalog/*.csv
+
+# The D9 sub-threshold working catalog is 109 MB, over GitHub's 100 MB
+# limit. It is not committed. It is fully reproducible from the committed
+# builder, the committed region file and the raw archives hashed at
+# 0d5a9ea, and its sha256 is recorded in jma_mc_working_manifest.json and
+# in the registration ledger. The file itself is kept in GCS.
+data/jma_catalog/jma_mc_working_catalog.csv

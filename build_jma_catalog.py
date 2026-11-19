@@ -86,6 +86,20 @@ assumed. None is silently resolved.
       counted separately as depth-missing rather than folded into the
       depth-exceeded count.
 
+MODES
+-----
+Default mode builds the registered target catalog at M >= 4.0.
+
+--working-catalog builds the D9 sub-threshold working catalog: rules 1 through 8
+applied exactly as registered, rule 9 relaxed to --min-magnitude. It exists
+because magnitude of completeness cannot be estimated from a catalog truncated
+at the completeness threshold; the estimate needs the roll-off below it. The
+working catalog is written under the jma_mc_working_ prefix, is never evaluated,
+and does not supersede or widen the registered catalog. The mode refuses a floor
+at or above the registered threshold, refuses --min-magnitude without
+--working-catalog, and verifies after writing that every registered output file
+is byte-identical to what it was before the run.
+
 OUTPUTS
 -------
   <out>/jma_target_catalog.csv        the target catalog, UTC, decimal degrees
@@ -110,6 +124,13 @@ USAGE
       --region data/csep_japan/japan.forecast.nodes \
       --out data/jma_catalog
 
+  # Build the D9 sub-threshold working catalog (never the evaluation set)
+  python3 build_jma_catalog.py \
+      --zips data/jma_catalog \
+      --region data/csep_japan/japan.forecast.nodes \
+      --out data/jma_catalog \
+      --working-catalog --min-magnitude 1.0
+
 Run --selftest and --verify-format before the first production run. The column
 map below is taken from JMA's published hypocenter format description. Asserting
 a fixed-width layout without checking it against the actual bytes is the single
@@ -133,7 +154,7 @@ import sys
 import zipfile
 from collections import Counter, OrderedDict
 
-SCRIPT_VERSION = "1.0.0"
+SCRIPT_VERSION = "1.1.0"
 
 # ---------------------------------------------------------------------------
 # Pre-registration anchors. Verified, not asserted: --selftest checks the
@@ -602,7 +623,8 @@ class Attrition:
             })
 
 
-def apply_rules(rec: dict, cells: set, att: Attrition):
+def apply_rules(rec: dict, cells: set, att: Attrition,
+                mag_floor: float = MAG_INCLUSION_FLOOR):
     """
     Apply registered rules 3 through 9 in order. Rules 1 and 2 were applied in
     parse_record. Returns (keep, magnitude, mag_type).
@@ -610,6 +632,12 @@ def apply_rules(rec: dict, cells: set, att: Attrition):
     Each rule is applied exactly as registered. Where a rule cannot be
     satisfied because the data does not carry what the rule needs, the event is
     excluded under that rule and the case is counted under the rule watch.
+
+    mag_floor exists solely for the D9 working catalog, where rule 9 is
+    deliberately relaxed because magnitude of completeness cannot be estimated
+    from a catalog truncated at the completeness threshold. It defaults to the
+    registered floor, so the target catalog path is unaffected. Rules 1 through
+    8 are identical in both modes.
     """
     att.detail["depth_method_counts"][rec["depth_method"]] += 1
 
@@ -670,8 +698,8 @@ def apply_rules(rec: dict, cells: set, att: Attrition):
         return False, None, None
 
     # RULE 9. Threshold, with the registered bin convention.
-    if mag < MAG_INCLUSION_FLOOR:
-        att.drop(9, rec, f"M {mag:.1f} below the M4.0 bin floor {MAG_INCLUSION_FLOOR}")
+    if mag < mag_floor:
+        att.drop(9, rec, f"M {mag:.1f} below the bin floor {mag_floor}")
         return False, None, None
 
     att.detail["selected_mag_type_counts"][mtype] += 1
@@ -773,9 +801,26 @@ def collect_inputs(spec: str):
 # Reporting
 # ---------------------------------------------------------------------------
 
-def write_attrition_markdown(path, att, n_kept, inputs, region_info):
+def write_attrition_markdown(path, att, n_kept, inputs, region_info,
+                             working=None):
     lines = []
-    lines.append("# JMA catalog attrition\n")
+    if working:
+        lines.append("# JMA sub-threshold WORKING catalog attrition\n")
+        lines.append("> **This is not the registered target catalog.**\n>\n"
+                     f"> Rule 9 is deliberately relaxed to M >= {working['nominal']} "
+                     f"(inclusion floor {working['floor']}), against the registered "
+                     f"threshold of M >= {MAG_THRESHOLD_NOMINAL}. Rules 1 through 8 "
+                     "are applied exactly as registered and are identical to the "
+                     "target catalog.\n>\n"
+                     "> It exists because magnitude of completeness cannot be "
+                     "estimated from a catalog truncated at the completeness "
+                     "threshold: the estimate needs the roll-off below it. This "
+                     "product is an input to D9 only. It is never evaluated, never "
+                     "used as the target set, and does not supersede or widen the "
+                     "registered catalog, which remains "
+                     "`jma_target_catalog.csv` at M >= 4.0.\n")
+    else:
+        lines.append("# JMA catalog attrition\n")
     lines.append(f"Generated by `build_jma_catalog.py` v{SCRIPT_VERSION}.\n")
     lines.append(f"Rules pre-registered in the Block 1 Addendum (commit "
                  f"`{ADDENDUM_COMMIT}`) and at DOI {REGISTRATION_DOI}.\n")
@@ -792,7 +837,8 @@ def write_attrition_markdown(path, att, n_kept, inputs, region_info):
                      f"{att.surviving_after.get(r, 0):,} |")
     lines.append(f"\n**Raw records read:** {att.n_records:,}")
     lines.append(f"**Records that would not parse:** {att.n_parse_failed:,}")
-    lines.append(f"**Target events:** {n_kept:,}\n")
+    lines.append(f"**{'Working' if working else 'Target'} events:** "
+                 f"{n_kept:,}\n")
 
     lines.append("\n## Registered rule watch\n")
     lines.append("Cases the nine rules do not cover. Applied literally and counted, "
@@ -1111,7 +1157,49 @@ def build(args) -> int:
         return 3
     print(f"  SHA-256 matches the registration, {len(cells):,} cells")
 
+    # Mode. The default path builds the registered target catalog. The working
+    # path relaxes rule 9 for D9 and writes under distinct names so the two can
+    # never be confused, and so a working build cannot overwrite the registered
+    # catalog even by accident.
+    working = None
+    prefix = "jma_"
+    mag_floor = MAG_INCLUSION_FLOOR
+    if args.working_catalog:
+        nominal = args.min_magnitude
+        if nominal >= MAG_THRESHOLD_NOMINAL:
+            print(f"--min-magnitude {nominal} is not below the registered "
+                  f"threshold {MAG_THRESHOLD_NOMINAL}, so a working catalog would "
+                  f"serve no purpose. Use the default mode for the target "
+                  f"catalog.", file=sys.stderr)
+            return 4
+        if nominal < -3.0:
+            print(f"--min-magnitude {nominal} is below the JMA magnitude "
+                  f"encoding floor of -3.9.", file=sys.stderr)
+            return 4
+        mag_floor = nominal - MAG_BIN_WIDTH / 2.0
+        prefix = "jma_mc_working_"
+        working = {"nominal": nominal, "floor": round(mag_floor, 4)}
+        print(f"\nWORKING CATALOG MODE")
+        print(f"  Rule 9 relaxed to M >= {nominal}, inclusion floor "
+              f"{mag_floor:.2f}.")
+        print(f"  Rules 1 through 8 are applied exactly as registered.")
+        print(f"  Output prefix: {prefix}")
+        print(f"  This is a D9 input. It is not the target catalog and is never")
+        print(f"  evaluated. The registered catalog stays at "
+              f"jma_target_catalog.csv.")
+
     os.makedirs(args.out, exist_ok=True)
+
+    # A working build must never touch the registered product.
+    if working:
+        protected = [os.path.join(args.out, n) for n in
+                     ("jma_target_catalog.csv", "jma_attrition.md",
+                      "jma_attrition.json", "jma_catalog_manifest.json",
+                      "jma_excluded_sample.csv")]
+        before = {p: sha256_file(p) for p in protected if os.path.exists(p)}
+    else:
+        before = {}
+
     att = Attrition(sample_limit=args.sample_limit)
     sha_index = {}
     kept = []
@@ -1127,7 +1215,7 @@ def build(args) -> int:
             att.n_parse_failed += 1
             att.parse_errors[str(e)[:80]] += 1
             continue
-        keep, mag, mtype = apply_rules(rec, cells, att)
+        keep, mag, mtype = apply_rules(rec, cells, att, mag_floor)
         if keep:
             kept.append({
                 "event_id": f"{rec['origin_time_utc'].strftime('%Y%m%d%H%M%S')}"
@@ -1178,7 +1266,8 @@ def build(args) -> int:
               f"indicate duplicated records in the source. Check "
               f"jma_target_catalog.csv before D10.")
 
-    cat_path = os.path.join(args.out, "jma_target_catalog.csv")
+    cat_path = os.path.join(
+        args.out, f"{prefix}catalog.csv" if working else "jma_target_catalog.csv")
     fields = ["event_id", "origin_time_utc", "longitude", "latitude", "depth_km",
               "magnitude", "magnitude_type", "depth_method", "n_stations",
               "record_type", "location_precision", "determination_flag",
@@ -1188,7 +1277,7 @@ def build(args) -> int:
         w.writeheader()
         w.writerows(kept)
 
-    exc_path = os.path.join(args.out, "jma_excluded_sample.csv")
+    exc_path = os.path.join(args.out, f"{prefix}excluded_sample.csv")
     sample_rows = [s for r in RULE_TEXT for s in att.samples[r]]
     if sample_rows:
         with open(exc_path, "w", newline="", encoding="utf-8") as f:
@@ -1225,16 +1314,20 @@ def build(args) -> int:
         "diagnostics": {k: (dict(v) if isinstance(v, Counter) else v)
                         for k, v in att.detail.items()},
     }
-    att_json_path = os.path.join(args.out, "jma_attrition.json")
+    att_json_path = os.path.join(args.out, f"{prefix}attrition.json")
     with open(att_json_path, "w", encoding="utf-8") as f:
         json.dump(att_json, f, indent=2)
 
-    att_md_path = os.path.join(args.out, "jma_attrition.md")
-    write_attrition_markdown(att_md_path, att, len(kept), sha_index, region_info)
+    att_md_path = os.path.join(args.out, f"{prefix}attrition.md")
+    write_attrition_markdown(att_md_path, att, len(kept), sha_index,
+                             region_info, working)
 
     manifest = {
-        "artifact": "JMA target earthquake catalog",
-        "gate_item": "D8",
+        "artifact": ("D9 sub-threshold WORKING catalog, NOT the registered "
+                     "target catalog" if working
+                     else "JMA target earthquake catalog"),
+        "gate_item": "D9 input" if working else "D8",
+        "is_registered_target_catalog": not bool(working),
         "script": "build_jma_catalog.py",
         "script_version": SCRIPT_VERSION,
         "script_sha256": sha256_file(os.path.abspath(__file__)),
@@ -1251,9 +1344,19 @@ def build(args) -> int:
         },
         "window_utc": {"start": WINDOW_START.isoformat(), "end": WINDOW_END.isoformat()},
         "magnitude": {
-            "threshold_nominal": MAG_THRESHOLD_NOMINAL,
+            "registered_threshold_nominal": MAG_THRESHOLD_NOMINAL,
+            "registered_inclusion_floor": MAG_INCLUSION_FLOOR,
             "bin_width": MAG_BIN_WIDTH,
-            "inclusion_floor": MAG_INCLUSION_FLOOR,
+            "applied_threshold_nominal": (working["nominal"] if working
+                                          else MAG_THRESHOLD_NOMINAL),
+            "applied_inclusion_floor": mag_floor,
+            "rule9_relaxed": bool(working),
+            "rule9_relaxation_reason": (
+                "Magnitude of completeness cannot be estimated from a catalog "
+                "truncated at the completeness threshold; the estimate requires "
+                "the roll-off below it. Rules 1 through 8 are applied exactly as "
+                "registered. This product is a D9 input only and is never "
+                "evaluated." if working else None),
             "accepted_type_codes": list(JMA_MAG_CODES),
         },
         "depth_max_km": DEPTH_MAX_KM,
@@ -1273,9 +1376,25 @@ def build(args) -> int:
     if sample_rows:
         manifest["outputs"][os.path.basename(exc_path)] = sha256_file(exc_path)
 
-    man_path = os.path.join(args.out, "jma_catalog_manifest.json")
+    man_path = os.path.join(args.out, f"{prefix}manifest.json"
+                            if working else "jma_catalog_manifest.json")
     with open(man_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
+
+    # A working build must leave the registered product byte-identical. This is
+    # checked rather than assumed, because the one thing this mode must never do
+    # is alter the catalog the evaluation runs on.
+    if working and before:
+        for p, h in before.items():
+            now = sha256_file(p) if os.path.exists(p) else None
+            if now != h:
+                print(f"\nABORT: the working build changed a registered file.\n"
+                      f"  {p}\n  before {h}\n  after  {now}\n"
+                      f"This should be impossible. Do not use either output.",
+                      file=sys.stderr)
+                return 5
+        print(f"\nVerified unchanged by this build: "
+              f"{', '.join(os.path.basename(p) for p in sorted(before))}")
 
     # Console summary.
     print(f"\nRaw records read: {att.n_records:,}")
@@ -1289,7 +1408,8 @@ def build(args) -> int:
         print(f"{r:<5} {name:<18} {att.removed[r]:>12,} "
               f"{att.surviving_after[r]:>12,}")
     print("-" * 50)
-    print(f"{'':<5} {'TARGET EVENTS':<18} {'':>12} {len(kept):>12,}")
+    label = "WORKING EVENTS" if working else "TARGET EVENTS"
+    print(f"{'':<5} {label:<18} {'':>12} {len(kept):>12,}")
 
     print("\nRegistered rule watch")
     print(f"  W1  excluded at rule 8 while carrying a type J magnitude: "
@@ -1320,10 +1440,17 @@ def build(args) -> int:
     print(f"\nWritten to {args.out}/")
     for p in (cat_path, att_md_path, att_json_path, man_path):
         print(f"  {os.path.basename(p)}")
-    print(f"\nCatalog SHA-256: {manifest['outputs']['jma_target_catalog.csv']}")
-    print("\nD8 is not closed until the catalog, the attrition report and the "
-          "manifest are committed and the manifest hash is recorded in the "
-          "registration ledger.")
+    print(f"\nCatalog SHA-256: "
+          f"{manifest['outputs'][os.path.basename(cat_path)]}")
+    if working:
+        print("\nThis is the D9 sub-threshold WORKING catalog. It is not the "
+              "registered target catalog, is never evaluated, and does not "
+              "supersede jma_target_catalog.csv. Commit it under its own name "
+              "with a ledger row stating that rule 9 was relaxed and why.")
+    else:
+        print("\nD8 is not closed until the catalog, the attrition report and "
+              "the manifest are committed and the manifest hash is recorded in "
+              "the registration ledger.")
     return 0
 
 
@@ -1340,12 +1467,31 @@ def main() -> int:
                     help="output directory")
     ap.add_argument("--sample-limit", type=int, default=25,
                     help="excluded records to retain per rule for spot-checking")
+    ap.add_argument("--working-catalog", action="store_true",
+                    help="build the D9 sub-threshold WORKING catalog instead of "
+                         "the registered target catalog: rules 1 through 8 as "
+                         "registered, rule 9 relaxed to --min-magnitude, written "
+                         "under the jma_mc_working_ prefix. Required for the "
+                         "magnitude of completeness estimate, which cannot be "
+                         "made from a catalog truncated at the threshold.")
+    ap.add_argument("--min-magnitude", type=float, default=1.0,
+                    help="nominal magnitude floor for --working-catalog "
+                         "(default 1.0). The 0.1 bin convention applies, so the "
+                         "inclusion floor is this minus 0.05. Ignored without "
+                         "--working-catalog.")
     ap.add_argument("--selftest", action="store_true",
                     help="run the registered-rule fixtures and exit")
     ap.add_argument("--verify-format", action="store_true",
                     help="report observed column values against the column map "
                          "and exit, writing nothing")
     args = ap.parse_args()
+
+    if args.min_magnitude != 1.0 and not args.working_catalog:
+        print("--min-magnitude only applies with --working-catalog. The "
+              "registered threshold of M >= 4.0 is fixed by the "
+              "pre-registration and is not a command line option.",
+              file=sys.stderr)
+        return 4
 
     if args.selftest:
         return selftest(args.region)
