@@ -1,0 +1,1060 @@
+{
+  "stage": "scalemix",
+  "script": "estimate_mc_d9.py",
+  "script_version": "1.0.0",
+  "seismostats_version": "1.0.1",
+  "generated_utc": "2026-11-19T09:53:52.496735+00:00",
+  "protocol": {
+    "amendment_commit": "b7ffa07",
+    "amendment_sha256": "1c2a6cd408b45bfd9071c0e8dfeae0201be73ffc535c7b752e263d3af0bed1eb",
+    "registration_doi": "10.17605/OSF.IO/H5MD2"
+  },
+  "catalog_sha256": "f48dbc7f83af685f392b45830c419982c14189f67947e7114eb95543ac05a9cd",
+  "elapsed_seconds": 499.2,
+  "result": {
+    "P": {
+      "per_bin": {
+        "1.0": {
+          "n": 18083,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.1": {
+          "n": 17424,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.2": {
+          "n": 16235,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.3": {
+          "n": 15431,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.4": {
+          "n": 14911,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.5": {
+          "n": 15635,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.6": {
+          "n": 19364,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.7": {
+          "n": 27052,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.8": {
+          "n": 28643,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.9": {
+          "n": 26314,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.0": {
+          "n": 23656,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.1": {
+          "n": 20512,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.2": {
+          "n": 18148,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.3": {
+          "n": 15577,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.4": {
+          "n": 13512,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.5": {
+          "n": 11475,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.6": {
+          "n": 9795,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.7": {
+          "n": 8466,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.8": {
+          "n": 7059,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.9": {
+          "n": 6178,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.0": {
+          "n": 5042,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.1": {
+          "n": 4236,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.2": {
+          "n": 3493,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.3": {
+          "n": 3082,
+          "n_displacement": 2,
+          "displacement_share": 0.0006
+        },
+        "3.4": {
+          "n": 2486,
+          "n_displacement": 8,
+          "displacement_share": 0.0032
+        },
+        "3.5": {
+          "n": 2082,
+          "n_displacement": 23,
+          "displacement_share": 0.011
+        },
+        "3.6": {
+          "n": 1711,
+          "n_displacement": 45,
+          "displacement_share": 0.0263
+        },
+        "3.7": {
+          "n": 1440,
+          "n_displacement": 107,
+          "displacement_share": 0.0743
+        },
+        "3.8": {
+          "n": 1295,
+          "n_displacement": 244,
+          "displacement_share": 0.1884
+        },
+        "3.9": {
+          "n": 1121,
+          "n_displacement": 309,
+          "displacement_share": 0.2756
+        },
+        "4.0": {
+          "n": 731,
+          "n_displacement": 435,
+          "displacement_share": 0.5951
+        },
+        "4.1": {
+          "n": 654,
+          "n_displacement": 428,
+          "displacement_share": 0.6544
+        },
+        "4.2": {
+          "n": 566,
+          "n_displacement": 440,
+          "displacement_share": 0.7774
+        },
+        "4.3": {
+          "n": 434,
+          "n_displacement": 364,
+          "displacement_share": 0.8387
+        },
+        "4.4": {
+          "n": 378,
+          "n_displacement": 321,
+          "displacement_share": 0.8492
+        },
+        "4.5": {
+          "n": 291,
+          "n_displacement": 249,
+          "displacement_share": 0.8557
+        },
+        "4.6": {
+          "n": 279,
+          "n_displacement": 255,
+          "displacement_share": 0.914
+        },
+        "4.7": {
+          "n": 226,
+          "n_displacement": 207,
+          "displacement_share": 0.9159
+        },
+        "4.8": {
+          "n": 156,
+          "n_displacement": 148,
+          "displacement_share": 0.9487
+        },
+        "4.9": {
+          "n": 148,
+          "n_displacement": 141,
+          "displacement_share": 0.9527
+        },
+        "5.0": {
+          "n": 117,
+          "n_displacement": 111,
+          "displacement_share": 0.9487
+        },
+        "5.1": {
+          "n": 78,
+          "n_displacement": 78,
+          "displacement_share": 1.0
+        },
+        "5.2": {
+          "n": 61,
+          "n_displacement": 61,
+          "displacement_share": 1.0
+        },
+        "5.3": {
+          "n": 60,
+          "n_displacement": 58,
+          "displacement_share": 0.9667
+        },
+        "5.4": {
+          "n": 61,
+          "n_displacement": 60,
+          "displacement_share": 0.9836
+        },
+        "5.5": {
+          "n": 34,
+          "n_displacement": 34,
+          "displacement_share": 1.0
+        },
+        "5.6": {
+          "n": 37,
+          "n_displacement": 37,
+          "displacement_share": 1.0
+        },
+        "5.7": {
+          "n": 27,
+          "n_displacement": 26,
+          "displacement_share": 0.963
+        },
+        "5.8": {
+          "n": 16,
+          "n_displacement": 16,
+          "displacement_share": 1.0
+        },
+        "5.9": {
+          "n": 24,
+          "n_displacement": 24,
+          "displacement_share": 1.0
+        },
+        "6.0": {
+          "n": 13,
+          "n_displacement": 13,
+          "displacement_share": 1.0
+        },
+        "6.1": {
+          "n": 11,
+          "n_displacement": 11,
+          "displacement_share": 1.0
+        },
+        "6.2": {
+          "n": 11,
+          "n_displacement": 11,
+          "displacement_share": 1.0
+        },
+        "6.3": {
+          "n": 8,
+          "n_displacement": 8,
+          "displacement_share": 1.0
+        },
+        "6.4": {
+          "n": 5,
+          "n_displacement": 5,
+          "displacement_share": 1.0
+        },
+        "6.5": {
+          "n": 4,
+          "n_displacement": 4,
+          "displacement_share": 1.0
+        },
+        "6.6": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        },
+        "6.7": {
+          "n": 4,
+          "n_displacement": 4,
+          "displacement_share": 1.0
+        },
+        "6.8": {
+          "n": 1,
+          "n_displacement": 1,
+          "displacement_share": 1.0
+        },
+        "6.9": {
+          "n": 1,
+          "n_displacement": 1,
+          "displacement_share": 1.0
+        },
+        "7.3": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        },
+        "7.4": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        }
+      },
+      "split_estimates": {
+        "velocity": {
+          "label": "scalemix_P_velocity",
+          "n_events": 359605,
+          "E1_mbs": 4.0,
+          "E2_ks": 4.0,
+          "E3_maxc": 2.0,
+          "E1_b_at_mc": 1.8677010217556322,
+          "gate_mc": 4.0,
+          "gate_verdict": "at or above 4.0 \u2014 threshold NOT supported here, amendment required",
+          "b_value": 1.8677010217556322,
+          "b_sigma_shi_bolt": 0.0612808274635982,
+          "b_n_events_above_mc": 885,
+          "E2_synthetic_draws": 1000,
+          "seconds": 145.77
+        },
+        "displacement": {
+          "label": "scalemix_P_displacement",
+          "n_events": 4295,
+          "E1_mbs": null,
+          "E2_ks": null,
+          "E3_maxc": 4.4,
+          "E1_b_at_mc": null,
+          "gate_mc": null,
+          "gate_note": "at least one estimator found no passing cut-off at or below M4.5; reported as not attained, which is a gate failure under section 7",
+          "gate_verdict": "NOT_ATTAINED_BELOW_4.5 \u2014 gate failure, amendment required",
+          "b_value": null,
+          "b_sigma_shi_bolt": null,
+          "b_n_events_above_mc": 0,
+          "E2_synthetic_draws": 1000,
+          "seconds": 8.62
+        }
+      },
+      "b_comparison": null
+    },
+    "Q": {
+      "per_bin": {
+        "1.0": {
+          "n": 91632,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.1": {
+          "n": 88240,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.2": {
+          "n": 81864,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.3": {
+          "n": 74373,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.4": {
+          "n": 66331,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.5": {
+          "n": 59781,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.6": {
+          "n": 56323,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.7": {
+          "n": 36576,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.8": {
+          "n": 35149,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.9": {
+          "n": 30878,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.0": {
+          "n": 26884,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.1": {
+          "n": 22843,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.2": {
+          "n": 19769,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.3": {
+          "n": 16736,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.4": {
+          "n": 14442,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.5": {
+          "n": 12237,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.6": {
+          "n": 10341,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.7": {
+          "n": 8920,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.8": {
+          "n": 7438,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.9": {
+          "n": 6421,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.0": {
+          "n": 5245,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.1": {
+          "n": 4408,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.2": {
+          "n": 3612,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.3": {
+          "n": 3144,
+          "n_displacement": 2,
+          "displacement_share": 0.0006
+        },
+        "3.4": {
+          "n": 2527,
+          "n_displacement": 8,
+          "displacement_share": 0.0032
+        },
+        "3.5": {
+          "n": 2082,
+          "n_displacement": 23,
+          "displacement_share": 0.011
+        },
+        "3.6": {
+          "n": 1711,
+          "n_displacement": 45,
+          "displacement_share": 0.0263
+        },
+        "3.7": {
+          "n": 1440,
+          "n_displacement": 107,
+          "displacement_share": 0.0743
+        },
+        "3.8": {
+          "n": 1295,
+          "n_displacement": 244,
+          "displacement_share": 0.1884
+        },
+        "3.9": {
+          "n": 1121,
+          "n_displacement": 309,
+          "displacement_share": 0.2756
+        },
+        "4.0": {
+          "n": 731,
+          "n_displacement": 435,
+          "displacement_share": 0.5951
+        },
+        "4.1": {
+          "n": 654,
+          "n_displacement": 428,
+          "displacement_share": 0.6544
+        },
+        "4.2": {
+          "n": 566,
+          "n_displacement": 440,
+          "displacement_share": 0.7774
+        },
+        "4.3": {
+          "n": 434,
+          "n_displacement": 364,
+          "displacement_share": 0.8387
+        },
+        "4.4": {
+          "n": 378,
+          "n_displacement": 321,
+          "displacement_share": 0.8492
+        },
+        "4.5": {
+          "n": 291,
+          "n_displacement": 249,
+          "displacement_share": 0.8557
+        },
+        "4.6": {
+          "n": 279,
+          "n_displacement": 255,
+          "displacement_share": 0.914
+        },
+        "4.7": {
+          "n": 226,
+          "n_displacement": 207,
+          "displacement_share": 0.9159
+        },
+        "4.8": {
+          "n": 156,
+          "n_displacement": 148,
+          "displacement_share": 0.9487
+        },
+        "4.9": {
+          "n": 148,
+          "n_displacement": 141,
+          "displacement_share": 0.9527
+        },
+        "5.0": {
+          "n": 117,
+          "n_displacement": 111,
+          "displacement_share": 0.9487
+        },
+        "5.1": {
+          "n": 78,
+          "n_displacement": 78,
+          "displacement_share": 1.0
+        },
+        "5.2": {
+          "n": 61,
+          "n_displacement": 61,
+          "displacement_share": 1.0
+        },
+        "5.3": {
+          "n": 60,
+          "n_displacement": 58,
+          "displacement_share": 0.9667
+        },
+        "5.4": {
+          "n": 61,
+          "n_displacement": 60,
+          "displacement_share": 0.9836
+        },
+        "5.5": {
+          "n": 34,
+          "n_displacement": 34,
+          "displacement_share": 1.0
+        },
+        "5.6": {
+          "n": 37,
+          "n_displacement": 37,
+          "displacement_share": 1.0
+        },
+        "5.7": {
+          "n": 27,
+          "n_displacement": 26,
+          "displacement_share": 0.963
+        },
+        "5.8": {
+          "n": 16,
+          "n_displacement": 16,
+          "displacement_share": 1.0
+        },
+        "5.9": {
+          "n": 24,
+          "n_displacement": 24,
+          "displacement_share": 1.0
+        },
+        "6.0": {
+          "n": 13,
+          "n_displacement": 13,
+          "displacement_share": 1.0
+        },
+        "6.1": {
+          "n": 11,
+          "n_displacement": 11,
+          "displacement_share": 1.0
+        },
+        "6.2": {
+          "n": 11,
+          "n_displacement": 11,
+          "displacement_share": 1.0
+        },
+        "6.3": {
+          "n": 8,
+          "n_displacement": 8,
+          "displacement_share": 1.0
+        },
+        "6.4": {
+          "n": 5,
+          "n_displacement": 5,
+          "displacement_share": 1.0
+        },
+        "6.5": {
+          "n": 4,
+          "n_displacement": 4,
+          "displacement_share": 1.0
+        },
+        "6.6": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        },
+        "6.7": {
+          "n": 4,
+          "n_displacement": 4,
+          "displacement_share": 1.0
+        },
+        "6.8": {
+          "n": 1,
+          "n_displacement": 1,
+          "displacement_share": 1.0
+        },
+        "6.9": {
+          "n": 1,
+          "n_displacement": 1,
+          "displacement_share": 1.0
+        },
+        "7.3": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        },
+        "7.4": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        }
+      },
+      "split_estimates": {
+        "velocity": {
+          "label": "scalemix_Q_velocity",
+          "n_events": 793910,
+          "E1_mbs": 4.0,
+          "E2_ks": 4.0,
+          "E3_maxc": 1.2,
+          "E1_b_at_mc": 1.8677010217556322,
+          "gate_mc": 4.0,
+          "gate_verdict": "at or above 4.0 \u2014 threshold NOT supported here, amendment required",
+          "b_value": 1.8677010217556322,
+          "b_sigma_shi_bolt": 0.0612808274635982,
+          "b_n_events_above_mc": 885,
+          "E2_synthetic_draws": 1000,
+          "seconds": 210.22
+        },
+        "displacement": {
+          "label": "scalemix_Q_displacement",
+          "n_events": 4295,
+          "E1_mbs": null,
+          "E2_ks": 4.5,
+          "E3_maxc": 4.4,
+          "E1_b_at_mc": null,
+          "gate_mc": null,
+          "gate_note": "at least one estimator found no passing cut-off at or below M4.5; reported as not attained, which is a gate failure under section 7",
+          "gate_verdict": "NOT_ATTAINED_BELOW_4.5 \u2014 gate failure, amendment required",
+          "b_value": null,
+          "b_sigma_shi_bolt": null,
+          "b_n_events_above_mc": 0,
+          "E2_synthetic_draws": 1000,
+          "seconds": 7.91
+        }
+      },
+      "b_comparison": null
+    },
+    "R": {
+      "per_bin": {
+        "1.0": {
+          "n": 1523,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.1": {
+          "n": 1463,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.2": {
+          "n": 1519,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.3": {
+          "n": 1539,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.4": {
+          "n": 1746,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.5": {
+          "n": 2364,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.6": {
+          "n": 4894,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.7": {
+          "n": 21315,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.8": {
+          "n": 23986,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "1.9": {
+          "n": 22509,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.0": {
+          "n": 20806,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.1": {
+          "n": 18517,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.2": {
+          "n": 16589,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.3": {
+          "n": 14314,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.4": {
+          "n": 12464,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.5": {
+          "n": 10499,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.6": {
+          "n": 9027,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.7": {
+          "n": 7829,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.8": {
+          "n": 6553,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "2.9": {
+          "n": 5727,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.0": {
+          "n": 4751,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.1": {
+          "n": 3977,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.2": {
+          "n": 3306,
+          "n_displacement": 0,
+          "displacement_share": 0.0
+        },
+        "3.3": {
+          "n": 2939,
+          "n_displacement": 2,
+          "displacement_share": 0.0007
+        },
+        "3.4": {
+          "n": 2365,
+          "n_displacement": 8,
+          "displacement_share": 0.0034
+        },
+        "3.5": {
+          "n": 2082,
+          "n_displacement": 23,
+          "displacement_share": 0.011
+        },
+        "3.6": {
+          "n": 1711,
+          "n_displacement": 45,
+          "displacement_share": 0.0263
+        },
+        "3.7": {
+          "n": 1440,
+          "n_displacement": 107,
+          "displacement_share": 0.0743
+        },
+        "3.8": {
+          "n": 1295,
+          "n_displacement": 244,
+          "displacement_share": 0.1884
+        },
+        "3.9": {
+          "n": 1121,
+          "n_displacement": 309,
+          "displacement_share": 0.2756
+        },
+        "4.0": {
+          "n": 731,
+          "n_displacement": 435,
+          "displacement_share": 0.5951
+        },
+        "4.1": {
+          "n": 654,
+          "n_displacement": 428,
+          "displacement_share": 0.6544
+        },
+        "4.2": {
+          "n": 566,
+          "n_displacement": 440,
+          "displacement_share": 0.7774
+        },
+        "4.3": {
+          "n": 434,
+          "n_displacement": 364,
+          "displacement_share": 0.8387
+        },
+        "4.4": {
+          "n": 378,
+          "n_displacement": 321,
+          "displacement_share": 0.8492
+        },
+        "4.5": {
+          "n": 291,
+          "n_displacement": 249,
+          "displacement_share": 0.8557
+        },
+        "4.6": {
+          "n": 279,
+          "n_displacement": 255,
+          "displacement_share": 0.914
+        },
+        "4.7": {
+          "n": 226,
+          "n_displacement": 207,
+          "displacement_share": 0.9159
+        },
+        "4.8": {
+          "n": 156,
+          "n_displacement": 148,
+          "displacement_share": 0.9487
+        },
+        "4.9": {
+          "n": 148,
+          "n_displacement": 141,
+          "displacement_share": 0.9527
+        },
+        "5.0": {
+          "n": 117,
+          "n_displacement": 111,
+          "displacement_share": 0.9487
+        },
+        "5.1": {
+          "n": 78,
+          "n_displacement": 78,
+          "displacement_share": 1.0
+        },
+        "5.2": {
+          "n": 61,
+          "n_displacement": 61,
+          "displacement_share": 1.0
+        },
+        "5.3": {
+          "n": 60,
+          "n_displacement": 58,
+          "displacement_share": 0.9667
+        },
+        "5.4": {
+          "n": 61,
+          "n_displacement": 60,
+          "displacement_share": 0.9836
+        },
+        "5.5": {
+          "n": 34,
+          "n_displacement": 34,
+          "displacement_share": 1.0
+        },
+        "5.6": {
+          "n": 37,
+          "n_displacement": 37,
+          "displacement_share": 1.0
+        },
+        "5.7": {
+          "n": 27,
+          "n_displacement": 26,
+          "displacement_share": 0.963
+        },
+        "5.8": {
+          "n": 16,
+          "n_displacement": 16,
+          "displacement_share": 1.0
+        },
+        "5.9": {
+          "n": 24,
+          "n_displacement": 24,
+          "displacement_share": 1.0
+        },
+        "6.0": {
+          "n": 13,
+          "n_displacement": 13,
+          "displacement_share": 1.0
+        },
+        "6.1": {
+          "n": 11,
+          "n_displacement": 11,
+          "displacement_share": 1.0
+        },
+        "6.2": {
+          "n": 11,
+          "n_displacement": 11,
+          "displacement_share": 1.0
+        },
+        "6.3": {
+          "n": 8,
+          "n_displacement": 8,
+          "displacement_share": 1.0
+        },
+        "6.4": {
+          "n": 5,
+          "n_displacement": 5,
+          "displacement_share": 1.0
+        },
+        "6.5": {
+          "n": 4,
+          "n_displacement": 4,
+          "displacement_share": 1.0
+        },
+        "6.6": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        },
+        "6.7": {
+          "n": 4,
+          "n_displacement": 4,
+          "displacement_share": 1.0
+        },
+        "6.8": {
+          "n": 1,
+          "n_displacement": 1,
+          "displacement_share": 1.0
+        },
+        "6.9": {
+          "n": 1,
+          "n_displacement": 1,
+          "displacement_share": 1.0
+        },
+        "7.3": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        },
+        "7.4": {
+          "n": 2,
+          "n_displacement": 2,
+          "displacement_share": 1.0
+        }
+      },
+      "split_estimates": {
+        "velocity": {
+          "label": "scalemix_R_velocity",
+          "n_events": 230317,
+          "E1_mbs": 4.0,
+          "E2_ks": 4.0,
+          "E3_maxc": 2.0,
+          "E1_b_at_mc": 1.8677010217556322,
+          "gate_mc": 4.0,
+          "gate_verdict": "at or above 4.0 \u2014 threshold NOT supported here, amendment required",
+          "b_value": 1.8677010217556322,
+          "b_sigma_shi_bolt": 0.0612808274635982,
+          "b_n_events_above_mc": 885,
+          "E2_synthetic_draws": 1000,
+          "seconds": 117.55
+        },
+        "displacement": {
+          "label": "scalemix_R_displacement",
+          "n_events": 4295,
+          "E1_mbs": null,
+          "E2_ks": 4.5,
+          "E3_maxc": 4.4,
+          "E1_b_at_mc": null,
+          "gate_mc": null,
+          "gate_note": "at least one estimator found no passing cut-off at or below M4.5; reported as not attained, which is a gate failure under section 7",
+          "gate_verdict": "NOT_ATTAINED_BELOW_4.5 \u2014 gate failure, amendment required",
+          "b_value": null,
+          "b_sigma_shi_bolt": null,
+          "b_n_events_above_mc": 0,
+          "E2_synthetic_draws": 1000,
+          "seconds": 8.16
+        }
+      },
+      "b_comparison": null
+    }
+  }
+}

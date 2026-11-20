@@ -1,0 +1,74 @@
+{
+  "script": "estimate_mc_d9.py",
+  "script_version": "1.0.0",
+  "seismostats_version": "1.0.1",
+  "finished_utc": "2026-11-19T09:53:52.501055+00:00",
+  "total_seconds": 20806.4,
+  "catalog_sha256": "f48dbc7f83af685f392b45830c419982c14189f67947e7114eb95543ac05a9cd",
+  "protocol": {
+    "amendment_commit": "b7ffa07",
+    "amendment_sha256": "1c2a6cd408b45bfd9071c0e8dfeae0201be73ffc535c7b752e263d3af0bed1eb",
+    "registration_doi": "10.17605/OSF.IO/H5MD2"
+  },
+  "locked_parameters": {
+    "subsets": {
+      "P": {
+        "flags": [
+          "K",
+          "S",
+          "k",
+          "s"
+        ],
+        "role": "PRIMARY, manual"
+      },
+      "Q": {
+        "flags": null,
+        "role": "secondary, full"
+      },
+      "R": {
+        "flags": [
+          "K",
+          "S"
+        ],
+        "role": "diagnostic, closely examined"
+      }
+    },
+    "primary_subset": "P",
+    "trial_grid": [
+      1.0,
+      4.5,
+      0.1
+    ],
+    "E1_stability_range": 0.5,
+    "E2_p_value_pass": 0.1,
+    "E3_correction_factor": 0.2,
+    "bootstrap_headline": 1000,
+    "bootstrap_window": 200,
+    "E2_draws_headline": 10000,
+    "E2_draws_window": 1000,
+    "moving_window": 5000,
+    "moving_step": 1000,
+    "grid_deg": 0.25,
+    "node_nearest": 500,
+    "node_max_radius_km": 100.0,
+    "equalsize_n": 234612,
+    "equalsize_draws": 20
+  },
+  "gate_rule": "The D10 gate reads the HIGHEST of E1, E2 and E3, not the registered primary. It passes only where all three agree Mc is below M4.0.",
+  "stages": {
+    "headline": "ok, 8253.8s",
+    "equalsize": "ok, 2414.5s",
+    "annual": "ok, 2970.5s",
+    "moving": "ok, 2852.1s",
+    "spatial": "ok, 3807.7s",
+    "scalemix": "ok, 499.2s"
+  },
+  "outputs": {
+    "d9_headline.json": "0ce1769516a3a2d1445e1f5c45654f27eaa65c406b12bd37ea258172063393b9",
+    "d9_equalsize.json": "4855daa4d508f1b8e8deb49f6c8e57bc990f88a4d7083ff00031cc450b9e0ca0",
+    "d9_annual.json": "8010fc8d98217ebecdd89a8534f4e3bff3f5491349f3652f93a9d6e4266bcbe5",
+    "d9_moving.json": "f7c820fd73d74b731cd0d2f249365e4b4c7ad033b5d17434b957d02ab6cf4b75",
+    "d9_spatial.json": "9a1afd525135b06565749d5f9eca06de5ffbc2564526cc0ffb618c10b8764e5e",
+    "d9_scalemix.json": "429c42f5d096a6634d2a676030d4302d44db7572ca2ea082ecf150708afb367b"
+  }
+}

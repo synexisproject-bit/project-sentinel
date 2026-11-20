@@ -1,0 +1,107 @@
+{
+  "stage": "headline",
+  "script": "estimate_mc_d9.py",
+  "script_version": "1.0.0",
+  "seismostats_version": "1.0.1",
+  "generated_utc": "2026-11-19T06:24:48.424056+00:00",
+  "protocol": {
+    "amendment_commit": "b7ffa07",
+    "amendment_sha256": "1c2a6cd408b45bfd9071c0e8dfeae0201be73ffc535c7b752e263d3af0bed1eb",
+    "registration_doi": "10.17605/OSF.IO/H5MD2"
+  },
+  "catalog_sha256": "f48dbc7f83af685f392b45830c419982c14189f67947e7114eb95543ac05a9cd",
+  "elapsed_seconds": 8253.8,
+  "result": {
+    "P": {
+      "label": "headline_P",
+      "n_events": 363900,
+      "E1_mbs": 3.7,
+      "E2_ks": 3.7,
+      "E3_maxc": 2.0,
+      "E1_b_at_mc": 0.8800434865891039,
+      "gate_mc": 3.7,
+      "gate_verdict": "3.5 to 4.0 \u2014 defensible, margin thin, report as limitation",
+      "b_value": 0.8800434865891039,
+      "b_sigma_shi_bolt": 0.009396923178439114,
+      "b_n_events_above_mc": 8298,
+      "E1_bootstrap": {
+        "median": 3.7,
+        "ci95_low": 3.6,
+        "ci95_high": 3.8,
+        "n_successful": 1000
+      },
+      "E3_bootstrap": {
+        "median": 2.0,
+        "ci95_low": 2.0,
+        "ci95_high": 2.0,
+        "n_successful": 1000
+      },
+      "bootstrap_resamples": 1000,
+      "E2_synthetic_draws": 10000,
+      "seconds": 2610.2
+    },
+    "Q": {
+      "label": "headline_Q",
+      "n_events": 798205,
+      "E1_mbs": 3.7,
+      "E2_ks": 3.7,
+      "E3_maxc": 1.2,
+      "E1_b_at_mc": 0.8800434865891039,
+      "gate_mc": 3.7,
+      "gate_verdict": "3.5 to 4.0 \u2014 defensible, margin thin, report as limitation",
+      "b_value": 0.8800434865891039,
+      "b_sigma_shi_bolt": 0.009396923178439114,
+      "b_n_events_above_mc": 8298,
+      "E1_bootstrap": {
+        "median": 3.7,
+        "ci95_low": 3.2,
+        "ci95_high": 3.8,
+        "n_successful": 999
+      },
+      "E3_bootstrap": {
+        "median": 1.2,
+        "ci95_low": 1.2,
+        "ci95_high": 1.2,
+        "n_successful": 1000
+      },
+      "bootstrap_resamples": 1000,
+      "E2_synthetic_draws": 10000,
+      "seconds": 3711.09
+    },
+    "R": {
+      "label": "headline_R",
+      "n_events": 234612,
+      "E1_mbs": 3.7,
+      "E2_ks": 3.7,
+      "E3_maxc": 2.0,
+      "E1_b_at_mc": 0.8800434865891039,
+      "gate_mc": 3.7,
+      "gate_verdict": "3.5 to 4.0 \u2014 defensible, margin thin, report as limitation",
+      "b_value": 0.8800434865891039,
+      "b_sigma_shi_bolt": 0.009396923178439114,
+      "b_n_events_above_mc": 8298,
+      "E1_bootstrap": {
+        "median": 3.7,
+        "ci95_low": 3.6,
+        "ci95_high": 3.8,
+        "n_successful": 1000
+      },
+      "E3_bootstrap": {
+        "median": 2.0,
+        "ci95_low": 2.0,
+        "ci95_high": 2.0,
+        "n_successful": 1000
+      },
+      "bootstrap_resamples": 1000,
+      "E2_synthetic_draws": 10000,
+      "seconds": 1931.93
+    },
+    "_benchmark_b_value": {
+      "from_subset": "P",
+      "b_value": 0.8800434865891039,
+      "sigma_shi_bolt": 0.009396923178439114,
+      "above_mc": 3.7,
+      "note": "This is the b-value that enters the smoothed-seismicity benchmark, per the amendment: fitted above the subset P E1 primary Mc."
+    }
+  }
+}
