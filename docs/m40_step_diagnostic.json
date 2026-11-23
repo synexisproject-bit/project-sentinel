@@ -1,0 +1,672 @@
+{
+  "script": "diagnose_m40_step.py",
+  "generated_utc": "2026-11-23T06:11:12.635030+00:00",
+  "purpose": "Isolate which registered rule produces or amplifies the M4.0 deficit reported in docs/D9_FINDINGS_NOTE_2026-11-20.md at commit c2c5245.",
+  "b_used_for_projection": 0.88,
+  "region_sha256": "94f94b19a0b1eaf1db125b0570005c4724b526b0aaf38e91d7482704fe50dcf2",
+  "records_read": 2161892,
+  "parse_failures": 0,
+  "stages": {
+    "A_parsed": {
+      "description": "parsed, record type J, some magnitude present",
+      "n_3.9": 2037,
+      "n_4.0": 1526,
+      "step_at_4.0": 0.917,
+      "neighbour_median_ratio": 1.045,
+      "step_relative_to_neighbours": 0.878,
+      "bins": {
+        "3.3": {
+          "n": 4801,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 4044,
+          "expected": 3920.4,
+          "ratio": 1.032
+        },
+        "3.5": {
+          "n": 3384,
+          "expected": 3302.3,
+          "ratio": 1.025
+        },
+        "3.6": {
+          "n": 2838,
+          "expected": 2763.3,
+          "ratio": 1.027
+        },
+        "3.7": {
+          "n": 2513,
+          "expected": 2317.5,
+          "ratio": 1.084
+        },
+        "3.8": {
+          "n": 2299,
+          "expected": 2052.1,
+          "ratio": 1.12
+        },
+        "3.9": {
+          "n": 2037,
+          "expected": 1877.3,
+          "ratio": 1.085
+        },
+        "4.0": {
+          "n": 1526,
+          "expected": 1663.4,
+          "ratio": 0.917
+        },
+        "4.1": {
+          "n": 1356,
+          "expected": 1246.1,
+          "ratio": 1.088
+        },
+        "4.2": {
+          "n": 1160,
+          "expected": 1107.3,
+          "ratio": 1.048
+        },
+        "4.3": {
+          "n": 921,
+          "expected": 947.2,
+          "ratio": 0.972
+        },
+        "4.4": {
+          "n": 782,
+          "expected": 752.1,
+          "ratio": 1.04
+        },
+        "4.5": {
+          "n": 667,
+          "expected": 638.6,
+          "ratio": 1.045
+        }
+      }
+    },
+    "B_window": {
+      "description": "+ rule 3, origin time inside the registered window",
+      "n_3.9": 2036,
+      "n_4.0": 1525,
+      "step_at_4.0": 0.917,
+      "neighbour_median_ratio": 1.045,
+      "step_relative_to_neighbours": 0.878,
+      "bins": {
+        "3.3": {
+          "n": 4801,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 4044,
+          "expected": 3920.4,
+          "ratio": 1.032
+        },
+        "3.5": {
+          "n": 3383,
+          "expected": 3302.3,
+          "ratio": 1.024
+        },
+        "3.6": {
+          "n": 2838,
+          "expected": 2762.5,
+          "ratio": 1.027
+        },
+        "3.7": {
+          "n": 2513,
+          "expected": 2317.5,
+          "ratio": 1.084
+        },
+        "3.8": {
+          "n": 2297,
+          "expected": 2052.1,
+          "ratio": 1.119
+        },
+        "3.9": {
+          "n": 2036,
+          "expected": 1875.7,
+          "ratio": 1.085
+        },
+        "4.0": {
+          "n": 1525,
+          "expected": 1662.6,
+          "ratio": 0.917
+        },
+        "4.1": {
+          "n": 1356,
+          "expected": 1245.3,
+          "ratio": 1.089
+        },
+        "4.2": {
+          "n": 1160,
+          "expected": 1107.3,
+          "ratio": 1.048
+        },
+        "4.3": {
+          "n": 921,
+          "expected": 947.2,
+          "ratio": 0.972
+        },
+        "4.4": {
+          "n": 782,
+          "expected": 752.1,
+          "ratio": 1.04
+        },
+        "4.5": {
+          "n": 667,
+          "expected": 638.6,
+          "ratio": 1.045
+        }
+      }
+    },
+    "C_region": {
+      "description": "+ rule 4, epicentre inside the CSEP-Japan region",
+      "n_3.9": 1220,
+      "n_4.0": 818,
+      "step_at_4.0": 0.821,
+      "neighbour_median_ratio": 1.032,
+      "step_relative_to_neighbours": 0.796,
+      "bins": {
+        "3.3": {
+          "n": 3639,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 2867,
+          "expected": 2971.5,
+          "ratio": 0.965
+        },
+        "3.5": {
+          "n": 2360,
+          "expected": 2341.1,
+          "ratio": 1.008
+        },
+        "3.6": {
+          "n": 1924,
+          "expected": 1927.1,
+          "ratio": 0.998
+        },
+        "3.7": {
+          "n": 1622,
+          "expected": 1571.1,
+          "ratio": 1.032
+        },
+        "3.8": {
+          "n": 1436,
+          "expected": 1324.5,
+          "ratio": 1.084
+        },
+        "3.9": {
+          "n": 1220,
+          "expected": 1172.6,
+          "ratio": 1.04
+        },
+        "4.0": {
+          "n": 818,
+          "expected": 996.2,
+          "ratio": 0.821
+        },
+        "4.1": {
+          "n": 709,
+          "expected": 668.0,
+          "ratio": 1.061
+        },
+        "4.2": {
+          "n": 630,
+          "expected": 579.0,
+          "ratio": 1.088
+        },
+        "4.3": {
+          "n": 471,
+          "expected": 514.4,
+          "ratio": 0.916
+        },
+        "4.4": {
+          "n": 410,
+          "expected": 384.6,
+          "ratio": 1.066
+        },
+        "4.5": {
+          "n": 321,
+          "expected": 334.8,
+          "ratio": 0.959
+        }
+      }
+    },
+    "D_depth": {
+      "description": "+ rule 5, depth <= 100 km",
+      "n_3.9": 1121,
+      "n_4.0": 731,
+      "step_at_4.0": 0.799,
+      "neighbour_median_ratio": 1.031,
+      "step_relative_to_neighbours": 0.775,
+      "bins": {
+        "3.3": {
+          "n": 3144,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 2527,
+          "expected": 2567.3,
+          "ratio": 0.984
+        },
+        "3.5": {
+          "n": 2082,
+          "expected": 2063.5,
+          "ratio": 1.009
+        },
+        "3.6": {
+          "n": 1711,
+          "expected": 1700.1,
+          "ratio": 1.006
+        },
+        "3.7": {
+          "n": 1440,
+          "expected": 1397.2,
+          "ratio": 1.031
+        },
+        "3.8": {
+          "n": 1295,
+          "expected": 1175.9,
+          "ratio": 1.101
+        },
+        "3.9": {
+          "n": 1121,
+          "expected": 1057.5,
+          "ratio": 1.06
+        },
+        "4.0": {
+          "n": 731,
+          "expected": 915.4,
+          "ratio": 0.799
+        },
+        "4.1": {
+          "n": 654,
+          "expected": 596.9,
+          "ratio": 1.096
+        },
+        "4.2": {
+          "n": 566,
+          "expected": 534.0,
+          "ratio": 1.06
+        },
+        "4.3": {
+          "n": 434,
+          "expected": 462.2,
+          "ratio": 0.939
+        },
+        "4.4": {
+          "n": 378,
+          "expected": 354.4,
+          "ratio": 1.067
+        },
+        "4.5": {
+          "n": 291,
+          "expected": 308.7,
+          "ratio": 0.943
+        }
+      }
+    },
+    "E_type": {
+      "description": "+ rule 6, subsidiary information code 1",
+      "n_3.9": 1121,
+      "n_4.0": 731,
+      "step_at_4.0": 0.799,
+      "neighbour_median_ratio": 1.031,
+      "step_relative_to_neighbours": 0.775,
+      "bins": {
+        "3.3": {
+          "n": 3144,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 2527,
+          "expected": 2567.3,
+          "ratio": 0.984
+        },
+        "3.5": {
+          "n": 2082,
+          "expected": 2063.5,
+          "ratio": 1.009
+        },
+        "3.6": {
+          "n": 1711,
+          "expected": 1700.1,
+          "ratio": 1.006
+        },
+        "3.7": {
+          "n": 1440,
+          "expected": 1397.2,
+          "ratio": 1.031
+        },
+        "3.8": {
+          "n": 1295,
+          "expected": 1175.9,
+          "ratio": 1.101
+        },
+        "3.9": {
+          "n": 1121,
+          "expected": 1057.5,
+          "ratio": 1.06
+        },
+        "4.0": {
+          "n": 731,
+          "expected": 915.4,
+          "ratio": 0.799
+        },
+        "4.1": {
+          "n": 654,
+          "expected": 596.9,
+          "ratio": 1.096
+        },
+        "4.2": {
+          "n": 566,
+          "expected": 534.0,
+          "ratio": 1.06
+        },
+        "4.3": {
+          "n": 434,
+          "expected": 462.2,
+          "ratio": 0.939
+        },
+        "4.4": {
+          "n": 378,
+          "expected": 354.4,
+          "ratio": 1.067
+        },
+        "4.5": {
+          "n": 291,
+          "expected": 308.7,
+          "ratio": 0.943
+        }
+      }
+    },
+    "F_quality": {
+      "description": "+ rule 7, determination flag not N or F, precision not 8",
+      "n_3.9": 1121,
+      "n_4.0": 731,
+      "step_at_4.0": 0.799,
+      "neighbour_median_ratio": 1.031,
+      "step_relative_to_neighbours": 0.775,
+      "bins": {
+        "3.3": {
+          "n": 3144,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 2527,
+          "expected": 2567.3,
+          "ratio": 0.984
+        },
+        "3.5": {
+          "n": 2082,
+          "expected": 2063.5,
+          "ratio": 1.009
+        },
+        "3.6": {
+          "n": 1711,
+          "expected": 1700.1,
+          "ratio": 1.006
+        },
+        "3.7": {
+          "n": 1440,
+          "expected": 1397.2,
+          "ratio": 1.031
+        },
+        "3.8": {
+          "n": 1295,
+          "expected": 1175.9,
+          "ratio": 1.101
+        },
+        "3.9": {
+          "n": 1121,
+          "expected": 1057.5,
+          "ratio": 1.06
+        },
+        "4.0": {
+          "n": 731,
+          "expected": 915.4,
+          "ratio": 0.799
+        },
+        "4.1": {
+          "n": 654,
+          "expected": 596.9,
+          "ratio": 1.096
+        },
+        "4.2": {
+          "n": 566,
+          "expected": 534.0,
+          "ratio": 1.06
+        },
+        "4.3": {
+          "n": 434,
+          "expected": 462.2,
+          "ratio": 0.939
+        },
+        "4.4": {
+          "n": 378,
+          "expected": 354.4,
+          "ratio": 1.067
+        },
+        "4.5": {
+          "n": 291,
+          "expected": 308.7,
+          "ratio": 0.943
+        }
+      }
+    },
+    "G_scale": {
+      "description": "+ rule 8, JMA magnitude selected (V, v, D, d)",
+      "n_3.9": 1121,
+      "n_4.0": 731,
+      "step_at_4.0": 0.799,
+      "neighbour_median_ratio": 1.031,
+      "step_relative_to_neighbours": 0.775,
+      "bins": {
+        "3.3": {
+          "n": 3144,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 2527,
+          "expected": 2567.3,
+          "ratio": 0.984
+        },
+        "3.5": {
+          "n": 2082,
+          "expected": 2063.5,
+          "ratio": 1.009
+        },
+        "3.6": {
+          "n": 1711,
+          "expected": 1700.1,
+          "ratio": 1.006
+        },
+        "3.7": {
+          "n": 1440,
+          "expected": 1397.2,
+          "ratio": 1.031
+        },
+        "3.8": {
+          "n": 1295,
+          "expected": 1175.9,
+          "ratio": 1.101
+        },
+        "3.9": {
+          "n": 1121,
+          "expected": 1057.5,
+          "ratio": 1.06
+        },
+        "4.0": {
+          "n": 731,
+          "expected": 915.4,
+          "ratio": 0.799
+        },
+        "4.1": {
+          "n": 654,
+          "expected": 596.9,
+          "ratio": 1.096
+        },
+        "4.2": {
+          "n": 566,
+          "expected": 534.0,
+          "ratio": 1.06
+        },
+        "4.3": {
+          "n": 434,
+          "expected": 462.2,
+          "ratio": 0.939
+        },
+        "4.4": {
+          "n": 378,
+          "expected": 354.4,
+          "ratio": 1.067
+        },
+        "4.5": {
+          "n": 291,
+          "expected": 308.7,
+          "ratio": 0.943
+        }
+      }
+    },
+    "H_manual": {
+      "description": "+ subset P restriction, flag in K, S, k, s",
+      "n_3.9": 1121,
+      "n_4.0": 731,
+      "step_at_4.0": 0.799,
+      "neighbour_median_ratio": 1.031,
+      "step_relative_to_neighbours": 0.775,
+      "bins": {
+        "3.3": {
+          "n": 3082,
+          "expected": null,
+          "ratio": null
+        },
+        "3.4": {
+          "n": 2486,
+          "expected": 2516.7,
+          "ratio": 0.988
+        },
+        "3.5": {
+          "n": 2082,
+          "expected": 2030.0,
+          "ratio": 1.026
+        },
+        "3.6": {
+          "n": 1711,
+          "expected": 1700.1,
+          "ratio": 1.006
+        },
+        "3.7": {
+          "n": 1440,
+          "expected": 1397.2,
+          "ratio": 1.031
+        },
+        "3.8": {
+          "n": 1295,
+          "expected": 1175.9,
+          "ratio": 1.101
+        },
+        "3.9": {
+          "n": 1121,
+          "expected": 1057.5,
+          "ratio": 1.06
+        },
+        "4.0": {
+          "n": 731,
+          "expected": 915.4,
+          "ratio": 0.799
+        },
+        "4.1": {
+          "n": 654,
+          "expected": 596.9,
+          "ratio": 1.096
+        },
+        "4.2": {
+          "n": 566,
+          "expected": 534.0,
+          "ratio": 1.06
+        },
+        "4.3": {
+          "n": 434,
+          "expected": 462.2,
+          "ratio": 0.939
+        },
+        "4.4": {
+          "n": 378,
+          "expected": 354.4,
+          "ratio": 1.067
+        },
+        "4.5": {
+          "n": 291,
+          "expected": 308.7,
+          "ratio": 0.943
+        }
+      }
+    }
+  },
+  "rule8_bin_movements": {},
+  "cross_tab_stage_F": {
+    "3.9": {
+      "mag1_type": {
+        "V": 811,
+        "D": 309,
+        "v": 1
+      },
+      "mag2_type": {
+        "(blank)": 791,
+        "V": 309,
+        "d": 21
+      },
+      "rule8_outcome": {
+        "kept in bin, type V": 811,
+        "kept in bin, type D": 309,
+        "kept in bin, type v": 1
+      },
+      "flag": {
+        "K": 1118,
+        "S": 3
+      },
+      "depth_band": {
+        "0-30": 419,
+        "30-60": 581,
+        "60-100": 121
+      },
+      "subsidiary": {
+        "1": 1121
+      }
+    },
+    "4.0": {
+      "mag1_type": {
+        "V": 296,
+        "D": 435
+      },
+      "mag2_type": {
+        "(blank)": 258,
+        "V": 427,
+        "d": 38,
+        "W": 6,
+        "v": 2
+      },
+      "rule8_outcome": {
+        "kept in bin, type V": 296,
+        "kept in bin, type D": 435
+      },
+      "flag": {
+        "K": 729,
+        "S": 2
+      },
+      "depth_band": {
+        "0-30": 270,
+        "30-60": 367,
+        "60-100": 94
+      },
+      "subsidiary": {
+        "1": 731
+      }
+    }
+  }
+}
