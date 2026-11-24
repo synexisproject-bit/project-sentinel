@@ -23,6 +23,18 @@ date-released: '2026-11-24'
 license: Apache-2.0
 repository-code: 'https://github.com/synexisproject-bit/project-sentinel'
 url: 'https://synexisproject.org'
+doi: 10.5281/zenodo.24507347
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24507347
+    description: >-
+      Concept DOI. Represents all versions of this archive and always resolves
+      to the most recent one. Use this when citing the work in general.
+  - type: doi
+    value: 10.5281/zenodo.24507348
+    description: >-
+      Version DOI for v0.1.0. Frozen to this exact archive. Use this when
+      reproducing or checking a specific claim.
 authors:
   - family-names: Tulloss
     given-names: Joseph Charles

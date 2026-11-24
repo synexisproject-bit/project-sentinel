@@ -1,5 +1,7 @@
 # Project Sentinel
 
+[![DOI](https://zenodo.org/badge/1164284697.svg)](https://doi.org/10.5281/zenodo.24507347)
+
 A pre-registered evaluation of whether geophysical and environmental predictors add
 forecasting information beyond an established earthquake forecasting benchmark, conducted
 on the CSEP-Japan All Japan testing region.
@@ -244,9 +246,16 @@ earlier version of that claim that had overstated it.
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). If you use the derived catalog, please also cite the
-JMA Seismological Bulletin as its source and note that the files here are edited
-derivatives, as set out in [`NOTICE`](NOTICE).
+Archived on Zenodo. Two DOIs exist and they are not interchangeable:
+
+| DOI | What it points at | Use it for |
+|---|---|---|
+| [10.5281/zenodo.24507347](https://doi.org/10.5281/zenodo.24507347) | All versions, always resolving to the newest | Citing this work in general, in a manuscript or a reference list |
+| [10.5281/zenodo.24507348](https://doi.org/10.5281/zenodo.24507348) | `v0.1.0` specifically, frozen | Reproducing or checking a claim against the exact archive it was made from |
+
+Structured metadata is in [`CITATION.cff`](CITATION.cff). If you use the derived catalog,
+please also cite the JMA Seismological Bulletin as its source and note that the files here
+are edited derivatives, as set out in [`NOTICE`](NOTICE).
 
 ## Licence
 
