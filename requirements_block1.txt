@@ -1,0 +1,36 @@
+# Block 1 dependencies, Project Sentinel rebuild
+#
+# Scope: this file covers the Block 1 rebuild only. Earlier phases in this
+# repository have their own requirements files and are not covered here.
+#
+# build_jma_catalog.py, count_target_events.py and diagnose_m40_step.py use
+# only the Python standard library and need nothing from this file.
+# estimate_mc_d9.py needs everything below.
+#
+# Python 3.11 or later.
+#
+# ---------------------------------------------------------------------------
+# PINNED BY REGISTRATION
+# ---------------------------------------------------------------------------
+# The completeness protocol registered at docs/BLOCK1_ADDENDUM1_mc_protocol_
+# 2026-11-14.docx specifies this exact version. All three magnitude-of-
+# completeness estimators and the b-value estimator are taken from it, with
+# nothing hand-implemented, so the version is part of the registered method
+# rather than an implementation detail. Do not relax this pin.
+
+seismostats==1.0.1
+
+# ---------------------------------------------------------------------------
+# NUMERICAL STACK
+# ---------------------------------------------------------------------------
+# Lower bounds only. These are not pinned because the registered protocol does
+# not specify them, and pinning versions that were never registered would
+# misrepresent what was locked and when.
+#
+# The exact resolved versions used for the committed D9 results are recorded
+# separately in docs/block1_environment.txt. Anyone reproducing the published
+# numbers to the last decimal place should install from that file instead.
+
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10

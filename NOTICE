@@ -1,0 +1,119 @@
+Project Sentinel
+Copyright 2025-2026 Joseph Charles Tulloss, The Synexis Project
+
+This product includes software developed by The Synexis Project.
+
+================================================================================
+SCOPE OF THE APACHE LICENSE IN THIS REPOSITORY
+================================================================================
+
+The Apache License, Version 2.0, in the accompanying LICENSE file applies to
+the SOURCE CODE and to the documents authored by The Synexis Project in this
+repository.
+
+It does NOT apply to the third-party data files listed below. Those files are
+redistributed under the terms of their respective providers, remain the
+property of those providers, and are not relicensed by their inclusion here.
+Anyone reusing them is responsible for complying with the provider's terms.
+
+================================================================================
+THIRD-PARTY DATA REDISTRIBUTED IN THIS REPOSITORY
+================================================================================
+
+--------------------------------------------------------------------------------
+1. CSEP-Japan All Japan testing region definition
+--------------------------------------------------------------------------------
+File:      data/csep_japan/japan.forecast.nodes
+Provider:  CSEP-Japan testing centre, Earthquake Research Institute,
+           University of Tokyo
+Obtained:  Supplied directly by the testing centre, October 2026
+Content:   20,062 cell centres on a 0.1 by 0.1 degree lattice defining the
+           All Japan testing region
+
+The region specification is published in:
+    Tsuruoka, H., Hirata, N., Schorlemmer, D., Euchner, F., Nanjo, K. Z., and
+    Jordan, T. H. (2012). CSEP Testing Center and the first results of the
+    earthquake forecast testing experiment in Japan. Earth, Planets and Space
+    64(8), 661-671. doi:10.5047/eps.2012.06.007
+
+This file is included so that the region used in this evaluation is verifiable
+rather than described. Its inclusion does not imply that the testing centre,
+the Earthquake Research Institute, or any person affiliated with them has
+reviewed, endorsed, or is associated with this study. No such review has taken
+place. Correspondence with the testing centre has been limited to factual
+questions about the region file and the catalog.
+
+--------------------------------------------------------------------------------
+2. Japan Meteorological Agency Seismological Bulletin, derived products
+--------------------------------------------------------------------------------
+Files:     data/jma_catalog/jma_target_catalog.csv
+           data/jma_catalog/jma_excluded_sample.csv
+           data/jma_catalog/jma_mc_working_excluded_sample.csv
+           data/jma_catalog/jma_attrition.json
+           data/jma_catalog/jma_attrition.md
+           data/jma_catalog/jma_mc_working_attrition.json
+           data/jma_catalog/jma_mc_working_attrition.md
+           data/jma_catalog/jma_catalog_manifest.json
+           data/jma_catalog/jma_mc_working_manifest.json
+           data/jma_catalog/sha256_raw.txt
+Source:    Japan Meteorological Agency (JMA) Seismological Bulletin,
+           hypocenter files for 2016 to 2023
+Terms:     JMA website content is provided under the Public Data License
+           (Version 1.0), which JMA states is compatible with the Creative
+           Commons Attribution License 4.0, and which requires the user to
+           cite the source and, where the content has been edited, to include
+           a statement to that effect.
+           See https://www.jma.go.jp/jma/en/copyright.html
+
+STATEMENT OF EDITING, as required by those terms:
+
+    The JMA-derived files in this repository HAVE BEEN EDITED. They are not
+    the JMA Seismological Bulletin and must not be cited as it. They are
+    derived products, produced by applying the nine selection rules
+    pre-registered for this study to the published bulletin: a time window,
+    a regional selection, a depth limit, an event-type restriction, a
+    solution-quality restriction, a magnitude-scale restriction, a magnitude
+    threshold, and the associated unit conversions and reformatting. Records
+    were selected, fields were converted, and the output format is this
+    study's own. The selection is documented in
+    docs/BLOCK1_publication_target_and_region_selection_2026-11-09.docx and
+    implemented in build_jma_catalog.py. Per-rule attrition over all
+    2,161,892 input records is recorded in data/jma_catalog/jma_attrition.md.
+
+    The raw bulletin archives as received are NOT redistributed here. Their
+    SHA-256 values are recorded in data/jma_catalog/sha256_raw.txt so that a
+    reader who obtains the archives from JMA can confirm they match the inputs
+    used. Anyone wanting the bulletin itself should obtain it from JMA.
+
+--------------------------------------------------------------------------------
+3. GEONET station roster, derived
+--------------------------------------------------------------------------------
+File:      data/geonet_station_roster.csv
+Source:    GEONET, Geospatial Information Authority of Japan (GSI)
+Terms:     Data access granted under an approved GSI application, valid to
+           31 March 2027. Publications using GEONET data must cite the DOI
+           listed on the GSI GEONET English page.
+Note:      This file is a station roster derived from GSI-published station
+           information. No GEONET observation data is redistributed in this
+           repository. Recording the required GEONET DOI is a separate open
+           item in this project's gate register and is not yet complete.
+
+--------------------------------------------------------------------------------
+4. JPL planetary ephemeris DE421
+--------------------------------------------------------------------------------
+File:      de421.bsp
+Source:    Jet Propulsion Laboratory, California Institute of Technology,
+           for the National Aeronautics and Space Administration
+Note:      Redistributed unmodified, as published. Used by the earlier
+           ephemeris analyses in this repository and not by the Block 1
+           rebuild. Not relicensed here.
+
+================================================================================
+NOTE ON THE SCOPE OF THIS ARCHIVE
+================================================================================
+
+This repository contains the complete Project Sentinel codebase, which includes
+earlier exploratory work predating the pre-registered rebuild. See README.md
+for which files belong to the rebuild and which do not. The earlier work is
+retained rather than removed so that the record is complete, including the
+results that were null.

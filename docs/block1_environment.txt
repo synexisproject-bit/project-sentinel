@@ -1,0 +1,36 @@
+# Environment record for the committed Block 1 results.
+#
+# This is NOT a pip freeze of the machine that produced the results.
+# It separates what is authoritative from what is a later observation.
+# Cloud Shell persists only the home directory and reprovisions its VM,
+# so packages installed outside the home directory do not survive. The
+# D9 run and this capture are separated by at least one reprovision.
+#
+# AUTHORITATIVE. Recorded at run time by estimate_mc_d9.py and committed
+# in data/d9/d9_summary.json as seismostats_version, hashed at ledger
+# row 17. This is the version the registered completeness protocol pins
+# and the version the published numbers were produced with.
+
+seismostats==1.0.1
+
+# OBSERVED LATER, not authoritative. Captured 2026-11-24T06:47:07Z
+# by pip freeze on the current Cloud Shell VM, Python 3.12.3.
+# These are the present versions of the numerical stack. The versions
+# present during the D9 run were never recorded, so these are the best
+# available evidence and not proof. The registered protocol does not pin
+# them.
+
+numpy==2.4.6
+pandas==2.3.3
+scipy==1.17.1
+
+# LIMITATION, recorded rather than implied: seismostats is not currently
+# installed on this machine, so the completeness run is not reproducible
+# here without reinstalling it. estimate_mc_d9.py records the seismostats
+# version it runs with and verifies the working catalog hash before
+# running, so a rerun under a different version is detectable rather
+# than silent.
+#
+# Practice for Block 2: capture the full resolved environment inside the
+# results file at run time, as estimate_mc_d9.py already does for
+# seismostats.

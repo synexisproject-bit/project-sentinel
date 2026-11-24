@@ -1,0 +1,80 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, or the derived catalogs it produces, please cite it
+  using the metadata below. If you use the derived catalog, please also cite the
+  Japan Meteorological Agency Seismological Bulletin as its source and state
+  that the files here are edited derivatives, as set out in the NOTICE file.
+title: >-
+  Project Sentinel Block 1: region, target catalog and magnitude completeness
+  for a pre-registered forecast evaluation on the CSEP-Japan All Japan region
+abstract: >-
+  This release contains the foundation of a pre-registered earthquake forecast
+  evaluation and none of the evaluation itself. No forecast has been produced
+  and no result exists. Block 1 establishes the region geometry, the evaluation
+  window, the magnitude threshold with its secondary analysis and negative
+  control, a target catalog of 4,442 events built from 2,161,892 raw JMA
+  Seismological Bulletin records under nine pre-registered selection rules, and
+  magnitude completeness estimated under a protocol locked before any estimate
+  existed. Every locked decision is recorded in an append-only registration
+  ledger carrying a SHA-256 of each file.
+type: software
+version: 0.1.0
+date-released: '2026-11-24'
+license: Apache-2.0
+repository-code: 'https://github.com/synexisproject-bit/project-sentinel'
+url: 'https://synexisproject.org'
+authors:
+  - family-names: Tulloss
+    given-names: Joseph Charles
+    affiliation: The Synexis Project
+keywords:
+  - earthquake forecasting
+  - CSEP
+  - pre-registration
+  - magnitude of completeness
+  - Gutenberg-Richter
+  - JMA
+  - Japan
+  - information gain
+  - pseudo-prospective evaluation
+  - reproducibility
+references:
+  - type: generic
+    title: >-
+      Project Sentinel: a pre-registered evaluation of geophysical and
+      environmental predictors against an earthquake forecasting benchmark
+    authors:
+      - family-names: Tulloss
+        given-names: Joseph Charles
+        affiliation: The Synexis Project
+    doi: 10.17605/OSF.IO/H5MD2
+    notes: >-
+      The study pre-registration, filed before any evaluation against the target
+      catalog. This is the authoritative statement of the registered design.
+  - type: article
+    title: >-
+      CSEP Testing Center and the first results of the earthquake forecast
+      testing experiment in Japan
+    authors:
+      - family-names: Tsuruoka
+        given-names: H.
+      - family-names: Hirata
+        given-names: N.
+      - family-names: Schorlemmer
+        given-names: D.
+      - family-names: Euchner
+        given-names: F.
+      - family-names: Nanjo
+        given-names: K. Z.
+      - family-names: Jordan
+        given-names: T. H.
+    journal: Earth, Planets and Space
+    volume: 64
+    issue: 8
+    start: 661
+    end: 671
+    year: 2012
+    doi: 10.5047/eps.2012.06.007
+    notes: >-
+      Source of the published All Japan region specification, and the
+      comparative anchor used to close the target event count gate.

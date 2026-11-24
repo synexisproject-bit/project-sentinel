@@ -1,0 +1,47 @@
+{
+  "title": "Project Sentinel Block 1: region, target catalog and magnitude completeness for a pre-registered forecast evaluation on the CSEP-Japan All Japan region",
+  "upload_type": "software",
+  "version": "0.1.0",
+  "language": "eng",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "creators": [
+    {
+      "name": "Tulloss, Joseph Charles",
+      "affiliation": "The Synexis Project"
+    }
+  ],
+  "description": "<p><strong>This release contains the foundation of a pre-registered earthquake forecast evaluation and none of the evaluation itself. No forecast has been produced and no result exists.</strong> Nothing in this archive should be read as evidence that any predictor improves earthquake forecasts.</p><p>Project Sentinel is a pre-registered study of whether geophysical and environmental predictors add forecasting information beyond an established benchmark, conducted on the CSEP-Japan All Japan testing region in pseudo-prospective mode and scored as information gain per earthquake with a 95 percent interval. The pre-registration is archived at doi:10.17605/OSF.IO/H5MD2 and predates any evaluation against the target catalog.</p><p>Block 1, archived here, establishes: the region geometry, 20,062 cells on a 0.1 degree lattice, adopted unmodified from the testing centre; the evaluation window of 2016-01-01 to 2023-12-31 UTC; the M4.0 primary threshold with an M4.5 secondary analysis and a time-shifted negative control, all fixed in advance; a target catalog of 4,442 events built from 2,161,892 raw JMA Seismological Bulletin records under nine pre-registered selection rules with full per-rule attrition, zero parse failures and zero identity collisions; and magnitude completeness estimated on three catalog subsets with three estimators from SeismoStats 1.0.1 under a protocol locked six days before any estimate existed.</p><p>The completeness result places the study in the middle band of its own pre-specified outcome table: the M4.0 threshold is defensible, the margin is thin, and the thinness is reported as a limitation. Recorded limitations include that 71.1 percent of spatial nodes could not be assessed, concentrated offshore; that the lowest magnitude bin is depleted by 22.5 percent, of which 10.3 points arise from this study's own registered filters; and that target counts are not counts of independent events, since the design does not decluster.</p><p>Every rule, specification and analysis plan is locked by commit before the data or code it governs, recorded in an append-only registration ledger carrying a SHA-256 of each locked file. The ledger includes its own corrections, including one filed three days after the finding it corrects, with the original row left intact. Verification instructions are in the README and require no trust in the maintainer.</p><p>Blocks 2 through 4, the benchmark forecast, the candidate predictors and the evaluation, are not started. Four registration amendments governing them are owed and unfiled.</p><p>The repository also contains earlier exploratory Sentinel work predating this rebuild, retained so the record is complete. Most of it returned null results against its pre-registered criteria. It is methodologically separate from Block 1 and plays no part in it. See the README.</p><p><strong>Third-party data:</strong> the Apache licence covers source code and Synexis-authored documents only. Files under data/ include edited derivatives of the Japan Meteorological Agency Seismological Bulletin, redistributed under JMA's Public Data License with the required statement of editing, the CSEP-Japan region definition supplied by the Earthquake Research Institute, University of Tokyo, and a GEONET-derived station roster. See the NOTICE file before reusing any of them. Inclusion of the region file does not imply that the testing centre or any person affiliated with it has reviewed, endorsed or is associated with this study.</p>",
+  "keywords": [
+    "earthquake forecasting",
+    "CSEP",
+    "Collaboratory for the Study of Earthquake Predictability",
+    "pre-registration",
+    "magnitude of completeness",
+    "Gutenberg-Richter",
+    "JMA",
+    "Japan",
+    "information gain",
+    "pseudo-prospective evaluation",
+    "research integrity",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.17605/OSF.IO/H5MD2",
+      "relation": "isDocumentedBy",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5047/eps.2012.06.007",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/synexisproject-bit/project-sentinel",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "The Apache License 2.0 applies to source code and Synexis-authored documents in this repository. It does not apply to third-party data redistributed here, which remains under its providers' terms. See the NOTICE file. The raw JMA bulletin archives are not redistributed; their SHA-256 values are recorded so a reader who obtains them from JMA can confirm they match the inputs used."
+}
