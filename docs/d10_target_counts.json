@@ -1,0 +1,149 @@
+{
+  "script": "count_target_events.py",
+  "generated_utc": "2026-11-24T06:12:09.793243+00:00",
+  "purpose": "D10 gate record: target event count for the registered primary analysis and the registered S1 secondary analysis, with context for judging sufficiency.",
+  "catalog": {
+    "path": "data/jma_catalog/jma_target_catalog.csv",
+    "sha256": "148a16a8f88454a8575d0e09b1d36f1076d5ab8bc0f184ae4fec315f48d3fcc1",
+    "rows": 4442
+  },
+  "registered_window": {
+    "start_year": 2016,
+    "end_year": 2023,
+    "years": 8,
+    "years_present": [
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023"
+    ]
+  },
+  "primary": {
+    "threshold": 4.0,
+    "n": 4442,
+    "per_year": 555.2
+  },
+  "s1_secondary": {
+    "threshold": 4.5,
+    "n": 1679,
+    "per_year": 209.9
+  },
+  "context_thresholds": {
+    "M>=5.0": {
+      "n": 579,
+      "per_year": 72.4
+    },
+    "M>=5.5": {
+      "n": 202,
+      "per_year": 25.2
+    },
+    "M>=6.0": {
+      "n": 64,
+      "per_year": 8.0
+    },
+    "M>=6.5": {
+      "n": 16,
+      "per_year": 2.0
+    }
+  },
+  "by_year": {
+    "2016": 769,
+    "2017": 459,
+    "2018": 560,
+    "2019": 459,
+    "2020": 518,
+    "2021": 579,
+    "2022": 616,
+    "2023": 482
+  },
+  "clustering": {
+    "note": "The registered design does not decluster. These are not counts of independent events. Reported as a plain concentration indicator, with no declustering applied.",
+    "monthly_median": 39.5,
+    "busiest_months": [
+      {
+        "month": "2016-04",
+        "n": 148,
+        "times_median": 3.75
+      },
+      {
+        "month": "2016-11",
+        "n": 148,
+        "times_median": 3.75
+      },
+      {
+        "month": "2022-03",
+        "n": 126,
+        "times_median": 3.19
+      },
+      {
+        "month": "2020-06",
+        "n": 119,
+        "times_median": 3.01
+      }
+    ],
+    "busiest_month_top_regions": [
+      {
+        "region": "NW KUMAMOTO PREF",
+        "n": 72
+      },
+      {
+        "region": "NE KUMAMOTO PREF",
+        "n": 26
+      },
+      {
+        "region": "SOUTHERN KUMAMOTO PREF",
+        "n": 14
+      },
+      {
+        "region": "E OFF FUKUSHIMA PREF",
+        "n": 4
+      }
+    ]
+  },
+  "published_anchor": {
+    "label": "CSEP-Japan first results, All Japan 3-month class, 1 Nov 2009 to 31 Jan 2010, Tsuruoka et al. 2012",
+    "doi": "10.5047/eps.2012.06.007",
+    "n_target_events": 115,
+    "months": 3,
+    "implied_per_year": 460.0,
+    "same_region": true,
+    "same_threshold_band": "4.0 <= M <= 9.0",
+    "tests_applied_there": [
+      "N-test",
+      "S-test",
+      "M-test",
+      "L-test",
+      "T-test",
+      "W-test"
+    ],
+    "ratio_primary_to_anchor": 38.6,
+    "ratio_s1_to_anchor": 14.6,
+    "precision_factor_primary": 6.21,
+    "precision_factor_s1": 3.82,
+    "rate_consistency": {
+      "note": "Independent cross-check on the catalog build. The anchor's quarterly count implies a yearly rate that should sit inside this study's observed year-to-year range if the build is correct.",
+      "anchor_implied_per_year": 460.0,
+      "this_study_per_year": 555.2,
+      "this_study_year_min": 459,
+      "this_study_year_max": 769
+    }
+  },
+  "precision_scaling": {
+    "note": "The CSEP comparative T-test statistic is sqrt(N_T) * IGPE / s, so the width of any interval on the information gain per earthquake scales as 1/sqrt(N_T). The constant depends on the variance of the score differences, which does not exist until the benchmark is built, so no absolute interval width is stated here. Only the scaling is used.",
+    "relative_to_anchor_primary": 6.21,
+    "relative_to_anchor_s1": 3.82
+  },
+  "gate": {
+    "id": "D10",
+    "registered_wording": "Target event count computed. HARD GATE: if too low, the region decision reopens.",
+    "registered_numeric_threshold": null,
+    "threshold_was_prespecified": false,
+    "decision": "PASS",
+    "hard_consequence_triggered": false,
+    "decision_basis": "Post-hoc judgment, recorded as such because no numeric threshold was registered. The primary count exceeds the published comparative anchor by a factor of 38.6 and the S1 count by 14.6, on the same region and the same threshold band, where the CSEP comparative tests were applied and reported. Any threshold that failed this count would also have failed that published evaluation."
+  }
+}
