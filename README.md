@@ -23,7 +23,7 @@ foundation of the evaluation and none of the evaluation itself.
 |---|---|---|
 | **1** | Region, threshold, catalog, magnitude completeness | **Complete. This release.** |
 | 2 | Benchmark forecast (ETAS and smoothed seismicity), validated against published results | Not started |
-| 3 | Candidate predictors: total electron content, GNSS strain, and anomalous-cognition streams | Not started |
+| 3 | The predictor under test: ionospheric total electron content, built two ways from published specifications, plus the S2 negative control | Not started |
 | 4 | Evaluation: consistency tests, information gain per earthquake with interval | Not started |
 
 Until Block 2 exists there is nothing to measure against, so no claim about added
@@ -35,27 +35,36 @@ rebuild. See [Earlier work in this repository](#earlier-work-in-this-repository)
 That work is retained rather than removed so the record is complete, and it is
 methodologically separate from Block 1.
 
-**On the anomalous-cognition stream, stated plainly rather than buried.** Project Sentinel
-evaluates anomalous-cognition data alongside geophysical predictors. That is unusual, and
-the design handles it structurally rather than rhetorically. Those streams enter only at
-Block 3, behind a benchmark that must first be built and validated against published
-results. They are scored by the same metric as every other candidate predictor,
-information gain per earthquake over that benchmark, against criteria fixed in advance.
-A null result is published as a null result, which is what happened to most of the earlier
-streams. If the benchmark in Block 2 does not validate, Block 3 does not run at all and no
-predictor of any kind is evaluated. Readers who find that premise uninteresting can assess
-Block 1 entirely on its own terms: it is a region definition, a catalog built under
-pre-registered rules, and a completeness estimate, and it contains nothing from that
-stream.
+**On the anomalous-cognition work, stated plainly rather than buried.** The wider Project
+Sentinel program examines anomalous-cognition data within the same analytical framework.
+**That work is not part of this study.** This study tests one geophysical predictor against
+a calibrated seismicity benchmark, and the registration states that anything which does not
+fill a blank in its results table is out of scope. No anomalous-cognition stream appears in
+that table.
+
+The earlier program is described under [Earlier work in this repository](#earlier-work-in-this-repository).
+Most of its streams returned null against their pre-registered criteria and are published
+as null. It is noted here because it is public and anyone who looks will find it, and an
+accurate statement from the maintainer is better than a discovery later. Block 1 can be
+assessed entirely on its own terms: it is a region definition, a catalog built under
+pre-registered rules, and a completeness estimate, and it contains nothing from that work.
 
 ---
 
 ## The registered design
 
+The registered working title states the scope precisely:
+
+> Pseudo-prospective evaluation of ionospheric total electron content as an incremental
+> predictor over a calibrated seismicity benchmark in the CSEP-Japan testing region
+
 | Element | Value |
 |---|---|
 | Region | CSEP-Japan All Japan testing region, adopted unmodified, 20,062 cells on a 0.1 by 0.1 degree lattice |
+| Testing class | CSEP-Japan 1-day class, adopted unmodified. 4.0 ≤ M ≤ 9.0 in 0.1 magnitude bins |
 | Evaluation window | 2016-01-01 to 2023-12-31 inclusive, UTC |
+| Benchmark | An ETAS model and a smoothed-seismicity model, implemented in floatCSEP and validated against a published result before any predictor is introduced |
+| Predictor under test | **One.** Ionospheric total electron content, constructed two ways from published specifications |
 | Primary analysis | M ≥ 4.0 |
 | S1, secondary | M ≥ 4.5, robustness check against the JMA magnitude-scale transition, subordinate to the primary with that ordering fixed in advance |
 | S2, negative control | The identical comparison with the predictor built from a time-shifted field, so a positive information gain can be distinguished from a pipeline artifact |
